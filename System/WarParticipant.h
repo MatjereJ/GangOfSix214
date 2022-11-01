@@ -8,11 +8,20 @@ class WarParticipant{
 private:
     string manufacturer;
     string type;
+//Mokoena
+    int numParticipants;
 public:
     WarParticipant(string manufacturer, string type);
     virtual void doNotting()=0;
     string getDescription();
     WarParticipant* clone();
+
+    
+//Mokoena
+    WarParticipant(std::string, int);
+		std::string getType();
+		void incrementParticipantNumber();
+		int getNumParticipants();
 };
 
 

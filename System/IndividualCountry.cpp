@@ -1,39 +1,22 @@
-#include "IndividualCountry.h"
 #include <iostream>
+#include <string>
+#include <vector>
+#include "CountryObserver.h"
+#include "IndividualCountry.h"
+using namespace std;
 
-IndividualCountry::IndividualCountry(std::string name, std::string type) : Country(name), indivCountryName(name), cType(type)
-{
+IndividualCountry:: IndividualCountry(){
+  
 }
-
-IndividualCountry::~IndividualCountry()
-{
-	std::cout<<"Country "<<indivCountryName<<" deleted\n";
+int IndividualCountry::getWeaponHP(){
+    return weaponHP;
 }
-
-void IndividualCountry::addAlly(Country* newAlly)
-{
+int IndividualCountry::getSoldierHP(){
+    return soldierHP;
 }
-
-void IndividualCountry::removeAlly(Country* oldAlly)
-{	
+void IndividualCountry::setWeaponHP(int w){
+    this->weaponHP=w;
 }
-
-std::string IndividualCountry::getType()
-{
-	return cType;
-}
-
-std::vector<Country*> IndividualCountry::getVectArray()
-{
-	return std::vector<Country*>();
-}
-
-void IndividualCountry::setAlliance(Country* newAlly)
-{
-	storeAllies = newAlly;
-}
-
-Country* IndividualCountry::getAlliance()
-{
-	return storeAllies;
+void IndividualCountry::setSoldierHP(int s){
+    this->soldierHP=s;
 }

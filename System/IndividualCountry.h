@@ -1,23 +1,24 @@
 #ifndef INDIVIDUALCOUNTRY_H
 #define INDIVIDUALCOUNTRY_H
-#include <string>
 #include "Country.h"
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
 
-class IndividualCountry : public Country
-{
-	public:
-		IndividualCountry(std::string, std::string);
-		~IndividualCountry();
-		void addAlly(Country*);
-		void removeAlly(Country*);
-		std::string getType();
-		std::vector<Country*> getVectArray();
-		void setAlliance(Country*);
-		Country* getAlliance();
-		
-	private:
-		Country* storeAllies;
-		std::string indivCountryName;
-		std::string cType;
+class IndividualCountry: Country {//ConcreteSubject
+    public:
+        IndividualCountry();
+        int getWeaponHP();
+        int getSoldierHP();
+        int getTransport();
+        void setWeaponHP(int);
+        void setSoldierHP(int);
+        void setTransport(int);
+    private:
+        int weaponHP;
+        int soldierHP;
+        int transport;
+        
 };
 #endif

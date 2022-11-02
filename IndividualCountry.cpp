@@ -10,13 +10,13 @@ IndividualCountry::~IndividualCountry()
 	std::cout<<"Country "<<indivCountryName<<" deleted\n";
 }
 
-void IndividualCountry::addAlly(Country* newAlly)
+/*void IndividualCountry::addAlly(Country* newAlly)
 {
 }
 
 void IndividualCountry::removeAlly(Country* oldAlly)
 {	
-}
+}*/
 
 std::string IndividualCountry::getType()
 {
@@ -28,7 +28,7 @@ std::vector<Country*> IndividualCountry::getVectArray()
 	return std::vector<Country*>();
 }
 
-void IndividualCountry::setAlliance(Country* newAlly)
+/*void IndividualCountry::setAlliance(Country* newAlly)
 {
 	storeAllies = newAlly;
 }
@@ -36,4 +36,9 @@ void IndividualCountry::setAlliance(Country* newAlly)
 Country* IndividualCountry::getAlliance()
 {
 	return storeAllies;
+}*/
+
+CountryIterator* IndividualCountry::createCountryIterator()
+{
+	return NULL;
 }

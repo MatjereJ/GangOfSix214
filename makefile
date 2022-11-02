@@ -1,5 +1,5 @@
-main: main.o Country.o IteratorTool.o WarParticipant.o WarParticipantIterator.o CountryObserver.o CountryObserverIterator.o Alliance.o IndividualCountry.o
-	g++ main.o Country.o IteratorTool.o WarParticipant.o WarParticipantIterator.o CountryObserver.o CountryObserverIterator.o Alliance.o IndividualCountry.o -o main
+main: main.o Country.o IteratorTool.o WarParticipant.o WarParticipantIterator.o CountryObserver.o CountryObserverIterator.o Alliance.o IndividualCountry.o CountryIterator.o
+	g++ main.o Country.o IteratorTool.o WarParticipant.o WarParticipantIterator.o CountryObserver.o CountryObserverIterator.o Alliance.o IndividualCountry.o CountryIterator.o -o main
 	
 main.o: main.cpp 
 	g++ -c main.cpp
@@ -27,6 +27,9 @@ Alliance.o: Alliance.cpp
 	
 IndividualCountry.o: IndividualCountry.cpp
 	g++ -c IndividualCountry.cpp
+	
+CountryIterator.o: CountryIterator.cpp
+	g++ -c CountryIterator.cpp
 run: 
 	./main
 	

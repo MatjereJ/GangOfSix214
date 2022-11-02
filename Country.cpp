@@ -5,19 +5,19 @@ Country::Country(std::string name)
 {
 	cName = name;
 }
-Country::Country(std::string name, BattleState* state)
+/*Country::Country(std::string name, BattleState* state)
 {
 	cName = name;
 	this->state = state;
-}
+}*/
 
 Country::~Country()
 {
 	wp.clear();
-	std::cout<<"Parent of "<<cName <<" deleted.\n";
+	//std::cout<<"Abstract class deleted.\n";
 }
 
-void Country::setState(BattleState* newState)
+/*void Country::setState(BattleState* newState)
 {
 	this->state = newState;
 }
@@ -25,14 +25,14 @@ void Country::setState(BattleState* newState)
 BattleState* Country::getState()
 {
 	return state;
-}
+}*/
 
 void Country::addWarParticipant(WarParticipant* warPtc)
 {
 	wp.push_back(warPtc);
 }
 
-void Country::addCountryObserver(CountryObserver* cObs)
+/*void Country::addCountryObserver(CountryObserver* cObs)
 {
 	observerList.push_back(cObs);
 }
@@ -40,13 +40,14 @@ void Country::addCountryObserver(CountryObserver* cObs)
 std::list<CountryObserver*> Country::getCountryObservers()
 {
 	return observerList;
-}
-std::list<WarParticipant*> Country::getWarParticipants()
+}*/
+
+std::vector<WarParticipant*> Country::getWarParticipants()
 {
 	return wp;
 }
 
-void Country::setWarTheatre(WarTheatre* place)
+/*void Country::setWarTheatre(WarTheatre* place)
 {
 	wt = place;
 }
@@ -79,17 +80,17 @@ void Country::changeSides()
 void Country::requestAssistance()
 {
 	std::cout<<"We need help. We are losing.\n";
-}
+}*/
 
 WarParticipantIterator* Country::createWarParticipantIterator()
 {
 	return new WarParticipantIterator(this);
 }
 
-CountryObserverIterator* Country::createCountryObserverIterator()
+/*CountryObserverIterator* Country::createCountryObserverIterator()
 {
 	return new CountryObserverIterator(this);
-}
+}*/
 
 std::string Country::getName()
 {

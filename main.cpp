@@ -1,15 +1,16 @@
 #include "Country.h"
 #include "WarParticipant.h"
 #include "WarParticipantIterator.h"
-#include "CountryObserver.h"
-#include "CountryObserverIterator.h"
+//#include "CountryObserver.h"
+//#include "CountryObserverIterator.h"
+#include "CountryIterator.h"
 #include "Alliance.h"
 #include "IndividualCountry.h"
 #include <iostream>
 
 int main()
 {
-	std::cout<<"***********     Iterator for War Participants    ***************\n";
+	/*std::cout<<"***********     Iterator for War Participants    ***************\n";
 	Country* countryA = new IndividualCountry("A", "IndividualCountry");
 	std::cout<<"\n";
 	std::cout<<"First Country created.\n";
@@ -19,19 +20,16 @@ int main()
 	WarParticipant* explosives = new WarParticipant("Explosives", 5000);
 	WarParticipant* firearms = new WarParticipant("Firearms", 3000);
 	WarParticipant* transport = new WarParticipant("War Transport", 400);
-	
-	/*	Add Participants to the diagram	*/
+
 	countryA->addWarParticipant(soldiers);
 	countryA->addWarParticipant(medicalPersoneel);
 	countryA->addWarParticipant(explosives);
 	countryA->addWarParticipant(firearms);
 	countryA->addWarParticipant(transport);
 	
-	/*	Creating a WarParticipantIterator here to traverse the array	*/
 	WarParticipantIterator* wpIt = countryA->createWarParticipantIterator();
 	std::cout<<"\n";
 	
-	/*	Iterating through the War Participants (Firearms, MedicalPersoneel, Soldiers, etc)*/
 	for(wpIt->first(); !wpIt ->isLastEl(); wpIt->next())
 	{
 		std::cout<<"Participant type: "<<wpIt->currentEl()->getType()<<"\n";
@@ -61,12 +59,18 @@ int main()
 	Country* allianceAB = new Alliance("AB", "Alliance");
 	Country* countryAB = new IndividualCountry("AB", "IndividualCountry");
 	allianceAB->addAlly(countryAB);
-	//allianceA->addAlly(countryA);
+	allianceA->addAlly(countryA);
 	allianceAA->addAlly(allianceAB);
 	std::cout<<"\nBelow we try to add a country that exists in allianceAB\n";
 	allianceAA->addAlly(countryAB);
+	std::cout<<"\nRemoving an Ally:\n";
+	allianceAA->removeAlly(countryA);
+	CountryIterator* cIt = allianceAA->createCountryIterator();
+	cIt->first();
+	cIt->next();
+	std::cout<<"Current Country: "<<cIt->currentEl()->getName()<<"\n";
 	
-	//delete wpIt;
-	delete countryA;
+	delete wpIt;
+	delete countryA;*/
 	return 0;
 }

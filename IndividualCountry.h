@@ -8,15 +8,16 @@ class IndividualCountry : public Country
 	public:
 		IndividualCountry(std::string, std::string);
 		~IndividualCountry();
-		void addAlly(Country*);
-		void removeAlly(Country*);
+		/*void addAlly(Country*);
+		void removeAlly(Country*);*/
 		std::string getType();
 		std::vector<Country*> getVectArray();
-		void setAlliance(Country*);
-		Country* getAlliance();
+		/*void setAlliance(Country*);
+		Country* getAlliance();*/
+		CountryIterator* createCountryIterator();
 		
 	private:
-		Country* storeAllies;
+		//Country* storeAllies;
 		std::string indivCountryName;
 		std::string cType;
 };

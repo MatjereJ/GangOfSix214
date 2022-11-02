@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Country.h"
+#include "CountryIterator.h"
 
 class Alliance : public Country
 {
@@ -10,13 +11,14 @@ class Alliance : public Country
 		Alliance(std::string, std::string);
 		~Alliance();
 		std::string getType();
-		void addAlly(Country*);
-		void removeAlly(Country*);
+		/*void addAlly(Country*);
+		void removeAlly(Country*);*/
 		std::vector<Country*> getVectArray();
-		bool countryExists(std::vector<Country*>, Country*);
+		/*bool countryExists(std::vector<Country*>, Country*);
 		bool removeAllyHelper(std::vector<Country*>, Country*);
 		void setAlliance(Country*);
-		Country* getAlliance();
+		Country* getAlliance();*/
+		CountryIterator* createCountryIterator();
 	
 	private:
 		std::string allianceName;

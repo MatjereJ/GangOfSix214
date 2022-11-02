@@ -5,10 +5,10 @@
 class WarParticipant
 {
 	public:
-		WarParticipant(std::string, int);
+		/*WarParticipant(std::string, int);
 		std::string getType();
 		void incrementParticipantNumber();
-		int getNumParticipants();
+		int getNumParticipants();*/
 		
 	private:
 		std::string type;

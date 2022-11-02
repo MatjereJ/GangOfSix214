@@ -1,6 +1,6 @@
 #include "WarParticipant.h"
 
-WarParticipant::WarParticipant(std::string type, int num) 
+/*WarParticipant::WarParticipant(std::string type, int num) 
 {
 	this->type = type;
 	numParticipants = num;
@@ -19,4 +19,4 @@ void WarParticipant::incrementParticipantNumber()
 int WarParticipant::getNumParticipants()
 {
 	return numParticipants;
-}
+}*/

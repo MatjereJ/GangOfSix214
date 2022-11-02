@@ -7,12 +7,15 @@
 using namespace std;
 
 ObservingAllies::ObservingAllies(IndividualCountry* currentCountry){
-    this->currentCountry=currentCountry;
+     this->currentCountry=currentCountry;
+    this->currentCountry->add(this);
 }
-void ObservingAllies::update(){
+void ObservingAllies::update(int weaponHP,int soldierHP,int transport){
    //get current country's resources and accumulate it
-   int currentWeapons=this->currentCountry->getWeaponHP();
-   int currentTransport=this->currentCountry->getTransport();
+   observedH=weaponHP;
+   observedH+=100;
+   cout<<"Allies sharing resources"<<endl;
+    cout<<"C"<<endl;
    //select group of allies containing current country
    //iterate through group,transfer resources to current country
    

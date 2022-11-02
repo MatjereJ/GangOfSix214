@@ -9,12 +9,13 @@
 
 using namespace std;
 
-class Medics : CountryObserver {//Concrete Observer
+class Medics : public CountryObserver {//Concrete Observer
     public:
         //Medics();
-        Medics(IndividualCountry*);
-        virtual void update();
+        Medics(IndividualCountry* currentCountry);
+        void  update(int weaponHP,int soldierHP,int transport);
     private:
+        int observedWeapons;
         IndividualCountry* currentCountry;
         
 };

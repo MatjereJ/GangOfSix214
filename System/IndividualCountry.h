@@ -1,24 +1,27 @@
 #ifndef INDIVIDUALCOUNTRY_H
 #define INDIVIDUALCOUNTRY_H
 #include "Country.h"
+#include "CountryObserver.h"
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 
-class IndividualCountry: Country {//ConcreteSubject
-    public:
-        IndividualCountry();
+class CountryObservers;
+class  IndividualCountry: public Country{
+     public:
+        IndividualCountry(string name);
+        bool add(CountryObserver* c);
+        bool remove(CountryObserver* c);
+        void notify();
         int getWeaponHP();
-        int getSoldierHP();
-        int getTransport();
-        void setWeaponHP(int);
-        void setSoldierHP(int);
-        void setTransport(int);
+        void setWeaponHP(int v);
     private:
+        vector<CountryObserver*> countryObservers;
+       
         int weaponHP;
         int soldierHP;
         int transport;
-        
+        string name;
 };
 #endif

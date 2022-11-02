@@ -3,5 +3,3 @@
 #include <vector>
 #include "CountryObserver.h"
 using namespace std;
-
-

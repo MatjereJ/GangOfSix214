@@ -7,10 +7,10 @@ using namespace std;
 class Aircraft : public WarParticipants
 {
 private:
-    int damage = 25;
+    int damage;
 
 public:
-    Aircraft(string type) : WarParticipants(type) { damage = 25; };
+    Aircraft(string type) : WarParticipants(type, 25){};
 };
 
 #endif

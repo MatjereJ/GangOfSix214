@@ -12,7 +12,7 @@ private:
     int damage;
 
 public:
-    WarParticipants(string type);
+    WarParticipants(string type, int dmg);
     string getType();
     int getDamage();
 };

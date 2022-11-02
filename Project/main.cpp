@@ -24,6 +24,7 @@
 int main()
 {
     WarParticipants *gun1 = new Rifle("AR15");
+    cout << gun1->getDamage() << endl;
     WarParticipants *gun2 = new Rifle("AR15");
     WarParticipants *gun3 = new Rifle("AR15");
     WarParticipants *gun4 = new Rifle("AR15");

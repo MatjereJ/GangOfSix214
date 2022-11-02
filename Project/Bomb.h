@@ -10,7 +10,7 @@ private:
     int damage = 12;
 
 public:
-    Bomb(string type) : WarParticipants(type) { damage = 12; };
+    Bomb(string type) : WarParticipants(type, 12){};
 };
 
 #endif

@@ -15,10 +15,10 @@ void Attack::handleChange(Country *C)
             cout << "Country cannot attack as it has no artillery to attack" << endl;
         }
         list<WarParticipants *>::iterator it = temp.begin();
-        WarParticipants *curr = new WarParticipants("manufatcurer");
+        WarParticipants *curr = *it;
         while (curr->getDamage() != 12 && it != temp.end()) ////////This os fpr Detonate
         {
-            cout << "COme on now" << endl;
+            cout << "COme on now " << curr->getDamage() << endl;
             it++;
             curr = *it;
         }
@@ -26,12 +26,16 @@ void Attack::handleChange(Country *C)
         {
             Context *Cx = new Context(new DetonateExplosives());
             Cx->implement(C);
+            it = temp.begin();
+            curr = *it;
         }
         else
             it = temp.begin();
 
-        while ((curr->getDamage() != 6 || curr->getDamage() != 5) && it != temp.end())
+        cout << "Next one" << endl;
+        while ((curr->getDamage() != 6 && curr->getDamage() != 5) && it != temp.end())
         {
+            cout << "Yeah " << curr->getDamage() << endl;
             it++;
             curr = *it;
         }
@@ -39,11 +43,13 @@ void Attack::handleChange(Country *C)
         {
             Context *Cx = new Context(new Shoot());
             Cx->implement(C);
+            it = temp.begin();
+            curr = *it;
         }
         else
             it = temp.begin();
 
-        while ((curr->getDamage() != 20 || curr->getDamage() != 25 || curr->getDamage() != 30) && it != temp.end())
+        while ((curr->getDamage() != 20 && curr->getDamage() != 25 && curr->getDamage() != 30) && it != temp.end())
         {
             it++;
             curr = *it;
@@ -52,6 +58,8 @@ void Attack::handleChange(Country *C)
         {
             Context *Cx = new Context(new FireMissile());
             Cx->implement(C);
+            it = temp.begin();
+            curr = *it;
         }
         else
             it = temp.begin();

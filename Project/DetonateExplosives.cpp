@@ -3,6 +3,7 @@
 void DetonateExplosives::LaunchAttack(Country *C)
 {
     int totalD = 0;
+    Country *Opps = C->getOpposingC();
     list<WarParticipants *> temp = C->getArtillery();
     list<WarParticipants *>::iterator it = temp.begin();
     for (it = temp.begin(); it != temp.end(); it++)
@@ -14,5 +15,5 @@ void DetonateExplosives::LaunchAttack(Country *C)
         }
     }
     cout << "Country is going to detonate its bombs to damage the opposing country" << endl;
-    C->getOpposingC()->InflictDamage(totalD);
+    Opps->InflictDamage(totalD);
 }

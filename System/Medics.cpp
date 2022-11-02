@@ -19,7 +19,7 @@ void Medics::update(int weaponHP,int soldierHP,int transport){
     {
         this->observedS+=10;
         this->maxHeal++;
-        this->currentCountry->setHP(this->observedHP,this->observedS,this->observedT);
+        this->currentCountry->setHP(this->observedHP,this->observedS,this->observedT);//Updating actual Country that requested medical assistance
         cout<<"Soldier is injured and has "<<soldierHP<<" HP"<<endl;
         cout<<"Medic Healing Soldier from "<<this->currentCountry->getName()<<endl;
         cout<<"Soldier HP now increased to "<<this->observedS<<" HP"<<endl;

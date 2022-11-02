@@ -5,12 +5,15 @@
 #include "IndividualCountry.h"
 using namespace std;
 
-IndividualCountry:: IndividualCountry(string name){
+IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int transport){
     this->name=name;
+    this->weaponHP=weaponHP;
+    this->soldierHP=soldierHP;
+    this->transport=transport;
 }
 bool IndividualCountry::add(CountryObserver* assistance){
     countryObservers.push_back(assistance); 
-    cout<<"Added Observer"<<endl;
+    cout<<"Added Country Observer"<<endl;
     return true;
 }
 bool IndividualCountry::remove(CountryObserver* assistance){
@@ -44,6 +47,13 @@ int IndividualCountry::getSoldierHP(){
 int IndividualCountry::getTransport(){
     return this->transport;
 }
+vector<IndividualCountry*> IndividualCountry::getAlliance(){
+    return this->alliance;
+}
+void IndividualCountry::setAlliance(vector<IndividualCountry*> alliance){
+  this->alliance= alliance;
+
+}
 void IndividualCountry::setHP(int w,int s,int t){
     cout<<"HPs: "<<w<<" "<<s<<" "<<t<<" "<<endl;
     this->weaponHP=w;
@@ -54,5 +64,6 @@ void IndividualCountry::setHP(int w,int s,int t){
      
       notify();
     }
+  
         
 }

@@ -16,6 +16,8 @@ class Medics : public CountryObserver {//Concrete Observer
         void  update(int weaponHP,int soldierHP,int transport);
     private:
         int observedWeapons;
+        bool medicObserved=false;
+        int maxHeal=0;
         IndividualCountry* currentCountry;
         
 };

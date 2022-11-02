@@ -12,10 +12,20 @@ Medics::Medics(IndividualCountry* currentCountry){
 }
 
 void Medics::update(int weaponHP,int soldierHP,int transport){
-   observedWeapons=weaponHP;
-   observedWeapons+=10;
-   this->currentCountry->setWeaponHP(observedWeapons);
-   cout<<"Soldier is injured and has "<<weaponHP<<" HP"<<endl;
-   cout<<"Medic Healing Soldier..."<<endl;
-   cout<<"Soldier HP now increased to "<<observedWeapons<<" HP"<<endl;
+    observedWeapons=weaponHP;
+    if(!this->medicObserved && this->maxHeal < 3)
+    {
+        observedWeapons+=10;
+        this->maxHeal++;
+        this->currentCountry->setWeaponHP(observedWeapons);
+        cout<<"Soldier is injured and has "<<weaponHP<<" HP"<<endl;
+        cout<<"Medic Healing Soldier..."<<endl;
+        cout<<"Soldier HP now increased to "<<observedWeapons<<" HP"<<endl;
+    }
+    else
+    {
+        cout<<"Medic notified but unable to assist more than 3 times"<<endl;
+    }
+        
+   
 }

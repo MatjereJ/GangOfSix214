@@ -15,7 +15,7 @@ void ObservingAllies::update(int weaponHP,int soldierHP,int transport){
    observedH=weaponHP;
    observedH+=100;
    cout<<"Allies sharing resources"<<endl;
-    cout<<"C"<<endl;
+ 
    //select group of allies containing current country
    //iterate through group,transfer resources to current country
    

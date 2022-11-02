@@ -22,6 +22,7 @@ class  IndividualCountry: public Country{
         int weaponHP;
         int soldierHP;
         int transport;
+      
         string name;
 };
 #endif

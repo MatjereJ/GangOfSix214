@@ -38,5 +38,9 @@ int IndividualCountry::getWeaponHP(){
 void IndividualCountry::setWeaponHP(int w){
     this->weaponHP=w;
     if(this->weaponHP<10)
-        notify();
+    {
+     
+      notify();
+    }
+        
 }

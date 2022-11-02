@@ -6,10 +6,13 @@
 class Medic: public WarParticipant {
 private:
     int HP;
+    int healingHP;
 public:
     Medic(int hp);
     WarParticipant* clone();
     void doNotting();
+    int getHealingHP();
+    void setHealingHP(int hp);
 };
 
 

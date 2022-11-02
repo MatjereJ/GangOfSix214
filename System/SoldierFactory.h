@@ -5,7 +5,8 @@
 
 class SoldierFactory: public WarParticipantFactory {
 public:
-    Soldier* createSoldier(int HP);
+    Soldier* createRifleman(int HP);
+    Soldier* createMachineGunner(int HP);
 };
 
 #endif //PRACTICAL_ASSIGNMENT_3_SOLDIERFACTORY_H

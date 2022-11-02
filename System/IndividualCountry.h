@@ -1,6 +1,5 @@
 #ifndef INDIVIDUALCOUNTRY_H
 #define INDIVIDUALCOUNTRY_H
-#include "Country.h"
 #include "CountryObserver.h"
 #include <iostream>
 #include <string>
@@ -14,8 +13,11 @@ class  IndividualCountry: public Country{
         bool add(CountryObserver* c);
         bool remove(CountryObserver* c);
         void notify();
+        string getName();
         int getWeaponHP();
-        void setWeaponHP(int v);
+        int getSoldierHP();
+        int getTransport();
+        void setHP(int weaponHP,int soldierHP,int transport);
     private:
         vector<CountryObserver*> countryObservers;
        

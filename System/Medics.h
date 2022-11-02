@@ -11,12 +11,12 @@ using namespace std;
 
 class Medics : public CountryObserver {//Concrete Observer
     public:
-        //Medics();
         Medics(IndividualCountry* currentCountry);
         void  update(int weaponHP,int soldierHP,int transport);
     private:
-        int observedWeapons;
-        bool medicObserved=false;
+        int observedHP;
+        int observedS;
+        int observedT;
         int maxHeal=0;
         IndividualCountry* currentCountry;
         

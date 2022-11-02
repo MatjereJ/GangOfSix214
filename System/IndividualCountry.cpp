@@ -29,15 +29,27 @@ bool IndividualCountry::remove(CountryObserver* assistance){
 void IndividualCountry::notify(){
     vector<CountryObserver*>::iterator it = countryObservers.begin();
   for (it = countryObservers.begin(); it != countryObservers.end(); ++it){
-    (*it)->update(weaponHP,soldierHP,transport);
+    (*it)->update(this->weaponHP,this->soldierHP,this->transport);
   }
 }
-int IndividualCountry::getWeaponHP(){
-    return weaponHP;
+string IndividualCountry::getName(){
+    return this->name;
 }
-void IndividualCountry::setWeaponHP(int w){
+int IndividualCountry::getWeaponHP(){
+    return this->weaponHP;
+}
+int IndividualCountry::getSoldierHP(){
+    return this->soldierHP;
+}
+int IndividualCountry::getTransport(){
+    return this->transport;
+}
+void IndividualCountry::setHP(int w,int s,int t){
+    cout<<"HPs: "<<w<<" "<<s<<" "<<t<<" "<<endl;
     this->weaponHP=w;
-    if(this->weaponHP<10)
+    this->soldierHP=s;
+    this->transport=t;
+    if(this->soldierHP<10)
     {
      
       notify();

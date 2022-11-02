@@ -12,10 +12,10 @@ ObservingAllies::ObservingAllies(IndividualCountry* currentCountry){
 }
 void ObservingAllies::update(int weaponHP,int soldierHP,int transport){
    //get current country's resources and accumulate it
-   observedH=weaponHP;
-   observedH+=100;
-   cout<<"Allies sharing resources"<<endl;
- 
+   this->observedH=weaponHP;
+   this->observedH+=100;
+   cout<<"Allies sharing resources with "<<this->currentCountry->getName()<<endl;
+    cout<<"--------------------------------------------------------------------------------------"<<endl;
    //select group of allies containing current country
    //iterate through group,transfer resources to current country
    

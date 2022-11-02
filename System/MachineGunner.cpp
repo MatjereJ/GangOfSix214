@@ -1,6 +1,6 @@
-#include "MachineGun.h"
+#include "MachineGunner.h"
 
-MachineGun::MachineGun(int damage) : WarParticipant("FireArmFactory", "MachineGun"){
+MachineGun::MachineGun(int damage) : WarParticipant("FireArmFactory", "MachineGunner"){
     this->damage=damage;
 }
 

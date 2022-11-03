@@ -6,67 +6,77 @@
 #include "Alliance.h"
 #include "IndividualCountry.h"
 #include <iostream>
+using namespace std;
+
+public void initializeCounties();
+public void pickCountry();
+public void fight();
+public void selectOpposingCountry();
+public void getCountryStats(int cNum);
+public void endGame();
+
+Country* [] country;
+IndividualCountry* myCountry;
+int countryNum, countrySize;
 
 int main()
 {
-	std::cout<<"***********     Iterator for War Participants    ***************\n";
-	Country* countryA = new IndividualCountry("A", "IndividualCountry");
-	std::cout<<"\n";
-	std::cout<<"First Country created.\n";
-	std::cout<<"First Country Name: "<<countryA->getName()<<"\n";
-	WarParticipant* soldiers = new WarParticipant("soldiers", 1000);
-	WarParticipant* medicalPersoneel = new WarParticipant("Medical Personeel", 150);
-	WarParticipant* explosives = new WarParticipant("Explosives", 5000);
-	WarParticipant* firearms = new WarParticipant("Firearms", 3000);
-	WarParticipant* transport = new WarParticipant("War Transport", 400);
-	
-	/*	Add Participants to the diagram	*/
-	countryA->addWarParticipant(soldiers);
-	countryA->addWarParticipant(medicalPersoneel);
-	countryA->addWarParticipant(explosives);
-	countryA->addWarParticipant(firearms);
-	countryA->addWarParticipant(transport);
-	
-	/*	Creating a WarParticipantIterator here to traverse the array	*/
-	WarParticipantIterator* wpIt = countryA->createWarParticipantIterator();
-	std::cout<<"\n";
-	
-	/*	Iterating through the War Participants (Firearms, MedicalPersoneel, Soldiers, etc)*/
-	for(wpIt->first(); !wpIt ->isLastEl(); wpIt->next())
-	{
-		std::cout<<"Participant type: "<<wpIt->currentEl()->getType()<<"\n";
-		std::cout<<"Number of Participants: "<<wpIt->currentEl()->getNumParticipants()<<"\n\n";
-	}
-	
-	std::cout<<"***********     Iterator for Country Observers    ***************\n\n";
-	
-	CountryObserver* healthOrganisations = new CountryObserver("United Nations");
-	CountryObserver* doctors = new CountryObserver("Medical People");
-	CountryObserver* countryAlliances = new CountryObserver("Allies");
-	countryA -> addCountryObserver(healthOrganisations);
-	countryA -> addCountryObserver(doctors);
-	countryA -> addCountryObserver(countryAlliances);
-	
-	CountryObserverIterator* coIt = countryA->createCountryObserverIterator();
-	std::cout<<"\n";
-	std::cout<<"Country Observers below:\n\n";
-
-	for(coIt -> first(); !coIt -> isLastEl(); coIt -> next())
-	{
-		std::cout<<"Observer Name: "<<coIt->currentEl()->getName()<<"\n";
-	}
-	std::cout<<"\n***********     Add country to Alliance    *************\n";
-	Country* allianceAA = new Alliance("AA", "Alliance");
-	allianceAA->addAlly(countryA);
-	Country* allianceAB = new Alliance("AB", "Alliance");
-	Country* countryAB = new IndividualCountry("AB", "IndividualCountry");
-	allianceAB->addAlly(countryAB);
-	//allianceA->addAlly(countryA);
-	allianceAA->addAlly(allianceAB);
-	std::cout<<"\nBelow we try to add a country that exists in allianceAB\n";
-	allianceAA->addAlly(countryAB);
-	
-	//delete wpIt;
-	delete countryA;
+    cout<<"***********     Game Simulation    ***************\n";
+    initializeCountries();
+    pickCountry();
+    fight();
+    endGame();
 	return 0;
+}
+
+public void initializeCountries(){
+    country[0]=new IndividualCountry("China", 38, 200, 17, 4);
+    country[1]=new IndividualCountry("Russia", 50, 209, 53, 19);
+    //And so on
+}
+
+public void pickCountry(){
+    cout<<"Select a Country from the list below by entering it's number"<<endl;
+    for(int i=0; i<countrySize; i++) {
+        cout<<i<<": "<<country[i]<<endl;
+    }
+    cin<<countryNum;
+    myCountry=country[countryNum];
+}
+
+public void fight(){
+    while(!country->surrender()){
+        selectOpposingCountry();
+
+    }
+
+}
+
+public void selectOpposingCountry(){
+    bool stats=false;
+    while(stats=false) {
+        cout << "Would you like to see a Country's stats (Yes/No)" << endl;
+        cin<<countryStat;
+        if(countryStat=="Yes"){
+            cout<<"Select a Country Number"<<endl;
+            for(int i=0; i<countrySize; i++) {
+                cout<<i<<": "<<country[i]<<endl;
+            }
+        }else if(countryStat=="No"){
+            stats=true;
+        }
+    }
+    cout<<"Now you've had a chance to look at the countries, Choose a Country to fight"<<endl;
+    for(int i=0; i<countrySize; i++) {
+        if(i!=countryNum)
+            cout<<i<<": "<<country[i]<<endl;
+    }
+}
+
+public void getCountryStats(int cNum){
+
+}
+
+public void endGame(){
+
 }

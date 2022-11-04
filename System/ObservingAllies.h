@@ -9,11 +9,12 @@
 
 using namespace std;
 
-class ObservingAllies {//Concrete Observers
+class ObservingAllies : public CountryObserver{//Concrete Observers
     public:
-        ObservingAllies(IndividualCountry* c);
-        void update();
+        ObservingAllies(IndividualCountry* currentCountry);
+        void  update(int weaponHP,int soldierHP,int transport);
     private:
+        int observedH;
         IndividualCountry* currentCountry;
 };
 #endif

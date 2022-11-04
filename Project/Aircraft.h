@@ -1,16 +1,19 @@
-#ifndef Aircraft_h
-#define Aircraft_h
-#include "WarParticipants.h"
+#ifndef PRACTICAL_ASSIGNMENT_3_AIRCRAFT_H
+#define PRACTICAL_ASSIGNMENT_3_AIRCRAFT_H
+#include "WarParticipant.h"
+#include "WarParticipantFactory.h"
 
-using namespace std;
-
-class Aircraft : public WarParticipants
-{
+class AirCraft: public WarParticipant {
 private:
+    int HP;
     int damage;
-
 public:
-    Aircraft(string type) : WarParticipants(type, 25){};
+    AirCraft(int hp);
+    AirCraft(string type) : WarParticipant(type, 25){};
+    WarParticipant* clone();
+    void doNotting();
+
 };
 
-#endif
+
+#endif //PRACTICAL_ASSIGNMENT_3_AIRCRAFT_H

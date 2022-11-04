@@ -1,16 +1,15 @@
-#ifndef Warship_h
-#define Warship_h
-#include "WarParticipants.h"
+#ifndef PRACTICAL_ASSIGNMENT_3_WARSHIP_H
+#define PRACTICAL_ASSIGNMENT_3_WARSHIP_H
+#include "WarParticipant.h"
+#include "WarParticipantFactory.h"
 
-using namespace std;
-
-class Warship : public WarParticipants
-{
-private:
-    int damage;
-
+class WarShip: public WarParticipant {
+    int HP;
 public:
-    Warship(string type) : WarParticipants(type, 30){};
+    WarShip(int hp);
+    WarParticipant* clone();
+    void doNotting();
 };
 
-#endif
+
+#endif //PRACTICAL_ASSIGNMENT_3_WARSHIP_H

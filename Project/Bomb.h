@@ -1,16 +1,15 @@
-#ifndef Bomb_h
-#define Bomb_h
-#include "WarParticipants.h"
+#ifndef PRACTICAL_ASSIGNMENT_3_BOMB_H
+#define PRACTICAL_ASSIGNMENT_3_BOMB_H
+#include "WarParticipant.h"
+#include "WarParticipantFactory.h"
 
-using namespace std;
-
-class Bomb : public WarParticipants
-{
-private:
-    int damage = 12;
-
+class Bomb: public WarParticipant {
+    int damage;
 public:
-    Bomb(string type) : WarParticipants(type, 12){};
+    Bomb(int damage);
+    WarParticipant* clone();
+    void doNotting();
 };
 
-#endif
+
+#endif //PRACTICAL_ASSIGNMENT_3_BOMB_H

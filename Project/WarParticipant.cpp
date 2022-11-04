@@ -1,17 +1,38 @@
-#include "WarParticipants.h"
+#include "WarParticipant.h"
 
-WarParticipants::WarParticipants(string type, int dmg)
+    WarParticipant::WarParticipant(std::string manufacturer, std::string type) {
+        this->manufacturer=manufacturer;
+        this->type=type;
+    }
+
+    string WarParticipant::getDescription() {
+        return type;
+    }
+
+//    WarParticipant::~WarParticipant(){
+//        delete this;
+//    }
+
+
+WarParticipant::WarParticipant(std::string type, int num) 
 {
-    this->type = type;
-    damage = dmg;
+	this->type = type;
+	numParticipants = num;
 }
 
-string WarParticipants::getType()
+std::string WarParticipant::getType()
 {
-    return type;
+	return type;
 }
 
-int WarParticipants::getDamage()
+void WarParticipant::incrementParticipantNumber()
 {
-    return damage;
+	numParticipants++;
 }
+
+int WarParticipant::getNumParticipants()
+{
+	return numParticipants;
+}
+
+    

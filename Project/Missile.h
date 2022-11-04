@@ -1,16 +1,17 @@
-#ifndef Missile_h
-#define Missile_h
-#include "WarParticipants.h"
+#ifndef PRACTICAL_ASSIGNMENT_3_MISSILE_H
+#define PRACTICAL_ASSIGNMENT_3_MISSILE_H
+#include "WarParticipant.h"
+#include "WarParticipantFactory.h"
 
-using namespace std;
-
-class Missile : public WarParticipants
-{
+class Missile: public WarParticipant {
 private:
     int damage;
-
 public:
-    Missile(string type) : WarParticipants(type, 20){};
+    Missile(int damage);
+    Missile(string type) : WarParticipant(type, 20){};
+    WarParticipant* clone();
+    void doNotting();
 };
 
-#endif
+
+#endif //PRACTICAL_ASSIGNMENT_3_MISSILE_H

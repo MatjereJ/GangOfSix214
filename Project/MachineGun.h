@@ -1,16 +1,17 @@
-#ifndef MachineGun_h
-#define MachineGun_h
-#include "WarParticipants.h"
+#ifndef PRACTICAL_ASSIGNMENT_3_MACHINEGUN_H
+#define PRACTICAL_ASSIGNMENT_3_MACHINEGUN_H
+#include "WarParticipant.h"
+#include "WarParticipantFactory.h"
 
-using namespace std;
-
-class MachineGun : public WarParticipants
-{
+class MachineGun: public WarParticipant {
 private:
     int damage;
-
 public:
-    MachineGun(string type) : WarParticipants(type, 6){};
+    MachineGun(int damage);
+    MachineGun(string type) : WarParticipant(type, 6){};
+    WarParticipant* clone();
+    void doNotting();
 };
 
-#endif
+
+#endif //PRACTICAL_ASSIGNMENT_3_MACHINEGUN_H

@@ -1,10 +1,15 @@
-#ifndef BattleState_h
-#define BattleState_h
-#include "Country.h"
+//
+// Created by JOHANES MATSEBA on 2022/10/26.
+//
 
-class BattleState
-{
+#ifndef PROJECTASSIGNMENT_BATTLESTATE_H
+#define PROJECTASSIGNMENT_BATTLESTATE_H
+class Country;
+#include <iostream>
 
+using namespace std;
+
+class BattleState {
 public:
     BattleState();
     BattleState *successor;
@@ -12,4 +17,5 @@ public:
     virtual void handleChange(Country *C);
 };
 
-#endif
+
+#endif //PROJECTASSIGNMENT_BATTLESTATE_H

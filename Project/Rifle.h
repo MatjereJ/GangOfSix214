@@ -1,16 +1,15 @@
-#ifndef Rifle_h
-#define Rifle_h
-#include "WarParticipants.h"
+#ifndef PRACTICAL_ASSIGNMENT_3_RIFLE_H
+#define PRACTICAL_ASSIGNMENT_3_RIFLE_H
+#include "WarParticipant.h"
 
-using namespace std;
-
-class Rifle : public WarParticipants
-{
-private:
+class Rifle: public WarParticipant{
     int damage;
-
 public:
-    Rifle(string type) : WarParticipants(type, 5){};
+    Rifle(int damage);
+    Rifle(string type) : WarParticipant(type, 5){};
+    WarParticipant* clone();
+    void doNotting();
 };
 
-#endif
+
+#endif //PRACTICAL_ASSIGNMENT_3_RIFLE_H

@@ -34,7 +34,23 @@ void Alliance::addAlly(Country* ally){
 }
 
 void Alliance::removeAlly(Country* ally){
-  this->alliance.erase(ally);
+  bool removed = false;
+  list<Country *>::iterator it = this->alliance.begin();
+
+  while( it != alliance.end() ){
+    if (*it == ally){
+      this->alliance.erase(it);
+      removed = true;
+      break;
+    }
+    it++;
+  }
+  if (removed){
+    cout << "The country was successfully removed from the alliance.\n";
+  }else{
+    cout << "The country was not found in the alliance.\n";
+  }
+
 }
 
 int Alliance::getHp(){

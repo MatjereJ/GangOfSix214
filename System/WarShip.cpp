@@ -1,10 +1,10 @@
 #include "WarShip.h"
 
-WarShip::WarShip(int hp) : WarParticipant("WarTransportFactory", "WarShip"){
+WarShip::WarShip(int d, int h) : WarParticipant("WarTransportFactory", "WarShip", d, h){
     HP=hp;
 }
 
-WarParticipant* WarShip::clone() {
+WarShip* WarShip::clone() {
     WarShip* temp=new WarShip(HP);
     return temp;
 }

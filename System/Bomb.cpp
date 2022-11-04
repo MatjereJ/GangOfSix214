@@ -1,10 +1,10 @@
 #include "Bomb.h"
 
-Bomb::Bomb(int damage): WarParticipant("ExplosiveFactory", "Bomb") {
-    this->damage=damage;
+Bomb::Bomb(int d, int h): WarParticipant("ExplosiveFactory", "Bomb", d, h) {
+
 }
 
-WarParticipant* Bomb::clone() {
+Bomb* Bomb::clone() {
     Bomb* temp=new Bomb(damage);
     return temp;
 }

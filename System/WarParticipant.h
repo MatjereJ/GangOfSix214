@@ -7,19 +7,18 @@ using namespace std;
 class WarParticipant{
 
 public:
-    WarParticipant(string manufacturer, string type);
-    WarParticipant(string type, int dmg);
+    WarParticipant(string manufacturer, string type, int d, int h);
     virtual void doNotting()=0;
-    string getDescription();
-    WarParticipant* clone();
     std::string getType();
     void incrementParticipantNumber();
     int getNumParticipants();
-    //WarParticipant(std::string, int);
+    int getHP();
+    int getDamage();
 private:
     string manufacturer;
     string type;
     int damage;
+    int hp;
     int numParticipants; //Iterator
 };
 

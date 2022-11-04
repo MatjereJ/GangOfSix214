@@ -3,10 +3,9 @@
 #include "WarParticipant.h"
 
 class Rifleman: public WarParticipant{
-    int damage;
 public:
-    Rifleman(int damage);
-    WarParticipant* clone();
+    Rifleman(int d, int h);
+    Rifleman* clone();
     void doNotting();
 };
 

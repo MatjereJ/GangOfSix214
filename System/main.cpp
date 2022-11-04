@@ -44,8 +44,8 @@ int main()
 }
 
  void initializeCountries(){
-    country[0]=new IndividualCountry("China", 38, 200, 17, 4);
-    country[1]=new IndividualCountry("Russia", 50, 209, 53, 19);
+    country[0]=new IndividualCountry("China", 1, false);
+    country[1]=new IndividualCountry("Russia", 1, false);
     //And so on
 }
 

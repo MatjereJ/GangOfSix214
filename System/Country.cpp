@@ -3,10 +3,15 @@
 //
 
 #include "Country.h"
-
 #include <iostream>
 #include <string>
 #include <vector>
+using namespace std;
+
+Country(string name, bool sea){
+    cName=name;
+    ocean=sea;
+}
 
 Country::Country(BattleState* state){
     this->battlestate=state;

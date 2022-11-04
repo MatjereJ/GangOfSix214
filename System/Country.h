@@ -33,7 +33,7 @@ class Country {
 
 
 public:
-    Country(std::string);
+    Country(std::string, bool);
     Country(BattleState* state);
     Country(Country *C);
     Country();
@@ -66,11 +66,11 @@ private:
     State* state;
     BattleState* battlestate;
     WarTheatre* warTheatre;
-    vector<WarParticipant *> warParticipants;
     std::string cName;
     vector<CountryObserver *> countryObservers;
     Country* OpposingCountry;
     bool win=false;
+    bool ocean;
 
 protected:
     int hp=1000;

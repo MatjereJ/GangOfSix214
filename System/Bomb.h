@@ -4,10 +4,9 @@
 #include "WarParticipantFactory.h"
 
 class Bomb: public WarParticipant {
-    int damage;
 public:
-    Bomb(int damage);
-    WarParticipant* clone();
+    Bomb(int d, h);
+    Bomb* clone();
     void doNotting();
 };
 

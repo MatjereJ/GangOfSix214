@@ -1,10 +1,10 @@
 #include "MachineGunner.h"
 
-MachineGun::MachineGun(int damage) : WarParticipant("FireArmFactory", "MachineGunner"){
-    this->damage=damage;
+MachineGun::MachineGun(int d, int h) : WarParticipant("FireArmFactory", "MachineGunner", d, h){
+
 }
 
-WarParticipant* MachineGun::clone() {
+MachineGunner* MachineGun::clone() {
     MachineGun* temp=new MachineGun(damage);
     return temp;
 }

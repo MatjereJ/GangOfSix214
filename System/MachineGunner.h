@@ -4,11 +4,9 @@
 #include "WarParticipantFactory.h"
 
 class MachineGunner: public WarParticipant {
-private:
-    int damage;
 public:
-    MachineGunner(int damage);
-    WarParticipant* clone();
+    MachineGunner(int d, int h);
+    MachineGunner* clone();
     void doNotting();
 };
 

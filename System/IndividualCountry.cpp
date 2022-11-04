@@ -8,6 +8,11 @@ using namespace std;
 IndividualCountry:: IndividualCountry():Country(){
   
 }
+
+IndividualCountry:: IndividualCountry(string name, int level, bool sea):Country(name, sea){
+
+}
+
 int IndividualCountry::getWeaponHP(){
     return weaponHP;
 }
@@ -25,13 +30,6 @@ int IndividualCountry::getHp() {
     return hp;
 }
 
-IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int transport,int s):Country(){
-    this->name=name;
-    this->weaponHP=weaponHP;
-    this->soldierHP=soldierHP;
-    this->transport=transport;
-    this->size=s;
-}
 bool IndividualCountry::add(CountryObserver* assistance){
     countryObservers.push_back(assistance);
     cout<<"Added Country Observer"<<endl;
@@ -57,3 +55,6 @@ void IndividualCountry::notify(){
     }
 }
 
+vector<WarParticipant*> IndividualCountry::getWarParticipants(){
+    return warParticipants;
+}

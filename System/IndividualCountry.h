@@ -9,10 +9,10 @@ using namespace std;
 class IndividualCountry: Country {//ConcreteSubject
     public:
         IndividualCountry();
-    IndividualCountry(string name,int weaponHP,int soldiierHP,int transport,int);
-    bool add(CountryObserver* c);
-    bool remove(CountryObserver* c);
-    void notify();
+        IndividualCountry(string name, int level, bool sea)
+        bool add(CountryObserver* c);
+        bool remove(CountryObserver* c);
+        void notify();
         int getHp() override;
         int getWeaponHP();
         int getSoldierHP();
@@ -20,14 +20,16 @@ class IndividualCountry: Country {//ConcreteSubject
         void setWeaponHP(int);
         void setSoldierHP(int);
         void setTransport(int);
+        vector<WarParticipant*> getWarParticipants();
     private:
-    vector<CountryObserver*> countryObservers;
-    vector<IndividualCountry*> alliance;
-    int weaponHP;
-    int soldierHP;
-    int transport;
-    int size;
-    string name;
+        vector<CountryObserver*> countryObservers;
+        vector<IndividualCountry*> alliance;
+        vector<WarParticipant *> warParticipants;
+        int weaponHP;
+        int soldierHP;
+        int transport;
+        int size;
+        string name;
         
 };
 #endif

@@ -37,7 +37,8 @@ void ObservingAllies::update(){
                     if((*it)->getType()=="Missile" || (*it)->getType()=="Bomb" && maxAssist>0){//only assist with a limited amount
                          warParticipants.push_back(*it); //sharing resources
                          maxAssist--;
-                         cout<<(*it2)->getName()<<" increases weapon power with"<<weaponAssist<<" HP to"<<this->currentCountry->getName()<<endl;
+                         numWeapons++;
+                         cout<<(*it2)->getName()<<" gave "<<maxAssist<<" weapons to "<<this->currentCountry->getName()<<endl;
                          cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
                     }
                     if(maxAssist<=0)
@@ -49,7 +50,7 @@ void ObservingAllies::update(){
      }  
      
      if(numTransport<100)
-     {
+     {         //iterating through war participant vector of each country in alliance
                vector<IndividualCountry*> alliance= this->currentCountry->getAlliance();
                vector<IndividualCountry*>::iterator it2 = alliance.begin();
                for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
@@ -62,7 +63,7 @@ void ObservingAllies::update(){
                     if((*it)->getType()=="WarShip" || (*it)->getType()=="AirCraft"){//only assist with a limited amount
                          warParticipants.push_back(*it); 
                          maxAssist--;
-                         cout<<(*it2)->getName()<<" increases weapon power with"<<weaponAssist<<" HP to"<<this->currentCountry->getName()<<endl;
+                         cout<<(*it2)->getName()<<"gave "<<maxAssist<<" war transports to"<<this->currentCountry->getName()<<endl;
                          cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
                     }
                     if(maxAssist<=0)
@@ -86,7 +87,7 @@ void ObservingAllies::update(){
                    if((*it)->getType()=="MachineGunner" || (*it)->getType()=="Rifleman"){//only assist with a limited amount
                          warParticipants.push_back(*it); 
                          maxAssist--;
-                         cout<<(*it2)->getName()<<" shares soldiers with"<<weaponAssist<<" HP to"<<this->currentCountry->getName()<<endl;
+                         cout<<(*it2)->getName()<<" shared "<<maxAssist<<" with"<<this->currentCountry->getName()<<endl;
                          cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
                     }
                         

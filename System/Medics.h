@@ -2,6 +2,7 @@
 #define MEDICS_H
 #include "IndividualCountry.h"
 #include "CountryObserver.h"
+#include "Country.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,8 +19,12 @@ class Medics : public CountryObserver {//Concrete Observer
         int observedS;
         int observedT;
         int maxHeal=0;
+<<<<<<< Updated upstream
+=======
+        int healingHp=90;
+>>>>>>> Stashed changes
         bool medicObserved=false;//set to false if true, when Allies send medics
         IndividualCountry* currentCountry;
-        
+        vector<WarParticipant*> warParticipants;
 };
 #endif

@@ -24,9 +24,17 @@ class  IndividualCountry: public Country{
         void setInitial();
         void setAlliance(vector<IndividualCountry*> alliance);
         vector<IndividualCountry*> getAlliance();
+<<<<<<< Updated upstream
     private:
         vector<CountryObserver*> countryObservers;
         vector<IndividualCountry*> alliance;
+=======
+        vector<WarParticipant*> getWarParticipants();
+    private:
+        vector<CountryObserver*> countryObservers;
+        vector<IndividualCountry*> alliance;
+        vector<WarParticipant*> wP;
+>>>>>>> Stashed changes
         int weaponHP;
         int soldierHP;
         int transport;

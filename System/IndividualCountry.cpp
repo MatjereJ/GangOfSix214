@@ -8,9 +8,15 @@ using namespace std;
 IndividualCountry::IndividualCountry(string n){
    this->initialHP=this->getHP();
     this->name=n;
+<<<<<<< Updated upstream
     /* this->weaponHP=(int)(this->getHP()*0.5);//global x 0.50
     this->soldierHP=(int)(this->getHP()*0.3);
     this->transport=(int)(this->getHP()*0.2);*/
+=======
+    this->weaponHP=(int)(this->getHP()*0.5);//global x 0.50
+    this->soldierHP=(int)(this->getHP()*0.3);
+    this->transport=(int)(this->getHP()*0.2);
+>>>>>>> Stashed changes
 }
 bool IndividualCountry::add(CountryObserver* assistance){
     countryObservers.push_back(assistance); 
@@ -73,6 +79,12 @@ void IndividualCountry::checkHp(){
 
 int IndividualCountry::getInitialHP(){
       return this->initialHP;
+<<<<<<< Updated upstream
+=======
+}
+vector<WarParticipant*> IndividualCountry::getWarParticipants(){
+    return this->wP;
+>>>>>>> Stashed changes
 }
 
 

@@ -14,7 +14,23 @@ void Alliance::setAlliance(list<Country*> alliance){
 }
 
 void Alliance::addAlly(Country* ally){
-  this->alliance.push_back(ally);
+    bool found = false;                                   // becomes true if the country is already in the list
+    list<Country*>::iterator it = this->alliance.begin();
+    while (it != alliance.end()) {
+        if (*it == ally) {
+            found = true;                               // country already in the list
+            break;                                      // exit the loop
+        }
+        it++;                                           // move to the next position in the list
+    }
+
+    if (found) {
+        cout << "This country is already in the alliance.\n";     // inform client that country is already in the list
+    }
+    else {
+        this->alliance.push_back(ally);                 // country not in the list. Add it to the list
+        cout << "This country was successfully added to the alliance.\n";           // inform user that is has been added to the list
+    }
 }
 
 void Alliance::removeAlly(Country* ally){

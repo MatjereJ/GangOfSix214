@@ -20,20 +20,20 @@ void ObservingAllies::update(){
           vector<IndividualCountry*>::iterator it2 = alliance.begin();
            for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
               cout<<this->currentCountry->getName()<<" is running low on weapon power"<<endl;
-              int weaponAssist=((*it2)->getHP()*50)*50;
+              int weaponAssist=((*it2)->getInitialHP()*50)*50;
               (*it)->setHP(weaponAssist);
               cout<<(*it2)->getName()<<" increases weapon power with"<<weaponAssist<<" HP to"<<this->currentCountry->getName()<<endl;
               cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
           
           }
      }
-      if((*it)->getType()=="WarShip" && (*it)->getHP()<90)
+      if((*it)->getType()=="WarShip" || (*it)->getType()=="AirCraft" && (*it)->getHP()<90)
      {
           vector<IndividualCountry*> alliance= this->currentCountry->getAlliance();
           vector<IndividualCountry*>::iterator it2 = alliance.begin();
-           for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
-            cout<<this->currentCountry->getName()<<" is running low on transport"<<endl;
-              int transAssist=((*it2)->getHP()*50)*30;
+             for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
+               cout<<this->currentCountry->getName()<<" is running low on transport"<<endl;
+              int transAssist=((*it2)->getInitialHP()*20)*30;
               (*it)->setHP(transAssist);
               cout<<(*it2)->getName()<<" increases transport with"<<transAssist<<" HP to"<<this->currentCountry->getName()<<endl;
           }

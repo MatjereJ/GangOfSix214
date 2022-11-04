@@ -10,7 +10,7 @@ list<Country*> Alliance::getAlliance(){
     return this->alliance;
 }
 void Alliance::setAlliance(list<Country*> alliance){
-  
+  this->alliance = alliance;
 }
 
 void Alliance::addAlly(Country* ally){
@@ -18,9 +18,9 @@ void Alliance::addAlly(Country* ally){
 }
 
 void Alliance::removeAlly(Country* ally){
-  
+  this->alliance.erase(ally);
 }
 
 int Alliance::getHp(){
-  return 0;
+  return this->allianceHp;
 }

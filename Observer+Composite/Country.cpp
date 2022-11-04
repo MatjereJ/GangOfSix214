@@ -3,27 +3,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
+using namespace std;
 
-bool Country::add(CountryObserver* assistance){
-     countryObservers.push_back(assistance); 
-     return true;
-}
-bool Country::remove(CountryObserver* assistance){
-  bool found = false;
+Country::Country(){
 
-  vector<CountryObserver*>::iterator it = countryObservers.begin();
-  while ((it != countryObservers.end()) && (! found)) {
-    if (*it == assistance) {
-      found = true;
-      countryObservers.erase(it);
-    }
-    ++it;
-  }
-  return found;
 }
-void Country::notify(){
-    vector<CountryObserver*>::iterator it = countryObservers.begin();
-  for (it = countryObservers.begin(); it != countryObservers.end(); ++it){
-    (*it)->update();
-  }
+void Country::setHp(int hp){
+    this->hp=hp;
+}
+int Country::getHP(){
+    return hp;
+}
+void Country::updateHp(int currHP){
+    this->hp=currHP;
 }

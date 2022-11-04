@@ -8,13 +8,23 @@
 
 using namespace std;
 
-class Country {//Subject
+class Country 
+{//Subject
     public:
-        bool add(CountryObserver* c);
-        bool remove(CountryObserver* c);
-        void notify();
+
+        
+        Country();
+        virtual bool add(CountryObserver* c)=0;
+        virtual bool remove(CountryObserver* c)=0;
+        virtual void notify()=0;
+        void setHp(int hp);
+        int getHP();
+        void updateHp(int);
+        
+
     private:
-     vector<CountryObserver*> countryObservers;
-    
+        int hp; 
+        string cName;
+        
 };
 #endif

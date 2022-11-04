@@ -9,12 +9,16 @@
 
 using namespace std;
 
-class Medics : CountryObserver {//Concrete Observer
+class Medics : public CountryObserver {//Concrete Observer
     public:
-        //Medics();
-        Medics(IndividualCountry*);
-        virtual void update();
+        Medics(IndividualCountry* currentCountry);
+        void  update(int weaponHP,int soldierHP,int transport);
     private:
+        int observedHP;
+        int observedS;
+        int observedT;
+        int maxHeal=0;
+        bool medicObserved=false;//set to false if true, when Allies send medics
         IndividualCountry* currentCountry;
         
 };

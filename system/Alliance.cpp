@@ -34,25 +34,31 @@ void Alliance::addAlly(Country* ally){
 }
 
 void Alliance::removeAlly(Country* ally){
-  bool removed = false;
-  list<Country *>::iterator it = this->alliance.begin();
+  bool removed = false;                               // true if the country was successfully removed
+  list<Country *>::iterator it = this->alliance.begin();       // list iterator
 
   while( it != alliance.end() ){
     if (*it == ally){
-      this->alliance.erase(it);
+      this->alliance.erase(it);                                // remove it from the list
       removed = true;
       break;
     }
     it++;
   }
   if (removed){
-    cout << "The country was successfully removed from the alliance.\n";
+    cout << "The country was successfully removed from the alliance.\n";           // inform user that it has been removed from the list
   }else{
-    cout << "The country was not found in the alliance.\n";
+    cout << "The country was not found in the alliance.\n";           // inform user that it was not found in the list
   }
 
 }
 
 int Alliance::getHp(){
-  return this->allianceHp;
+  list<Country *>::iterator it;
+  for ( it = this->alliance.begin(); it != this->alliance.end(); it++){
+    Country* current = *it;
+    allianceHp = allianceHp + current->getHp();
+  }
+
+  return this->allianceHp;                                         
 }

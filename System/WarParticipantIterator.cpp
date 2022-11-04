@@ -2,7 +2,7 @@
 
 WarParticipantIterator::WarParticipantIterator(Country* obj): IteratorTool()
 {
-	storeList = obj->getWarParticipants();
+	storeList = obj->getArtillery();
 	it = storeList.begin();
 	curr = *it;
 }

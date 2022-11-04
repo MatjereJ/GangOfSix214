@@ -18,8 +18,8 @@ class CountryObserverIterator : public IteratorTool
 		CountryObserver* currentEl();
 	
 	private:
-		std::list<CountryObserver*>::iterator it;
-		std::list<CountryObserver*> storeList;
+		std::vector<CountryObserver*>::iterator it;
+		std::vector<CountryObserver*> storeList;
 		CountryObserver* curr;
 };
 #endif

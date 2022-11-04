@@ -7,10 +7,8 @@ using namespace std;
 
 IndividualCountry::IndividualCountry(string n){
    this->initialHP=this->getHP();
-    this->name=n;
-    this->weaponHP=(int)(this->getHP()*0.5);//global x 0.50
-    this->soldierHP=(int)(this->getHP()*0.3);
-    this->transport=(int)(this->getHP()*0.2);
+   this->name=n;
+  
 }
 bool IndividualCountry::add(CountryObserver* assistance){
     countryObservers.push_back(assistance); 
@@ -56,19 +54,7 @@ void IndividualCountry::setAlliance(vector<IndividualCountry*> alliance){
 
 }
 void IndividualCountry::checkHp(){
-    //cout<<"HPs: "<<w<<" "<<s<<" "<<t<<" "<<endl;
-    cout<<"In CheckHP"<<endl;
-    this->weaponHP=(int)(this->getHP()*0.5);//global x 0.50
-    this->soldierHP=(int)(this->getHP()*0.3);
-    this->transport=(int)(this->getHP()*0.2);
-    int numSoldiers=(int)(this->getInitialHP()*0.3*0.4);//calculating 40% of country's soldiers
-    if(this->soldierHP<10)
-    {
-        cout<<"Notifying"<<endl;
-        notify();
-    }
-  
-        
+    notify();
 }
 
 int IndividualCountry::getInitialHP(){

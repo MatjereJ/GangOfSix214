@@ -1,0 +1,14 @@
+//
+// Created by JOHANES MATSEBA on 2022/10/26.
+//
+
+#ifndef PROJECTASSIGNMENT_WARTHEATRE_H
+#define PROJECTASSIGNMENT_WARTHEATRE_H
+
+
+class WarTheatre {
+
+};
+
+
+#endif //PROJECTASSIGNMENT_WARTHEATRE_H

@@ -2,3 +2,4 @@
 
 /*WarParticipantFactory::WarParticipantFactory(){}
 WarParticipantFactory::~WarParticipantFactory(){}*/
+

@@ -18,8 +18,8 @@ class WarParticipantIterator : public IteratorTool
 		WarParticipant* currentEl();
 	
 	private:
-		std::list<WarParticipant*>::iterator it;
-		std::list<WarParticipant*> storeList;
+		std::vector<WarParticipant*>::iterator it;
+		std::vector<WarParticipant*> storeList;
 		WarParticipant* curr;
 };
 #endif

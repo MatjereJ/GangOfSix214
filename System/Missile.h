@@ -8,6 +8,7 @@ private:
     int damage;
 public:
     Missile(int damage);
+    Missile(string type) : WarParticipant(type, 20){};
     WarParticipant* clone();
     void doNotting();
 };

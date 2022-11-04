@@ -1,5 +1,5 @@
 #ifndef INDIVIDUALCOUNTRY_H
-#define INDIVIDUALCOUNTRY_H
+#define  INDIVIDUALCOUNTRY_H
 #include "Country.h"
 #include "CountryObserver.h"
 #include <iostream>
@@ -10,8 +10,7 @@ using namespace std;
 class CountryObservers;
 class  IndividualCountry: public Country{
      public:
-        IndividualCountry();
-        IndividualCountry(string name,int weaponHP,int soldiierHP,int transport);
+        IndividualCountry(string n);
         bool add(CountryObserver* c);
         bool remove(CountryObserver* c);
         void notify();
@@ -20,8 +19,10 @@ class  IndividualCountry: public Country{
         int getSoldierHP();
         int getTransport();
         int getSize();
-        void setHP(int weaponHP,int soldierHP,int transport);
-        void setAlliance( vector<IndividualCountry*> alliance);
+        void checkHp();
+        int getInitialHP();
+        void setInitial();
+        void setAlliance(vector<IndividualCountry*> alliance);
         vector<IndividualCountry*> getAlliance();
     private:
         vector<CountryObserver*> countryObservers;
@@ -29,7 +30,8 @@ class  IndividualCountry: public Country{
         int weaponHP;
         int soldierHP;
         int transport;
-        int size;
+        int currWeaponHP;
+        int initialHP;
         string name;
 };
 #endif

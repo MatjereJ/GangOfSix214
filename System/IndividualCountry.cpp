@@ -5,11 +5,12 @@
 #include "IndividualCountry.h"
 using namespace std;
 
-IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int transport){
-    this->name=name;
-    this->weaponHP=weaponHP;
-    this->soldierHP=soldierHP;
-    this->transport=transport;
+IndividualCountry::IndividualCountry(string n){
+   this->initialHP=this->getHP();
+    this->name=n;
+    /* this->weaponHP=(int)(this->getHP()*0.5);//global x 0.50
+    this->soldierHP=(int)(this->getHP()*0.3);
+    this->transport=(int)(this->getHP()*0.2);*/
 }
 bool IndividualCountry::add(CountryObserver* assistance){
     countryObservers.push_back(assistance); 
@@ -32,7 +33,7 @@ bool IndividualCountry::remove(CountryObserver* assistance){
 void IndividualCountry::notify(){
     vector<CountryObserver*>::iterator it = countryObservers.begin();
   for (it = countryObservers.begin(); it != countryObservers.end(); ++it){
-    (*it)->update(this->weaponHP,this->soldierHP,this->transport);
+    (*it)->update(this->getWeaponHP(),this->getSoldierHP(),this->getTransport());
   }
 }
 string IndividualCountry::getName(){
@@ -54,16 +55,24 @@ void IndividualCountry::setAlliance(vector<IndividualCountry*> alliance){
   this->alliance= alliance;
 
 }
-void IndividualCountry::setHP(int w,int s,int t){
-    cout<<"HPs: "<<w<<" "<<s<<" "<<t<<" "<<endl;
-    this->weaponHP=w;
-    this->soldierHP=s;
-    this->transport=t;
+void IndividualCountry::checkHp(){
+    //cout<<"HPs: "<<w<<" "<<s<<" "<<t<<" "<<endl;
+    cout<<"In CheckHP"<<endl;
+    this->weaponHP=(int)(this->getHP()*0.5);//global x 0.50
+    this->soldierHP=(int)(this->getHP()*0.3);
+    this->transport=(int)(this->getHP()*0.2);
+    int numSoldiers=(int)(this->getInitialHP()*0.3*0.4);//calculating 40% of country's soldiers
     if(this->soldierHP<10)
     {
-     
-      notify();
+        cout<<"Notifying"<<endl;
+        notify();
     }
   
         
 }
+
+int IndividualCountry::getInitialHP(){
+      return this->initialHP;
+}
+
+

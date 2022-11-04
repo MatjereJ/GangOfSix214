@@ -1,17 +1,13 @@
 #ifndef COUNTRYOBSERVER_H
 #define COUNTRYOBSERVER_H
-#include <string>
 
-class Country;
-class CountryObserver
-{
-	public:
-		CountryObserver(std::string);
-		~CountryObserver();
-		std::string getName();
-		void print();
-	
-	private:
-		std::string name;
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+class CountryObserver {//Observer
+    public:
+     virtual void update(int weaponHP,int soldierHP,int transport)=0;
 };
 #endif

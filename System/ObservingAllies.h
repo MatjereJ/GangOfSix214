@@ -12,9 +12,10 @@ using namespace std;
 class ObservingAllies : public CountryObserver{//Concrete Observers
     public:
         ObservingAllies(IndividualCountry* currentCountry);
-        void  update(int weaponHP,int soldierHP,int transport);
+        void  update();
     private:
         int observedH;
         IndividualCountry* currentCountry;
+        vector<WarParticipant*> warParticipants;
 };
 #endif

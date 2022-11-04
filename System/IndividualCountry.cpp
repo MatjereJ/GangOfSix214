@@ -33,7 +33,7 @@ bool IndividualCountry::remove(CountryObserver* assistance){
 void IndividualCountry::notify(){
     vector<CountryObserver*>::iterator it = countryObservers.begin();
   for (it = countryObservers.begin(); it != countryObservers.end(); ++it){
-    (*it)->update(this->getWeaponHP(),this->getSoldierHP(),this->getTransport());
+    (*it)->update();
   }
 }
 string IndividualCountry::getName(){

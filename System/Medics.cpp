@@ -12,10 +12,10 @@ Medics::Medics(IndividualCountry* currentCountry){
     this->currentCountry->add(this);
 }
 
-void Medics::update(int weaponHP,int soldierHP,int transport){
+void Medics::update(){
     
-    vector<WarParticipant*> wP= this->currentCountry->getWarParticipants();
-      vector<WarParticipant*>::iterator it = wP.begin();
+  vector<WarParticipant*> wP= this->currentCountry->getWarParticipants();
+  vector<WarParticipant*>::iterator it = wP.begin();
   for (it = wP.begin(); it != wP.end(); ++it){
     if((*it)->getType()=="MachineGunner" || ((*it)->getType()=="RifleMan"))
     {

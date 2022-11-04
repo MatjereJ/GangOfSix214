@@ -13,7 +13,7 @@ using namespace std;
 class Medics : public CountryObserver {//Concrete Observer
     public:
         Medics(IndividualCountry* currentCountry);
-        void  update(int weaponHP,int soldierHP,int transport);
+        void  update();
     private:
         int observedHP;
         int observedS;

@@ -8,6 +8,6 @@ using namespace std;
 
 class CountryObserver {//Observer
     public:
-     virtual void update(int weaponHP,int soldierHP,int transport)=0;
+     virtual void update()=0;
 };
 #endif

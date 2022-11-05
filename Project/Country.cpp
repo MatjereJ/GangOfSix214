@@ -20,7 +20,7 @@ void Country::setHp(int HP)
     hp = HP;
 }
 
-list<WarParticipants *> Country::getArtillery()
+vector<WarParticipants *> Country::getArtillery()
 {
     return w;
 }

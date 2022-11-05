@@ -59,6 +59,7 @@ int main()
     State.Add(D);
     State.Add(att);
     State.Add(LongDay);
+    Rwanda->setHp(400);
     State.handleChange(Rwanda);
     Country *temp = Rwanda->getOpposingC();
     cout << Rwanda->getHp() << " " << temp->getHp() << endl;

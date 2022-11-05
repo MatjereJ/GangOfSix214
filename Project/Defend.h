@@ -6,5 +6,6 @@ class Defend : public BattleState
 {
 public:
     void handleChange(Country *C);
+    void TakeChance(Country *C);
 };
 #endif

@@ -11,6 +11,11 @@
 class Attack : public BattleState
 {
 public:
+    /**
+     * @brief
+     *
+     * @param C
+     */
     void handleChange(Country *C);
 };
 #endif

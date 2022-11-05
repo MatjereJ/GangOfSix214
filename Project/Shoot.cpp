@@ -3,12 +3,12 @@
 void Shoot::LaunchAttack(Country *C)
 {
     int totalD = 0;
-    list<WarParticipants *> temp = C->getArtillery();
-    list<WarParticipants *>::iterator it = temp.begin();
+    vector<WarParticipants *> temp = C->getArtillery();
+    vector<WarParticipants *>::iterator it = temp.begin();
     for (it = temp.begin(); it != temp.end(); it++)
     {
         WarParticipants *curr = *it;
-        if (curr->getDamage() == 6 || curr->getDamage() == 5)
+        if (curr->getType() == "MachineGunner" || curr->getType() == "RIfleman")
         {
             totalD = totalD + curr->getDamage();
         }

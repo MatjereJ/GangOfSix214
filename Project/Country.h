@@ -1,21 +1,21 @@
 #ifndef Country_h
 #define Country_h
 #include "WarParticipants.h"
-#include <list>
+#include <vector>
 
 class Country
 {
 private:
     int hp = 1000;
     Country *OpposingCountry;
-    list<WarParticipants *> w;
+    vector<WarParticipants *> w;
 
 public:
     void InflictDamage(int dmg);
     int getHp();
     Country *getOpposingC();
     void setHp(int HP);
-    list<WarParticipants *> getArtillery();
+    vector<WarParticipants *> getArtillery();
     void addArtillery(WarParticipants *W);
     Country(Country *C);
     Country();

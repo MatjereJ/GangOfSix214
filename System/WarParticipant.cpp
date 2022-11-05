@@ -27,10 +27,10 @@ int WarParticipant::getNumParticipants()
 	return numParticipants;
 }
 
-int getHP(){
+int WarParticipant::getHP(){
     return hp;
 }
-int getDamage(){
+int WarParticipant::getDamage(){
     return damage;
 }
     

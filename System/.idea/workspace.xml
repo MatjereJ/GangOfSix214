@@ -43,12 +43,12 @@
       <change beforePath="$PROJECT_DIR$/Attack.h" beforeDir="false" afterPath="$PROJECT_DIR$/Attack.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AttackStrategy.h" beforeDir="false" afterPath="$PROJECT_DIR$/AttackStrategy.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BattleState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BattleState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleState.h" beforeDir="false" afterPath="$PROJECT_DIR$/BattleState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bomb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Bomb.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bomb.h" beforeDir="false" afterPath="$PROJECT_DIR$/Bomb.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Context.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Context.h" beforeDir="false" afterPath="$PROJECT_DIR$/Context.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Country.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Country.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Country.h" beforeDir="false" afterPath="$PROJECT_DIR$/Country.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CountryBackup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CountryBackup.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CountryBackup.h" beforeDir="false" afterPath="$PROJECT_DIR$/CountryBackup.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CountryMemory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CountryMemory.cpp" afterDir="false" />

@@ -146,6 +146,7 @@ class  IndividualCountry: public Country{
 
     */
     vector<WarParticipant*> getWarParticipants();
+    void setLose();
     virtual ~IndividualCountry();
 
     private:
@@ -157,7 +158,7 @@ class  IndividualCountry: public Country{
     vector<WarParticipant *> warParticipants;
     std::string cName;
     IndividualCountry* OpposingCountry;
-    bool win=false;
+    bool lose=false;
     int hp=1000;
 
          /**

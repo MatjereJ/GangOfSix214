@@ -9,6 +9,85 @@ IndividualCountry::IndividualCountry(string n){
    this->initialHP=this->getHP();
    this->name=n;
   
+=======
+IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int transport) {
+    this->name = name;
+    this->weaponHP = weaponHP;
+    this->soldierHP = soldierHP;
+    this->transport = transport;
+}
+
+IndividualCountry::IndividualCountry(string name, int level, bool sea){
+    cName=name;
+    ocean=sea;
+    SoldierFactory* soldierFactory=new SoldierFactory();
+    ExplosiveFactory* explosiveFactory=new ExplosiveFactory();
+    WarTransportFactory* warTransportFactory=new WarTransportFactory();
+    if(level==1){
+        for(int i=0; i<rand()%100+51; i++){
+            wp.push_back(soldierFactory->createMachineGunner(50));
+        }
+        for(int i=0; i<rand()%100+51; i++){
+            wp.push_back(soldierFactory->createRifleman(60));
+        }
+        for(int i=0; i<rand()%40+21; i++){
+            wp.push_back(explosiveFactory->createBomb(100));
+        }
+        for(int i=0; i<rand()%40+21; i++){
+            wp.push_back(explosiveFactory->createMissile(70));
+        }
+        for(int i=0; i<rand()%10+11; i++){
+            wp.push_back(warTransportFactory->createAirCraft(300));
+        }
+        if(sea==true) {
+            for (int i = 0; i < rand()%10+11; i++) {
+                wp.push_back(warTransportFactory->createWarShip(250));
+            }
+        }
+    }else if(level==2){
+        for(int i=0; i<rand()%150+51; i++){
+            wp.push_back(soldierFactory->createMachineGunner(50));
+        }
+        for(int i=0; i<rand()%150+51; i++){
+            wp.push_back(soldierFactory->createRifleman(60));
+        }
+        for(int i=0; i<rand()%40+31; i++){
+            wp.push_back(explosiveFactory->createBomb(100));
+        }
+        for(int i=0; i<rand()%40+31; i++){
+            wp.push_back(explosiveFactory->createMissile(70));
+        }
+        for(int i=0; i<rand()%10+16; i++){
+            wp.push_back(warTransportFactory->createAirCraft(300));
+        }
+        if(sea==true) {
+            for (int i = 0; i < rand() %%10+16; i++) {
+                wp.push_back(warTransportFactory->createWarShip(250));
+            }
+        }
+    }else if(level==3){
+        for(int i=0; i<rand()%200+51; i++){
+            wp.push_back(soldierFactory->createMachineGunner(50));
+        }
+        for(int i=0; i<rand()%200+51; i++){
+            wp.push_back(soldierFactory->createRifleman(60));
+        }
+        for(int i=0; i<rand()%40+41; i++){
+            wp.push_back(explosiveFactory->createBomb(100));
+        }
+        for(int i=0; i<rand()%40+41; i++){
+            wp.push_back(explosiveFactory->createMissile(70));
+        }
+        for(int i=0; i<rand()%10+21; i++){
+            wp.push_back(warTransportFactory->createAirCraft(300));
+        }
+        if(sea==true) {
+            for (int i = 0; i < rand() %%10+21; i++) {
+                wp.push_back(warTransportFactory->createWarShip(250));
+            }
+        }
+    }
+>>>>>>> Stashed changes
 }
 bool IndividualCountry::add(CountryObserver* assistance){
     countryObservers.push_back(assistance); 

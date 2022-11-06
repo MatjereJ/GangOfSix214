@@ -2,6 +2,7 @@
 #define  INDIVIDUALCOUNTRY_H
 #include "Country.h"
 #include "CountryObserver.h"
+#include "SoldierFactory.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,6 +12,9 @@ class CountryObservers;
 class  IndividualCountry: public Country{
      public:
         IndividualCountry(string n);
+        IndividualCountry();
+        IndividualCountry(string name,int weaponHP,int soldiierHP,int transport);
+        IndividualCountry(string name, int level, bool sea);
         bool add(CountryObserver* c);
         bool remove(CountryObserver* c);
         void notify();
@@ -35,5 +39,14 @@ class  IndividualCountry: public Country{
         int currWeaponHP;
         int initialHP;
         string name;
+        vector<warParticipants*> wp;
+        int weaponHP;
+        int soldierHP;
+        int transport;
+        int size;
+        string name;
+        int currWeaponHP;
+        int initialHP;
+        bool ocean;
 };
 #endif

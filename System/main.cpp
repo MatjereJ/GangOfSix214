@@ -36,6 +36,27 @@ int main()
 {
     cout<<"***********     Game Simulation    ***************\n";
     initializeCountries();
+
+    IndividualCountry* warringCountries[2];
+    warringCountries[0]=country[0];
+    warringCountries[1]=country[1];
+    int i=0;
+    while(true){
+        if(warringCountries[i%2]->getHp()>0){
+
+            cout<<warringCountries[i%2]->getHp()<<endl;
+            warringCountries[i%2]->attackOpposingCountry(warringCountries[i%2+1]);
+            i++;
+        }
+        else{
+            warringCountries[i%2]->setLose();
+            cout<<warringCountries[i%2]->getName()<<" has lost the War with all of it's soldiers Dead"<<endl;
+            break;
+        }
+
+    }
+
+
     //pickCountry();
     //fight();
     //endGame();

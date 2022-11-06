@@ -109,7 +109,6 @@
       <change beforePath="$PROJECT_DIR$/WarTheatre.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarTheatre.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WarTransportFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WarTransportFactory.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WarTransportFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarTransportFactory.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

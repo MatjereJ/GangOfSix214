@@ -21,25 +21,26 @@
 #include <iostream>
 using namespace std;
 
- void initializeCountries();
- void pickCountry();
+void initializeCountries();
+void pickCountry();
 void fight();
 void selectOpposingCountry();
 void getCountryStats(int cNum);
- void endGame();
+void endGame();
 
 IndividualCountry*  country[10];
+Alliance* alliances[2];
 IndividualCountry* myCountry;
 int countryNum, countrySize=2;
 
 int main()
 {
-    cout<<"***********     Game Simulation    ***************\n";
+    cout<<"*************    Game Simulation    ***************\n";
     initializeCountries();
 
     IndividualCountry* warringCountries[2];
     warringCountries[0]=country[0];
-    warringCountries[1]=country[1];
+    warringCountries[1]=country[5];
     int i=0;
     while(true){
         if(warringCountries[i%2]->getHp()>0){
@@ -60,16 +61,36 @@ int main()
     //pickCountry();
     //fight();
     //endGame();
+    delete alliances[0];
+    delete alliances[1];
     return 0;
 }
 
- void initializeCountries(){
-    country[0]=new IndividualCountry("China", 1, false);
+void initializeCountries(){
+    country[0]=new IndividualCountry("Brazil", 2, false);
     country[1]=new IndividualCountry("Russia", 1, false);
-    //And so on
+    country[2]=new IndividualCountry("India", 2, false);
+    country[3]=new IndividualCountry("China", 1, false);
+    country[4]=new IndividualCountry("South Africa", 3, false);
+    country[5]=new IndividualCountry("Canada", 2, false);
+    country[6]=new IndividualCountry("Germany", 1, false);
+    country[7]=new IndividualCountry("France", 2, false);
+    country[8]=new IndividualCountry("United States", 1, false);
+    country[9]=new IndividualCountry("Australia", 3, false);
+    alliances[0]=new Alliance();
+    alliances[0]->addAlly(country[0]);
+    alliances[0]->addAlly(country[1]);
+    alliances[0]->addAlly(country[2]);
+    alliances[0]->addAlly(country[3]);
+    alliances[0]->addAlly(country[4]);
+    alliances[1]=new Alliance();
+    alliances[1]->addAlly(country[5]);
+    alliances[1]->addAlly(country[6]);
+    alliances[1]->addAlly(country[7]);
+    alliances[1]->addAlly(country[8]);
 }
 
- void pickCountry(){
+void pickCountry(){
     cout<<"Select a Country from the list below by entering it's number"<<endl;
     for(int i=0; i<countrySize; i++) {
         cout<<i<<": "<<country[i]<<endl;
@@ -78,40 +99,39 @@ int main()
     myCountry=country[countryNum];
 }
 
- void fight(){
-     /*
-     while(!country->surrender()){
-         selectOpposingCountry();
+void fight(){
+    /*
+    while(!country->surrender()){
+        selectOpposingCountry();
+    }
+*/
+}
+/*
+ void selectOpposingCountry(){
+    bool stats=false;
+    while(stats=false) {
+        cout << "Would you like to see a Country's stats (Yes/No)" << endl;
+        cin>>countryStat;
+        if(countryStat=="Yes"){
+            cout<<"Select a Country Number"<<endl;
+            for(int i=0; i<countrySize; i++) {
+                cout<<i<<": "<<country[i]<<endl;
+            }
+        }else if(countryStat=="No"){
+            stats=true;
+        }
+    }
+    cout<<"Now you've had a chance to look at the countries, Choose a Country to fight"<<endl;
+    for(int i=0; i<countrySize; i++) {
+        if(i!=countryNum)
+            cout<<i<<": "<<country[i]<<endl;
+    }
+}*/
 
-     }
- */
- }
- /*
-  void selectOpposingCountry(){
-     bool stats=false;
-     while(stats=false) {
-         cout << "Would you like to see a Country's stats (Yes/No)" << endl;
-         cin>>countryStat;
-         if(countryStat=="Yes"){
-             cout<<"Select a Country Number"<<endl;
-             for(int i=0; i<countrySize; i++) {
-                 cout<<i<<": "<<country[i]<<endl;
-             }
-         }else if(countryStat=="No"){
-             stats=true;
-         }
-     }
-     cout<<"Now you've had a chance to look at the countries, Choose a Country to fight"<<endl;
-     for(int i=0; i<countrySize; i++) {
-         if(i!=countryNum)
-             cout<<i<<": "<<country[i]<<endl;
-     }
- }*/
-
- void getCountryStats(int cNum){
+void getCountryStats(int cNum){
 
 }
 
- void endGame(){
+void endGame(){
 
 }

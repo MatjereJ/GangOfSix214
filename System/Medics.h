@@ -12,16 +12,44 @@ using namespace std;
 
 class Medics : public CountryObserver {//Concrete Observer
     public:
+        /**
+        *@brief Current Country variable is initialized and Medics registers as an observer to it
+        *@author Areyeng Mphahlele
+        *@return void
+        *@date  27/10/2022 
+     
+        */
+
         Medics(IndividualCountry* currentCountry);
+        /**
+        *@brief Iterates through current country's war participants vector searching for an injured 
+                soldier(a soldier with an HP less than a safe amount) and heals them (increases HP) if found.
+        *@author Areyeng Mphahlele
+        *@return void
+        *@date  27/10/2022 
+     
+        */
         void  update();
     private:
-        int observedHP;
-        int observedS;
-        int observedT;
+        /**
+         * @brief The maximum amount of times a medic can heal an injured soldier. 
+         * 
+         */
         int maxHeal=0;
+        /**
+         * @brief The amount of HP which the Medics can heal an injured soldier with. 
+         * 
+         */
         int healingHp=12;
-        bool medicObserved=false;//set to false if true, when Allies send medics
+        /**
+         * @brief The current country to update when soldiers is injured/is running low on resources
+         * 
+         */
         IndividualCountry* currentCountry;
+        /**
+         * @brief The current country resources 
+         * 
+         */
         vector<WarParticipant*> warParticipants;
 };
 #endif

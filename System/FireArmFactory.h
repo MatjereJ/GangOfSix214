@@ -7,8 +7,8 @@
 
 class FireArmFactory: public WarParticipantFactory{
 public:
-    Rifleman* createRifle(int damage);
-    MachineGunner* createMachineGun(int damage);
+    Rifleman* createRifle(int,int damage);
+    MachineGunner* createMachineGun(int,int damage);
 };
 
 

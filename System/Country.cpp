@@ -9,7 +9,7 @@
 using namespace std;
 
 Country::Country(string name, bool sea){
-    cName=name;
+    this->name=name;
 }
 //Country(string name){
 //    cName=name;

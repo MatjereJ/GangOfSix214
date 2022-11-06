@@ -4,17 +4,14 @@
 #include "iostream"
 using namespace std;
 
-Rifleman* FireArmFactory::createRifle(int damage){
-    Rifleman* temp=new Rifleman(damage);
+Rifleman* FireArmFactory::createRifle(int hp,int damage){
+    Rifleman* temp=new Rifleman(hp,damage);
     return temp;
 }
 
-MachineGunner* FireArmFactory::createMachineGun(int damage){
+MachineGunner* FireArmFactory::createMachineGun(int hp,int damage){
     cout<<"Machine Gun Created"<<endl;
-    MachineGunner* temp=new MachineGunner(damage);
+    MachineGunner* temp=new MachineGunner(hp,damage);
     return temp;
 }
 
-void Rifleman::doNotting() {
-
-}

@@ -37,6 +37,7 @@ public:
 private:
 
     vector<CountryObserver*> countryObservers;
+    string name;
 
 };
 

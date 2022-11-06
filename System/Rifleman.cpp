@@ -1,8 +1,7 @@
 #include "Rifleman.h"
 
 Rifleman::Rifleman(int d, int h) : WarParticipant("FireArmFactory", "Rifleman", d, h){
-    damage=d;
-    hp=h;
+    type="RifleMan";
 }
 
 Rifleman* Rifleman::clone() {

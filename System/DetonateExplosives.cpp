@@ -4,7 +4,7 @@ void DetonateExplosives::LaunchAttack(IndividualCountry *C)
 {
     int totalD = 0;
 
-    Country *Opps = C->getOpposingC();
+    IndividualCountry *Opps = C->getOpposingC();
     vector<WarParticipant*> temp = C->getArtillery();
     vector<WarParticipant*>::iterator it = temp.begin();
 

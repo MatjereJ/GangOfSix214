@@ -62,7 +62,7 @@ class  IndividualCountry: public Country{
         *@date  27/10/2022 
      
         */
-        int getWeaponHP() override;
+        int getWeaponHP() ;
         /**
         *@brief Add all of the weapon HP inside current's country's war participant vector and returns it as a integer value.
         *@author Areyeng Mphahlele 
@@ -84,22 +84,74 @@ class  IndividualCountry: public Country{
     virtual WarParticipantIterator* createWarParticipantIterator();//Tseko Iterator
     virtual void addWarParticipant(WarParticipant*);
     virtual std::vector<CountryObserver*> getCountryObservers();
-    virtual std::string getName();
     WarTheatre* getWarTheatre( );
     void InflictDamage(int dmg);  //Country BattleState
     IndividualCountry *getOpposingC();
     void setHp(int HP);
     vector<WarParticipant *>  getArtillery();
     State* getState();
+    /**
+*@brief Add the amount of transport inside current's country's war participant vector and returns it as a integer value.
+*@author Areyeng Mphahlele
+*@return amount of transport available
+*@date  27/10/2022
+
+*/
+    /**
+    *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
+    *@author Areyeng Mphahlele
+    *@return amount of transport available
+    *@date  27/10/2022
+
+    */
+    int getTransport();
+    /**
+   *@brief Calls current's country notify function which updates all observers of the war.
+   *@author Areyeng Mphahlele
+   *@return void
+   *@date  27/10/2022
+
+   */
+    void observeHp();
+    /**
+    *@brief Gets total of all HP each resource has and returns it as an integer value.
+    *@author Areyeng Mphahlele
+    *@return void
+    *@date  29/10/2022
+
+    */
+    int getHp() override;
+    /**
+    *@brief Sets the parameter alliance as the current country's alliance.
+    *@author Areyeng Mphahlele
+    *@param alliance a vector of individual countries which are set to the current country's alliance variable.
+    *@return void
+    *@date  29/10/2022
+
+    */
+    void setAlliance(vector<IndividualCountry*> alliance);
+    /**
+    *@brief Returns the current country's alliance.
+    *@author Areyeng Mphahlele
+    *@return the current alliance assisting the country at war.
+    *@date  29/10/2022
+
+    */
+    vector<IndividualCountry*> getAlliance();
+    /**
+    *@brief Returns the combined resources the current country has at its disposal.
+    *@author Areyeng Mphahlele
+    *@return void
+    *@date  29/10/2022
+
+    */
+    vector<WarParticipant*> getWarParticipants();
     virtual ~IndividualCountry();
 
     private:
-    vector<CountryObserver*> countryObservers;
-    vector<IndividualCountry*> alliance;
     int weaponHP;
     int soldierHP;
     int size;
-    string name;
     State* state;
     WarTheatre* warTheatre;
     vector<WarParticipant *> warParticipants;
@@ -107,64 +159,7 @@ class  IndividualCountry: public Country{
     IndividualCountry* OpposingCountry;
     bool win=false;
     int hp=1000;
-        
-        /**
-        *@brief Add the amount of transport inside current's country's war participant vector and returns it as a integer value.
-        *@author Areyeng Mphahlele 
-        *@return amount of transport available
-        *@date  27/10/2022 
-     
-        */
-        /**
-        *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
-        *@author Areyeng Mphahlele 
-        *@return amount of transport available
-        *@date  27/10/2022 
-     
-        */
-        int getTransport();
-         /**
-        *@brief Calls current's country notify function which updates all observers of the war.
-        *@author Areyeng Mphahlele 
-        *@return void
-        *@date  27/10/2022 
-     
-        */
-        void observeHp();
-        /**
-        *@brief Gets total of all HP each resource has and returns it as an integer value.
-        *@author Areyeng Mphahlele 
-        *@return void
-        *@date  29/10/2022 
-     
-        */
-        int getHP();
-        /**
-        *@brief Sets the parameter alliance as the current country's alliance.
-        *@author Areyeng Mphahlele 
-        *@param alliance a vector of individual countries which are set to the current country's alliance variable.
-        *@return void
-        *@date  29/10/2022 
-     
-        */
-        void setAlliance(vector<IndividualCountry*> alliance);
-        /**
-        *@brief Returns the current country's alliance.
-        *@author Areyeng Mphahlele 
-        *@return the current alliance assisting the country at war.
-        *@date  29/10/2022 
-     
-        */
-        vector<IndividualCountry*> getAlliance();
-        /**
-        *@brief Returns the combined resources the current country has at its disposal.
-        *@author Areyeng Mphahlele 
-        *@return void
-        *@date  29/10/2022 
-     
-        */
-        vector<WarParticipant*> getWarParticipants();
-    private:
+
          /**
          * @brief A vector containing all registered war observers.
          * 

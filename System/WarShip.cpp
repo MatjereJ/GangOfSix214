@@ -1,8 +1,7 @@
 #include "WarShip.h"
 
 WarShip::WarShip(int d, int h) : WarParticipant("WarTransportFactory", "WarShip", d, h){
-    damage=d;
-    hp=h;
+   type="WarShip";
 }
 
 WarShip* WarShip::clone() {

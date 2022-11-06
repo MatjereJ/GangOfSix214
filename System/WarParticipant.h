@@ -24,10 +24,11 @@ public:
 
 private:
     string manufacturer;
-    string type;
-    int numParticipants; //Iterator
 
+    int numParticipants; //Iterator
+protected:
     int damage;
+    string type;
     int hp;
 };
 

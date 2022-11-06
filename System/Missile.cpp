@@ -1,8 +1,7 @@
 #include "Missile.h"
 
 Missile::Missile(int d, int h) : WarParticipant("FireArmFactory", "Missile", d, h){
-    damage=d;
-    hp=h;
+    type="Missile";
 }
 
 Missile* Missile::clone() {

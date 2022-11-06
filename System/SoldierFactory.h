@@ -8,8 +8,8 @@
 class SoldierFactory: public WarParticipantFactory {
 public:
     SoldierFactory();
-    Rifleman* createRifleman(int HP);
-    MachineGunner* createMachineGunner(int HP);
+    Rifleman* createRifleman(int HP,int);
+    MachineGunner* createMachineGunner(int HP,int);
 };
 
 #endif //PRACTICAL_ASSIGNMENT_3_SOLDIERFACTORY_H

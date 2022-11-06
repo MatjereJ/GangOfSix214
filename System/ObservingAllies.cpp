@@ -32,7 +32,7 @@ void ObservingAllies::update(){
                vector<WarParticipant*> wP= (*it2)->getWarParticipants();//getting allies iterating and moving each resource to country in need.
                vector<WarParticipant*>::iterator it = wP.begin();
                //each country contributing 50% of their weapons
-               maxAssist=(int)((*it2)->getHP()*0.5)*0.5;//assuming 50% of global HP is reserved for weapons
+               maxAssist=(int)((*it2)->getHp()*0.5)*0.5;//assuming 50% of global HP is reserved for weapons
                for (it = wP.begin(); it != wP.end(); ++it){
                     if((*it)->getType()=="Missile" || (*it)->getType()=="Bomb" && maxAssist>0){//only assist with a limited amount
                          warParticipants.push_back(*it); //sharing resources
@@ -58,7 +58,7 @@ void ObservingAllies::update(){
                vector<WarParticipant*> wPs= (*it2)->getWarParticipants();//getting allies iterating and moving each resource to ICountry's WarParticipants.
                vector<WarParticipant*>::iterator it = wPs.begin();
                //each country contributing 50% of their weapons
-               maxAssist=(int)((*it2)->getHP()*0.5)*0.5;
+               maxAssist=(int)((*it2)->getHp()*0.5)*0.5;
                for (it = wPs.begin(); it != wPs.end(); ++it){
                     if((*it)->getType()=="WarShip" || (*it)->getType()=="AirCraft"){//only assist with a limited amount
                          warParticipants.push_back(*it); 
@@ -82,7 +82,7 @@ void ObservingAllies::update(){
                vector<WarParticipant*> wP2= (*it2)->getWarParticipants();//getting allies iterating and moving each resource to country in need.
                vector<WarParticipant*>::iterator it = wP2.begin();
                //each country contributing 50% of their weapons
-               maxAssist=(int)((*it2)->getHP()*0.5)*0.5;
+               maxAssist=(int)((*it2)->getHp()*0.5)*0.5;
                for (it = wP2.begin(); it != wP2.end(); ++it){
                    if((*it)->getType()=="MachineGunner" || (*it)->getType()=="Rifleman"){//only assist with a limited amount
                          warParticipants.push_back(*it); 

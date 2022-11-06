@@ -1,8 +1,7 @@
 #include "AirCraft.h"
 
 AirCraft::AirCraft(int d, int h) : WarParticipant("WarTransportFactory", "AirCraft", d, h){
-    damage=d;
-    hp=h;
+ type="Aircraft";
 }
 
 AirCraft* AirCraft::clone() {

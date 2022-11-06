@@ -1,8 +1,7 @@
 #include "Bomb.h"
 
 Bomb::Bomb(int d, int h): WarParticipant("ExplosiveFactory", "Bomb", d, h) {
-    damage=d;
-    hp=h;
+type="Bomb";
 }
 
 Bomb* Bomb::clone() {

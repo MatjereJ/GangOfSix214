@@ -4,8 +4,9 @@
 
 #ifndef PROJECTASSIGNMENT_BATTLESTATE_H
 #define PROJECTASSIGNMENT_BATTLESTATE_H
-class Country;
+#include "IndividualCountry.h"
 #include <iostream>
+
 
 using namespace std;
 
@@ -14,7 +15,7 @@ public:
     BattleState();
     BattleState *successor;
     void Add(BattleState *Succ);
-    virtual void handleChange(Country *C);
+    virtual void handleChange(IndividualCountry *C);
 };
 
 

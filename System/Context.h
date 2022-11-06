@@ -1,7 +1,7 @@
 #ifndef Context_h
 #define Context_h
 #include "AttackStrategy.h"
-#include "Country.h"
+
 
 class Context
 {
@@ -12,7 +12,7 @@ public:
     Context(AttackStrategy *s);
     ~Context();
     void SetState(AttackStrategy *s);
-    void implement(Country *C);
+    void implement(IndividualCountry *C);
 };
 
 #endif

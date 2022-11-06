@@ -3,15 +3,14 @@
 #include "IteratorTool.h"
 #include <list>
 #include "CountryObserver.h"
-#include "Country.h"
 
-class Country;
+class IndividualCountry;
 
 class CountryObserverIterator : public IteratorTool
 {
-	friend class Country;
+	friend class IndividualCountry;
 	public:
-		CountryObserverIterator(Country*);
+		CountryObserverIterator(vector<CountryObserver*>);
 		void first();
 		void next();
 		bool isLastEl();

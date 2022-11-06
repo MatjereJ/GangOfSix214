@@ -12,14 +12,21 @@ public:
     std::string getType();
     void incrementParticipantNumber();
     int getNumParticipants();
+
+    void setHp(int Hp){
+        hp=Hp;
+    }
+    //WarParticipant(std::string, int);
+
     int getHP();
     int getDamage();
     void updateHP(int h);
+
 private:
     string manufacturer;
     string type;
     int numParticipants; //Iterator
-protected:
+
     int damage;
     int hp;
 };

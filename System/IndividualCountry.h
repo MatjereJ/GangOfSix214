@@ -8,7 +8,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "CountryObserverIterator.h"
+#include "WarParticipantIterator.h"
 using namespace std;
+
+
 
 class CountryObservers;
 class  IndividualCountry: public Country{
@@ -25,7 +29,7 @@ class  IndividualCountry: public Country{
         *@date  27/10/2022 
      
         */
-        bool add(CountryObserver* c);
+        bool add(CountryObserver* c)override;
         /**
         *@brief Deregisters received obsever to current country.
         *@author Areyeng Mphahlele
@@ -34,7 +38,7 @@ class  IndividualCountry: public Country{
         *@date  27/10/2022 
      
         */
-        bool remove(CountryObserver* c);
+        bool remove(CountryObserver* c)override;
         /**
         *@brief Notifies the Medics and ObservingAllies during war about any changes in resource availability and soldier health.
         *@author Areyeng Mphahlele
@@ -42,7 +46,7 @@ class  IndividualCountry: public Country{
         *@date  27/10/2022 
      
         */
-        void notify();
+        void notify()override;
         /**
         *@brief returns name of current country
         *@author Areyeng Mphahlele 
@@ -58,7 +62,7 @@ class  IndividualCountry: public Country{
         *@date  27/10/2022 
      
         */
-        int getWeaponHP();
+        int getWeaponHP() override;
         /**
         *@brief Add all of the weapon HP inside current's country's war participant vector and returns it as a integer value.
         *@author Areyeng Mphahlele 
@@ -67,6 +71,43 @@ class  IndividualCountry: public Country{
      
         */
         int getSoldierHP();
+
+        void setWeaponHP(int);
+        void setSoldierHP(int);
+    IndividualCountry* pickOpposingCountry(vector<IndividualCountry*>);
+    virtual void withdraw(){};
+    void selectWarTheatre();
+    void createWarParticipants();
+    void attackOpposingCountry(IndividualCountry* c); // state.handleChange(this);
+    CountryBackup* createBackup();//Memento
+    void reinstateCountry(CountryBackup*);
+    virtual WarParticipantIterator* createWarParticipantIterator();//Tseko Iterator
+    virtual void addWarParticipant(WarParticipant*);
+    virtual std::vector<CountryObserver*> getCountryObservers();
+    virtual std::string getName();
+    WarTheatre* getWarTheatre( );
+    void InflictDamage(int dmg);  //Country BattleState
+    IndividualCountry *getOpposingC();
+    void setHp(int HP);
+    vector<WarParticipant *>  getArtillery();
+    State* getState();
+    virtual ~IndividualCountry();
+
+    private:
+    vector<CountryObserver*> countryObservers;
+    vector<IndividualCountry*> alliance;
+    int weaponHP;
+    int soldierHP;
+    int size;
+    string name;
+    State* state;
+    WarTheatre* warTheatre;
+    vector<WarParticipant *> warParticipants;
+    std::string cName;
+    IndividualCountry* OpposingCountry;
+    bool win=false;
+    int hp=1000;
+        
         /**
         *@brief Add the amount of transport inside current's country's war participant vector and returns it as a integer value.
         *@author Areyeng Mphahlele 
@@ -149,5 +190,6 @@ class  IndividualCountry: public Country{
          * 
          */
         bool ocean;
+
 };
 #endif

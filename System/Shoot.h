@@ -7,7 +7,7 @@
 class Shoot : public AttackStrategy
 {
 public:
-    void LaunchAttack(Country *C);
+    void LaunchAttack(IndividualCountry *C);
 };
 
 #endif

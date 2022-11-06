@@ -5,7 +5,7 @@
 #include "BattleState.h"
 
 
-void BattleState::handleChange(Country *C)
+void BattleState::handleChange(IndividualCountry *C)
 {
     if (successor == nullptr)
     {

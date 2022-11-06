@@ -3,9 +3,10 @@
 #include "BattleState.h"
 #include "Country.h"
 
+
 class Defend : public BattleState
 {
 public:
-    void handleChange(Country *C);
+    void handleChange(IndividualCountry *C) override;
 };
 #endif

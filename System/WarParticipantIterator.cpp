@@ -1,8 +1,8 @@
 #include "WarParticipantIterator.h"
 
-WarParticipantIterator::WarParticipantIterator(Country* obj): IteratorTool()
+WarParticipantIterator::WarParticipantIterator(vector<WarParticipant*> list): IteratorTool()
 {
-	storeList = obj->getArtillery();
+	storeList = list;
 	it = storeList.begin();
 	curr = *it;
 }

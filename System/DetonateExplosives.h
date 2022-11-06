@@ -7,7 +7,7 @@
 class DetonateExplosives : public AttackStrategy
 {
 public:
-    void LaunchAttack(Country *C);
+    void LaunchAttack(IndividualCountry *C);
 };
 
 #endif

@@ -1,8 +1,8 @@
 #include "CountryObserverIterator.h"
 
-CountryObserverIterator::CountryObserverIterator(Country* obj): IteratorTool()
+CountryObserverIterator::CountryObserverIterator(vector<CountryObserver*> obj): IteratorTool()
 {
-	storeList = obj->getCountryObservers();
+	storeList = obj;
 	it = storeList.begin();
 	curr = *it;
 }

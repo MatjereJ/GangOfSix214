@@ -2,9 +2,10 @@
 #define Defend_h
 #include "BattleState.h"
 
+
 class Defend : public BattleState
 {
 public:
-    void handleChange(Country *C);
+    void handleChange(IndividualCountry *C) override;
 };
 #endif

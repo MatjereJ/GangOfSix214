@@ -2,20 +2,21 @@
 
 using namespace std;
 
-void Attack::handleChange(Country *C)
+void Attack::handleChange(IndividualCountry *C)
 {
     cout << "Attack" << endl;
-    Country *temp = C->getOpposingC();
+
+    IndividualCountry *temp = C->getOpposingC();
     if (C->getHp() >= temp->getHp() || C->getHp() >= 800)
     {
         cout << "Its inside" << endl;
-        list<WarParticipants *> temp = C->getArtillery();
+        vector<WarParticipant *> temp = C->getArtillery();
         if (temp.empty() == true)
         {
             cout << "Country cannot attack as it has no artillery to attack" << endl;
         }
-        list<WarParticipants *>::iterator it = temp.begin();
-        WarParticipants *curr = *it;
+        vector<WarParticipant *>::iterator it = temp.begin();
+        WarParticipant *curr = *it;
         while (curr->getDamage() != 12 && it != temp.end()) ////////This os fpr Detonate
         {
             cout << "COme on now " << curr->getDamage() << endl;

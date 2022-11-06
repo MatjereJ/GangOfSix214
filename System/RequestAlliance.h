@@ -5,6 +5,6 @@
 class RequestAlliance : public BattleState
 {
 public:
-    void handleChange(Country *C);
+    void handleChange(IndividualCountry *C);
 };
 #endif

@@ -8,6 +8,12 @@ using namespace std;
 IndividualCountry:: IndividualCountry():Country(){
   
 }
+
+
+IndividualCountry::IndividualCountry(std::string name)
+{
+    cName = name;
+}
 int IndividualCountry::getWeaponHP(){
     return weaponHP;
 }
@@ -25,11 +31,10 @@ int IndividualCountry::getHp() {
     return hp;
 }
 
-IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int transport,int s):Country(){
+IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int s):Country(){
     this->name=name;
     this->weaponHP=weaponHP;
     this->soldierHP=soldierHP;
-    this->transport=transport;
     this->size=s;
 }
 bool IndividualCountry::add(CountryObserver* assistance){
@@ -37,6 +42,19 @@ bool IndividualCountry::add(CountryObserver* assistance){
     cout<<"Added Country Observer"<<endl;
     return true;
 }
+IndividualCountry* IndividualCountry::getOpposingC() {
+    return OpposingCountry;
+}
+
+void IndividualCountry:: setHp(int HP){
+    hp=HP;
+}
+
+State* IndividualCountry:: getState(){
+    return state;
+}
+
+
 bool IndividualCountry::remove(CountryObserver* assistance){
     bool found = false;
 
@@ -54,6 +72,144 @@ void IndividualCountry::notify(){
     vector<CountryObserver*>::iterator it = countryObservers.begin();
     for (it = countryObservers.begin(); it != countryObservers.end(); ++it){
         (*it)->update();
+    }
+}
+
+
+void IndividualCountry::addWarParticipant(WarParticipant* warPtc)
+{
+    warParticipants.push_back(warPtc);
+}
+
+
+
+std::vector<CountryObserver*> IndividualCountry::getCountryObservers()
+{
+    return countryObservers;
+}
+
+
+
+
+WarTheatre* IndividualCountry::getWarTheatre()
+{
+    return warTheatre;
+}
+
+
+
+WarParticipantIterator* IndividualCountry::createWarParticipantIterator()
+{
+    return new WarParticipantIterator(this->getArtillery());
+}
+
+
+
+std::string IndividualCountry::getName()
+{
+    return cName;
+}
+
+
+
+vector<WarParticipant*> IndividualCountry::getArtillery() {
+    return warParticipants;
+}
+
+void IndividualCountry::selectWarTheatre() {
+    bool correctInput=false;
+    char x;
+
+    cout<<"Choose your most Lethal Theatre!! "<<"Is it:"<<endl;
+    cout<<"A-AirSpace"<<endl<<"B-Land"<<endl<<"C-Sea"<<endl;
+    cout<<"Enter A,B or C"<<endl;
+    cin>>x;
+
+    while (!correctInput) {
+        if (x == 'A' || x == 'a') {
+            warTheatre = new AirSpace();
+            correctInput = true;
+        } else if (x == 'B' || x == 'b') {
+            warTheatre = new Land();
+            correctInput = true;
+        } else if (x == 'C' || x == 'c') {
+            warTheatre = new Sea();
+            correctInput = true;
+        } else {
+            cout<<"Invalid input. Enter A,B or C"<<endl;
+            correctInput= false;
+        }
+    }
+}
+
+IndividualCountry* IndividualCountry::pickOpposingCountry(vector<IndividualCountry*> enemies) {
+
+    srand(time(0));
+    int random=rand()% enemies.size();
+    OpposingCountry=enemies.at(random);
+
+    return OpposingCountry;
+
+}
+
+void IndividualCountry::createWarParticipants() {
+
+
+}
+
+
+void IndividualCountry::attackOpposingCountry(IndividualCountry *opp) {
+
+}
+
+
+CountryBackup* IndividualCountry::createBackup() {
+    return new CountryBackup(hp,warTheatre,warParticipants,countryObservers,OpposingCountry,win);
+}
+
+
+
+void IndividualCountry::reinstateCountry(CountryBackup *backup) {
+    State* s=backup->getState();
+    hp=s->getHP();
+    warTheatre=s->getWarTheatre();
+    warParticipants=s->getWarParticipants();
+    countryObservers=s->getCountryObservers();
+    OpposingCountry=s->getOppCountry();
+    win=s->getW();
+}
+
+IndividualCountry::~IndividualCountry()
+{
+    warParticipants.clear();
+    std::cout<<"Parent of "<<cName <<" deleted.\n";
+}
+
+
+void IndividualCountry::InflictDamage(int dmg)
+{
+    this->hp = hp - dmg;
+    vector<WarParticipant *>::iterator it = warParticipants.begin();
+    int totalSoldiers = 0;
+    for (it = warParticipants.begin(); it != warParticipants.end(); it++)
+    {
+        if ((*it)->getType() == "Rifleman" || (*it)->getType() == "MachineGunner")
+        {
+            totalSoldiers++;
+        }
+    }
+    int SoldierD = dmg / totalSoldiers;
+    for (it = warParticipants.begin(); it != warParticipants.end(); it++)
+    {
+        if ((*it)->getType() == "Rifleman" || (*it)->getType() == "MachineGunner")
+        {
+            if ((*it)->getHP() < SoldierD)
+            {
+                (*it)->setHp(0);
+            }
+            else
+                (*it)->setHp((*it)->getHP() - SoldierD);
+        }
     }
 }
 

@@ -4,8 +4,8 @@
 
 #include "CountryBackup.h"
 
-CountryBackup::CountryBackup(int HP, BattleState *bS, WarTheatre *wT, vector<WarParticipant *> participants, vector<CountryObserver *>observers, Country *opp, bool win) {
-state=new State(HP,bS,wT,participants,observers,opp,win);
+CountryBackup::CountryBackup(int HP, WarTheatre *wT, vector<WarParticipant *> participants, vector<CountryObserver *>observers, IndividualCountry *opp, bool win) {
+state=new State(HP,wT,participants,observers,opp,win);
 }
 
 CountryBackup::~CountryBackup() {

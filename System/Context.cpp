@@ -17,7 +17,7 @@ void Context::SetState(AttackStrategy *s)
     state = s;
 }
 
-void Context::implement(Country *C)
+void Context::implement(IndividualCountry *C)
 {
     state->LaunchAttack(C);
 }

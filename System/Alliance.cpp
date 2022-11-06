@@ -62,3 +62,8 @@ int Alliance::getHp(){
 
     return this->allianceHp;
 }
+
+CountryIterator* Alliance::createCountryIterator()
+{
+    return new CountryIterator(this->getAlliance());
+}

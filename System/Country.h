@@ -7,7 +7,6 @@
 #include <list>
 #include "WarParticipant.h"
 #include "WarTheatre.h"
-#include "BattleState.h"
 #include "CountryObserver.h"
 #include "Sea.h"
 #include "AirSpace.h"
@@ -18,62 +17,22 @@
 #include "CountryBackup.h"
 #include <vector>
 #include <string>
-#include "CountryObserverIterator.h"
-#include "WarParticipantIterator.h"
-using namespace std;
-#include <string>
 
-class BattleState;
-class WarTheatre;
-class CountryObserverIterator;
-class WarParticipantIterator;
-class CountryIterator;
+using namespace std;
 
 class Country {
-
-
 public:
-    Country(std::string);
-    Country(BattleState* state);
+
     Country(Country *C);
     Country();
-    BattleState* getBattleState();
-    Country* pickOpposingCountry(vector<Country*>);
-    virtual void withdraw(){}
-    void setBattleState(BattleState* );
-    void selectWarTheatre();
-    void createWarParticipants();
-    void attackOpposingCountry(Country* c); // state.handleChange(this);
+    virtual bool add(CountryObserver* c){return false;};
+    virtual bool remove(CountryObserver* c){return false;};
+    virtual void notify(){};
     virtual int getHp()=0;
-    CountryBackup* createBackup();//Memento
-    void reinstateCountry(CountryBackup*);
-    virtual WarParticipantIterator* createWarParticipantIterator();//Tseko Iterator
-    virtual void addWarParticipant(WarParticipant*);
-    virtual std::vector<CountryObserver*> getCountryObservers();
-    virtual std::string getName();
-    WarTheatre* getWarTheatre();
-    virtual bool add(CountryObserver* c);   //Country Observer
-    virtual bool remove(CountryObserver* c);
-    virtual void notify();
-    void InflictDamage(int dmg);  //Country BattleState
-    Country *getOpposingC();
-    void setHp(int HP);
-    vector<WarParticipant *>  getArtillery();
-    void addArtillery(WarParticipant *W);
-    virtual ~Country();
+    virtual ~Country(){};
 
 private:
-    State* state;
-    BattleState* battlestate;
-    WarTheatre* warTheatre;
-    vector<WarParticipant *> warParticipants;
-    std::string cName;
-    vector<CountryObserver *> countryObservers;
-    Country* OpposingCountry;
-    bool win=false;
-
-protected:
-    int hp=1000;
+    vector<CountryObserver*> countryObservers;
 };
 
 

@@ -3,9 +3,9 @@
 
 using namespace std;
 
-void Defend::handleChange(Country *C)
+void Defend::handleChange(IndividualCountry *C)
 {
-    Country *temp = C->getOpposingC();
+    IndividualCountry *temp = C->getOpposingC();
     if (C->getHp() < temp->getHp() && C->getHp() > 300)
     {
         cout << " Country is going to defend its troops and will not attack" << endl;

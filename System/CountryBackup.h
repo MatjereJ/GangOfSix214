@@ -7,7 +7,6 @@
 #include <list>
 #include "WarParticipant.h"
 #include "WarTheatre.h"
-#include "BattleState.h"
 #include "CountryObserver.h"
 #include "Sea.h"
 #include "AirSpace.h"
@@ -22,22 +21,26 @@
 using namespace std;
 class CountryBackup {
 private:
-    friend class Country;
+    friend class IndividualCountry;
     int hp;
     State* state;
-    Country* opposingCountry;
-    BattleState* battleState;
+    IndividualCountry* opposingCountry;
     WarTheatre* warTheatre;
     std::vector<WarParticipant*> warParticipants;
     std::vector<CountryObserver*> countryObservers;
     bool win;
 
 public:
-    CountryBackup(int,BattleState*, WarTheatre*,vector<WarParticipant*>,vector<CountryObserver*>,Country*,bool);
-    BattleState* getBattleState();
+    CountryBackup(int, WarTheatre*,vector<WarParticipant*>,vector<CountryObserver*>,IndividualCountry*,bool);
     WarTheatre* getWarTheatre();
     WarParticipant* getWarParticipants();
     CountryObserver* getCountryObservers();
+    State* getState() {
+        return state;
+    }
+    IndividualCountry* getOppCountry() {
+        return opposingCountry;
+    }
     virtual ~CountryBackup();
 };
 

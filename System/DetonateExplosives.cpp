@@ -1,14 +1,14 @@
 #include "DetonateExplosives.h"
 
-void DetonateExplosives::LaunchAttack(Country *C)
+void DetonateExplosives::LaunchAttack(IndividualCountry *C)
 {
     int totalD = 0;
-    Country *Opps = C->getOpposingC();
-    list<WarParticipants *> temp = C->getArtillery();
-    list<WarParticipants *>::iterator it = temp.begin();
+    IndividualCountry *Opps = C->getOpposingC();
+    vector<WarParticipant *> temp = C->getArtillery();
+    vector<WarParticipant *>::iterator it = temp.begin();
     for (it = temp.begin(); it != temp.end(); it++)
     {
-        WarParticipants *curr = *it;
+        WarParticipant *curr = *it;
         if (curr->getDamage() == 12)
         {
             totalD = totalD + curr->getDamage();

@@ -1,17 +1,16 @@
 #ifndef WARPARTICIPANTITERATOR_H
 #define WARPARTICIPANTITERATOR_H
 #include "IteratorTool.h"
-#include <list>
+#include <vector>
 #include "WarParticipant.h"
-#include "Country.h"
-
-class Country;
+class IndividualCountry;
+using namespace std;
 
 class WarParticipantIterator : public IteratorTool
 {
-	friend class Country;
+	friend class IndividualCountry;
 	public:
-		WarParticipantIterator(Country*);
+		WarParticipantIterator(vector<WarParticipant*>);
 		void first();
 		void next();
 		bool isLastEl();

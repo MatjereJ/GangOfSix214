@@ -1,13 +1,13 @@
 #ifndef FireMissile_h
 #define FireMissile_h
 #include "AttackStrategy.h"
-#include <list>
+#include <vector>
 #include <iostream>
 
 class FireMissile : public AttackStrategy
 {
 public:
-    void LaunchAttack(Country *C);
+    void LaunchAttack(IndividualCountry *C);
 };
 
 #endif

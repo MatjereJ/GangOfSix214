@@ -3,9 +3,9 @@
 
 using namespace std;
 
-void Surrender::handleChange(Country *C)
+void Surrender::handleChange(IndividualCountry *C)
 {
-    Country *temp = C->getOpposingC();
+    IndividualCountry *temp = C->getOpposingC();
     if (C->getHp() < temp->getHp() && C->getHp() <= 300)
     {
         cout << "Country has decided to surrender, Its a Long Day" << endl;

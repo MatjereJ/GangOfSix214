@@ -227,7 +227,7 @@ void IndividualCountry::attackOpposingCountry(IndividualCountry *opp) {
 
 
 CountryBackup* IndividualCountry::createBackup() {
-    return new CountryBackup(hp,warTheatre,warParticipants,countryObservers,OpposingCountry,win);
+    return new CountryBackup(hp,warTheatre,warParticipants,countryObservers,OpposingCountry,lose);
 }
 
 
@@ -239,7 +239,7 @@ void IndividualCountry::reinstateCountry(CountryBackup *backup) {
     warParticipants=s->getWarParticipants();
     countryObservers=s->getCountryObservers();
     OpposingCountry=s->getOppCountry();
-    win=s->getW();
+    lose=s->getW();
 }
 
 IndividualCountry::~IndividualCountry()
@@ -335,6 +335,10 @@ int IndividualCountry::getHp(){
 
 vector<WarParticipant*> IndividualCountry::getWarParticipants(){
     return this->wP;
+}
+
+void IndividualCountry::setLose() {
+    lose=true;
 }
 
 

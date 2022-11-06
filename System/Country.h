@@ -66,7 +66,7 @@ private:
     State* state;
     BattleState* battlestate;
     WarTheatre* warTheatre;
-    std::string cName;
+    string cName;
     vector<CountryObserver *> countryObservers;
     Country* OpposingCountry;
     bool win=false;

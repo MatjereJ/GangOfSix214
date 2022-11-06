@@ -2,13 +2,17 @@
 #include "Bomb.h"
 #include "Missile.h"
 
+ExplosiveFactory::ExplosiveFactory() {
+
+}
+
 WarParticipant* ExplosiveFactory::createBomb(int damage) {
-    Bomb* temp=new Bomb(damage);
+    Bomb* temp=new Bomb(damage, 30);
     return temp;
 }
 
 WarParticipant* ExplosiveFactory::createMissile(int damage){
-    Missile* temp=new Missile(damage);
+    Missile* temp=new Missile(damage, 30);
     return temp;
 }
 

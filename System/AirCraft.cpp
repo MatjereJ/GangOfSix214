@@ -1,11 +1,12 @@
 #include "AirCraft.h"
 
 AirCraft::AirCraft(int d, int h) : WarParticipant("WarTransportFactory", "AirCraft", d, h){
-
+    damage=d;
+    hp=h;
 }
 
-Aircraft* AirCraft::clone() {
-    AirCraft* temp=new AirCraft(HP);
+AirCraft* AirCraft::clone() {
+    AirCraft* temp=new AirCraft(damage, hp);
     return temp;
 }
 

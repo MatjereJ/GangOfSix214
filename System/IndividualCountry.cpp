@@ -3,22 +3,24 @@
 #include <vector>
 #include "CountryObserver.h"
 #include "IndividualCountry.h"
+#include "WarTransportFactory.h"
+
+
 using namespace std;
 
-IndividualCountry::IndividualCountry(string n){
-   this->initialHP=this->getHP();
-   this->name=n;
-  
-=======
-IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int transport) {
+IndividualCountry::IndividualCountry(string n) {
+    this->name = n;
+}
+
+IndividualCountry::IndividualCountry(string name,int weaponHP,int soldierHP,int transport) {
     this->name = name;
     this->weaponHP = weaponHP;
     this->soldierHP = soldierHP;
     this->transport = transport;
 }
 
-IndividualCountry::IndividualCountry(string name, int level, bool sea){
-    cName=name;
+IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
+    this->name=name;
     ocean=sea;
     SoldierFactory* soldierFactory=new SoldierFactory();
     ExplosiveFactory* explosiveFactory=new ExplosiveFactory();

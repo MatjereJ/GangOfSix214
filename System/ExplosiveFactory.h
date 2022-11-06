@@ -5,6 +5,7 @@
 
 class ExplosiveFactory: public WarParticipantFactory{
 public:
+    ExplosiveFactory();
     WarParticipant* createBomb(int damage);
     WarParticipant* createMissile(int damage);
 };

@@ -3,11 +3,11 @@
 void FireMissile::LaunchAttack(Country *C)
 {
     int totalD = 0;
-    list<WarParticipants *> temp = C->getArtillery();
-    list<WarParticipants *>::iterator it = temp.begin();
+    vector<WarParticipant*> temp = C->getArtillery();
+    vector<WarParticipant*>::iterator it = temp.begin();
     for (it = temp.begin(); it != temp.end(); it++)
     {
-        WarParticipants *curr = *it;
+        WarParticipant *curr = *it;
         if (curr->getDamage() == 20 || curr->getDamage() == 25 || curr->getDamage() == 30)
         {
             totalD = totalD + curr->getDamage();

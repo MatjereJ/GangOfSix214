@@ -5,7 +5,7 @@
 
 class Bomb: public WarParticipant {
 public:
-    Bomb(int d, h);
+    Bomb(int d, int h);
     Bomb* clone();
     void doNotting();
 };

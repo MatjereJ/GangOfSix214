@@ -8,16 +8,12 @@
 #include <vector>
 using namespace std;
 
-<<<<<<< Updated upstream
-Country(string name, bool sea){
+Country::Country(string name, bool sea){
     cName=name;
-    ocean=sea;
 }
-=======
 //Country(string name){
 //    cName=name;
 //}
->>>>>>> Stashed changes
 
 Country::Country(BattleState* state){
     this->battlestate=state;

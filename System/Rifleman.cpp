@@ -1,14 +1,15 @@
 #include "Rifleman.h"
 
-Rifleman::Rifle(int d, int h) : WarParticipant("FireArmFactory", "Rifleman", d, h){
-
+Rifleman::Rifleman(int d, int h) : WarParticipant("FireArmFactory", "Rifleman", d, h){
+    damage=d;
+    hp=h;
 }
 
 Rifleman* Rifleman::clone() {
-    Rifleman* temp=new Rifleman(damage);
+    Rifleman* temp=new Rifleman(damage, hp);
     return temp;
 }
 
-void WarShip::doNotting() {
+void Rifleman::doNotting() {
 
 }

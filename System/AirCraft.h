@@ -6,7 +6,7 @@
 class AirCraft: public WarParticipant {
 public:
     AirCraft(int d, int h);
-    Aircraft* clone();
+    AirCraft* clone();
     void doNotting();
 
 };

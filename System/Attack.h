@@ -6,7 +6,7 @@
 #include "FireMissile.h"
 #include "Context.h"
 #include "Country.h"
-#include "WarParticipants.h"
+#include "WarParticipant.h"
 
 class Attack : public BattleState
 {

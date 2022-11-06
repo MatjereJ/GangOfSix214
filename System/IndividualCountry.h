@@ -3,6 +3,8 @@
 #include "Country.h"
 #include "CountryObserver.h"
 #include "SoldierFactory.h"
+#include "ExplosiveFactory.h"
+#include "WarTransportFactory.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -39,14 +41,7 @@ class  IndividualCountry: public Country{
         int currWeaponHP;
         int initialHP;
         string name;
-        vector<warParticipants*> wp;
-        int weaponHP;
-        int soldierHP;
-        int transport;
         int size;
-        string name;
-        int currWeaponHP;
-        int initialHP;
         bool ocean;
 };
 #endif

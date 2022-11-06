@@ -16,7 +16,6 @@
 #include "Defend.h"
 #include "DetonateExplosives.h"
 #include "ExplosiveFactory.h"
-#include "FireArmFactory.h"
 
 
 #include <iostream>
@@ -37,9 +36,9 @@ int main()
 {
     cout<<"***********     Game Simulation    ***************\n";
     initializeCountries();
-    pickCountry();
-    fight();
-    endGame();
+    //pickCountry();
+    //fight();
+    //endGame();
     return 0;
 }
 

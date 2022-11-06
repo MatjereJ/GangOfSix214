@@ -1,13 +1,16 @@
-#ifndef PRACTICAL_ASSIGNMENT_3_EXPLOSIVEFACTORY_H
-#define PRACTICAL_ASSIGNMENT_3_EXPLOSIVEFACTORY_H
+#ifndef PRACTICAL_ASSIGNMENT_3_WARTRANSPORTFACTORY_H
+#define PRACTICAL_ASSIGNMENT_3_WARTRANSPORTFACTORY_H
 #include "WarParticipantFactory.h"
 #include "WarParticipant.h"
+#include "AirCraft.h"
+#include "WarShip.h"
 
 class WarTransportFactory: public WarParticipantFactory{
 public:
-    WarParticipant* createAirCraft(int HP);
-    WarParticipant* createWarShip(int HP);
+    WarTransportFactory();
+    AirCraft* createAirCraft(int HP);
+    WarShip* createWarShip(int HP);
 };
 
 
-#endif //PRACTICAL_ASSIGNMENT_3_EXPLOSIVEFACTORY_H
+#endif //PRACTICAL_ASSIGNMENT_3_WARTRANSPORTFACTORY_H

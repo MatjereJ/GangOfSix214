@@ -16,6 +16,7 @@ public:
     void addAlly(Country* ally);
     void removeAlly(Country* ally);
     int getHp();
+    bool contains(Country* cCountry);
 
 private:
     int allianceHp;

@@ -63,6 +63,19 @@ int Alliance::getHp(){
     return this->allianceHp;
 }
 
+bool Alliance::contains(Country* cCountry){
+    bool found = false;                                   // becomes true if the country is already in the list
+    vector<Country*>::iterator it = this->alliance.begin();
+    while (it != alliance.end()) {
+        if (*it == cCountry) {
+            found = true;                               // country already in the list
+            break;                                      // exit the loop
+        }
+        it++;                                           // move to the next position in the list
+    }
+
+    return found; // returns true if
+}
 CountryIterator* Alliance::createCountryIterator()
 {
     return new CountryIterator(this->getAlliance());

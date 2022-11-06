@@ -29,12 +29,13 @@ void getCountryStats(int cNum);
  void endGame();
 
 IndividualCountry*  country[10];
+Alliance* alliances[2];
 IndividualCountry* myCountry;
 int countryNum, countrySize=2;
 
 int main()
 {
-    cout<<"***********     Game Simulation    ***************\n";
+    cout<<"*************    Game Simulation    ***************\n";
     initializeCountries();
     //pickCountry();
     //fight();
@@ -43,9 +44,26 @@ int main()
 }
 
  void initializeCountries(){
-    country[0]=new IndividualCountry("China", 1, false);
+    country[0]=new IndividualCountry("Brazil", 2, false);
     country[1]=new IndividualCountry("Russia", 1, false);
-    //And so on
+    country[2]=new IndividualCountry("India", 2, false);
+    country[3]=new IndividualCountry("China", 1, false);
+    country[4]=new IndividualCountry("South Africa", 3, false);
+    country[5]=new IndividualCountry("Canada", 2, false);
+    country[6]=new IndividualCountry("Germany", 1, false);
+    country[7]=new IndividualCountry("France", 2, false);
+    country[8]=new IndividualCountry("United States", 1, false);
+    country[9]=new IndividualCountry("Australia", 3, false);
+    alliances[0]=new Alliance();
+    alliances[0]->addAlly(country[0]);
+    alliances[0]->addAlly(country[1]);
+    alliances[0]->addAlly(country[2]);
+    alliances[0]->addAlly(country[3]);
+    alliances[0]->addAlly(country[4]);
+    alliances[1]->addAlly(country[5]);
+    alliances[1]->addAlly(country[6]);
+    alliances[1]->addAlly(country[7]);
+    alliances[1]->addAlly(country[8]);
 }
 
  void pickCountry(){

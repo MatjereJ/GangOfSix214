@@ -66,7 +66,9 @@ int main()
     return 0;
 }
 
-void initializeCountries(){
+
+ void initializeCountries(){
+
     country[0]=new IndividualCountry("Brazil", 2, false);
     country[1]=new IndividualCountry("Russia", 1, false);
     country[2]=new IndividualCountry("India", 2, false);

@@ -31,6 +31,7 @@ void getCountryStats(int cNum);
 IndividualCountry*  country[10];
 Alliance* alliances[2];
 IndividualCountry* myCountry;
+IndividualCountry* myOpposingCountry;
 int countryNum, countrySize=2;
 
 int main()
@@ -90,7 +91,7 @@ int main()
  void pickCountry(){
     cout<<"Select a Country from the list below by entering it's number"<<endl;
     for(int i=0; i<countrySize; i++) {
-        cout<<i<<": "<<country[i]<<endl;
+        cout<<i<<": "<<country[i]->getName()<<endl;
     }
     cin>>countryNum;
     myCountry=country[countryNum];
@@ -103,6 +104,25 @@ int main()
 
      }
  */
+ }
+
+ void selectOpposingCountry(){
+    int opposingNum;
+    cout << "Select the opposing country from the list below by entering its number."<<endl;
+    if ( alliances[0]->contains(myCountry))
+    {
+        for ( int i = 5; i <countrySize; i++){
+            cout << (i-5) << ": " << country[i]->getName() << endl;
+        }
+        cin >> opposingNum;
+        myOpposingCountry = country[opposingNum+5];
+    }else if( alliances[1]->contains(myCountry)){
+        for ( int i = 0; i < 5; i++){
+            cout << (i) << ": " << country[i]->getName() << endl;
+        }
+        cin >> opposingNum;
+        myOpposingCountry = country[opposingNum];
+    }
  }
  /*
   void selectOpposingCountry(){

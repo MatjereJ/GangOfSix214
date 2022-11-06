@@ -1,11 +1,15 @@
 #ifndef PRACTICAL_ASSIGNMENT_3_SOLDIERFACTORY_H
 #define PRACTICAL_ASSIGNMENT_3_SOLDIERFACTORY_H
 #include "WarParticipantFactory.h"
-#include "Soldier.h"
+#include "MachineGunner.h"
+#include "Rifleman.h"
+
 
 class SoldierFactory: public WarParticipantFactory {
 public:
-    Soldier* createSoldier(int HP);
+    SoldierFactory();
+    Rifleman* createRifleman(int HP);
+    MachineGunner* createMachineGunner(int HP);
 };
 
 #endif //PRACTICAL_ASSIGNMENT_3_SOLDIERFACTORY_H

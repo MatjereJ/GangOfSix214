@@ -1,10 +1,11 @@
 #include "Missile.h"
 
-Missile::Missile(int damage) : WarParticipant("FireArmFactory", "Missile"){
-    this->damage=damage;
+Missile::Missile(int d, int h) : WarParticipant("FireArmFactory", "Missile", d, h){
+    damage=d;
+    hp=h;
 }
 
-WarParticipant* Missile::clone() {
-    Missile* temp=new Missile(damage);
+Missile* Missile::clone() {
+    Missile* temp=new Missile(damage, hp);
     return temp;
 }

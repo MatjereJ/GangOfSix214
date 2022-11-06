@@ -4,13 +4,9 @@
 #include "WarParticipantFactory.h"
 
 class AirCraft: public WarParticipant {
-private:
-    int HP;
-    int damage;
 public:
-    AirCraft(int hp);
-    AirCraft(string type) : WarParticipant(type, 25){};
-    WarParticipant* clone();
+    AirCraft(int d, int h);
+    AirCraft* clone();
     void doNotting();
 
 };

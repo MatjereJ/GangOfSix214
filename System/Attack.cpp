@@ -10,12 +10,17 @@ void Attack::handleChange(IndividualCountry *C)
     if (C->getHp() >= temp->getHp() || C->getHp() >= 800)
     {
         cout << "Its inside" << endl;
-        vector<WarParticipant *> temp = C->getArtillery();
+
+        vector<WarParticipant*> temp = C->getArtillery();
+
         if (temp.empty() == true)
         {
             cout << "Country cannot attack as it has no artillery to attack" << endl;
         }
-        vector<WarParticipant *>::iterator it = temp.begin();
+
+
+        vector<WarParticipant*>::iterator it = temp.begin();
+
         WarParticipant *curr = *it;
         while (curr->getDamage() != 12 && it != temp.end()) ////////This os fpr Detonate
         {

@@ -4,10 +4,9 @@
 #include "WarParticipantFactory.h"
 
 class WarShip: public WarParticipant {
-    int HP;
 public:
-    WarShip(int hp);
-    WarParticipant* clone();
+    WarShip(int d, int h);
+    WarShip* clone();
     void doNotting();
 };
 

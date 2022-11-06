@@ -23,6 +23,9 @@ using namespace std;
 class Country {
 public:
 
+
+
+    Country(std::string, bool);
     Country(Country *C);
     Country();
     virtual bool add(CountryObserver* c){return false;};
@@ -32,7 +35,9 @@ public:
     virtual ~Country(){};
 
 private:
+
     vector<CountryObserver*> countryObservers;
+
 };
 
 

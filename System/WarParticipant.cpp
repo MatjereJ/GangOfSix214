@@ -1,24 +1,16 @@
 #include "WarParticipant.h"
 
-    WarParticipant::WarParticipant(std::string manufacturer, std::string type) {
+    WarParticipant::WarParticipant(string manufacturer, string type, int d, int h) {
         this->manufacturer=manufacturer;
         this->type=type;
-    }
-
-    string WarParticipant::getDescription() {
-        return type;
+        damage=d;
+        hp=h;
     }
 
 //    WarParticipant::~WarParticipant(){
 //        delete this;
 //    }
 
-
-WarParticipant::WarParticipant(std::string type, int num) 
-{
-	this->type = type;
-	numParticipants = num;
-}
 
 std::string WarParticipant::getType()
 {
@@ -35,4 +27,13 @@ int WarParticipant::getNumParticipants()
 	return numParticipants;
 }
 
+int WarParticipant::getHP(){
+    return hp;
+}
+int WarParticipant::getDamage(){
+    return damage;
+}
+void WarParticipant::updateHP(int h){
+    this->hp=h;
+}
     

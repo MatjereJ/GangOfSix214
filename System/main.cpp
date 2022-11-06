@@ -16,7 +16,6 @@
 #include "Defend.h"
 #include "DetonateExplosives.h"
 #include "ExplosiveFactory.h"
-#include "FireArmFactory.h"
 
 
 #include <iostream>
@@ -37,15 +36,15 @@ int main()
 {
     cout<<"***********     Game Simulation    ***************\n";
     initializeCountries();
-    pickCountry();
-    fight();
-    endGame();
+    //pickCountry();
+    //fight();
+    //endGame();
     return 0;
 }
 
  void initializeCountries(){
-    country[0]=new IndividualCountry("China", 38, 200, 17, 4);
-    country[1]=new IndividualCountry("Russia", 50, 209, 53, 19);
+    country[0]=new IndividualCountry("China", 1, false);
+    country[1]=new IndividualCountry("Russia", 1, false);
     //And so on
 }
 

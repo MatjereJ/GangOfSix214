@@ -5,8 +5,10 @@
 #include "Shoot.h"
 #include "FireMissile.h"
 #include "Context.h"
-#include "WarParticipants.h"
-//#include "IndividualCountry.h"
+
+#include "Country.h"
+#include "WarParticipant.h"
+
 
 class Attack : public BattleState
 {

@@ -1,13 +1,15 @@
 #include "WarTransportFactory.h"
-#include "AirCraft.h"
-#include "WarShip.h"
 
-WarParticipant* WarTransportFactory::createAirCraft(int hp) {
-    AirCraft* temp=new AirCraft(hp);
+WarTransportFactory::WarTransportFactory() {
+
+}
+
+AirCraft* WarTransportFactory::createAirCraft(int hp) {
+    AirCraft* temp=new AirCraft(0, hp);
     return temp;
 }
 
-WarParticipant* WarTransportFactory::createWarShip(int hp) {
-    WarShip* temp=new WarShip(hp);
+WarShip* WarTransportFactory::createWarShip(int damage) {
+    WarShip* temp=new WarShip(damage, 250);
     return temp;
 }

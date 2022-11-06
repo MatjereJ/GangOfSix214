@@ -20,10 +20,10 @@ void Medics::update(){
     if((*it)->getType()=="MachineGunner" || ((*it)->getType()=="RifleMan"))
     {
         if(this->maxHeal<3){
-            if((*it)->getDamage()<30)
+            if((*it)->getHP()<30  && (*it)->getHP()!=0)//help if injured not dead
             {
                 cout<<"Soldier is injured and has "<<(*it)->getHP()<<" HP"<<endl;
-                (*it)->setHP(this->healingHp);
+                (*it)->updateHP(this->healingHp);
                 this->maxHeal++;
             
                 cout<<"Medic Healing Soldier from "<<this->currentCountry->getName()<<endl;

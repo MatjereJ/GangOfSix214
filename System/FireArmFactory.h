@@ -2,13 +2,13 @@
 #define PRACTICAL_ASSIGNMENT_3_FIREARMFACTORY_H
 #include "WarParticipantFactory.h"
 #include "WarParticipant.h"
-#include "MachineGun.h"
-#include "Rifle.h"
+#include "MachineGunner.h"
+#include "Rifleman.h"
 
 class FireArmFactory: public WarParticipantFactory{
 public:
-    Rifle* createRifle(int damage);
-    MachineGun* createMachineGun(int damage);
+    Rifleman* createRifle(int damage);
+    MachineGunner* createMachineGun(int damage);
 };
 
 

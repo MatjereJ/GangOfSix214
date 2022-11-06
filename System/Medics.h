@@ -19,7 +19,7 @@ class Medics : public CountryObserver {//Concrete Observer
         int observedS;
         int observedT;
         int maxHeal=0;
-        int healingHp=90;
+        int healingHp=12;
         bool medicObserved=false;//set to false if true, when Allies send medics
         IndividualCountry* currentCountry;
         vector<WarParticipant*> warParticipants;

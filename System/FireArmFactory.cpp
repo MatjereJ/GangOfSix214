@@ -1,20 +1,20 @@
 #include "FireArmFactory.h"
-#include "Rifle.h"
-#include "MachineGun.h"
+#include "Rifleman.h"
+#include "MachineGunner.h"
 #include "iostream"
 using namespace std;
 
-Rifle* FireArmFactory::createRifle(int damage){
-    Rifle* temp=new Rifle(damage);
+Rifleman* FireArmFactory::createRifle(int damage){
+    Rifleman* temp=new Rifleman(damage);
     return temp;
 }
 
-MachineGun* FireArmFactory::createMachineGun(int damage){
+MachineGunner* FireArmFactory::createMachineGun(int damage){
     cout<<"Machine Gun Created"<<endl;
-    MachineGun* temp=new MachineGun(damage);
+    MachineGunner* temp=new MachineGunner(damage);
     return temp;
 }
 
-void Rifle::doNotting() {
+void Rifleman::doNotting() {
 
 }

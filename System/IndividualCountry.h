@@ -13,9 +13,9 @@ using namespace std;
 class CountryObservers;
 class  IndividualCountry: public Country{
      public:
-        IndividualCountry(string n);
+       
         IndividualCountry();
-        IndividualCountry(string name,int weaponHP,int soldiierHP,int transport);
+    
         IndividualCountry(string name, int level, bool sea);
         bool add(CountryObserver* c);
         bool remove(CountryObserver* c);
@@ -25,9 +25,8 @@ class  IndividualCountry: public Country{
         int getSoldierHP();
         int getTransport();
         int getSize();
-        void checkHp();
-        int getInitialHP();
-        void setInitial();
+        void observeHp();
+        int getHP();
         void setAlliance(vector<IndividualCountry*> alliance);
         vector<IndividualCountry*> getAlliance();
         vector<WarParticipant*> getWarParticipants();
@@ -35,11 +34,6 @@ class  IndividualCountry: public Country{
         vector<CountryObserver*> countryObservers;
         vector<IndividualCountry*> alliance;
         vector<WarParticipant*> wP;
-        int weaponHP;
-        int soldierHP;
-        int transport;
-        int currWeaponHP;
-        int initialHP;
         string name;
         int size;
         bool ocean;

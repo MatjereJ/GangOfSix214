@@ -14,6 +14,7 @@ public:
     int getNumParticipants();
     int getHP();
     int getDamage();
+    void updateHP(int h);
 private:
     string manufacturer;
     string type;

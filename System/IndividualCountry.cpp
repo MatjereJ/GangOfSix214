@@ -1,16 +1,33 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <Random>
 #include "CountryObserver.h"
 #include "IndividualCountry.h"
+#include "FireArmFactory.h"
+#include "ExplosiveFactory.h"
+#include "WarTransportFactory.h"
 using namespace std;
 
+<<<<<<< Updated upstream
 IndividualCountry:: IndividualCountry(string name,int weaponHP,int soldierHP,int transport){
     this->name=name;
     this->weaponHP=weaponHP;
     this->soldierHP=soldierHP;
     this->transport=transport;
+=======
+IndividualCountry::IndividualCountry(string name, int level, bool sea){
+    cName=name;
+    ocean=sea;
+    FireArmFactory* soldierFactory=new FireArmFactory();
+    ExplosiveFactory* explosiveFactory=new ExplosiveFactory();
+    WarTransportFactory* warTransportFactory=new WarTransportFactory();
+    if(level==1){
+        Random rand=new Random()
+    }
+>>>>>>> Stashed changes
 }
+
 bool IndividualCountry::add(CountryObserver* assistance){
     countryObservers.push_back(assistance); 
     cout<<"Added Country Observer"<<endl;

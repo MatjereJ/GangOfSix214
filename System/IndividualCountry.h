@@ -10,8 +10,12 @@ using namespace std;
 class CountryObservers;
 class  IndividualCountry: public Country{
      public:
+<<<<<<< Updated upstream
         IndividualCountry();
         IndividualCountry(string name,int weaponHP,int soldiierHP,int transport);
+=======
+        IndividualCountry(string name, int level, bool sea);
+>>>>>>> Stashed changes
         bool add(CountryObserver* c);
         bool remove(CountryObserver* c);
         void notify();
@@ -29,7 +33,13 @@ class  IndividualCountry: public Country{
         int weaponHP;
         int soldierHP;
         int transport;
+<<<<<<< Updated upstream
         int size;
         string name;
+=======
+        int currWeaponHP;
+        int initialHP;
+        bool ocean;
+>>>>>>> Stashed changes
 };
 #endif

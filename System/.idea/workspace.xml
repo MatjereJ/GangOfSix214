@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a328205-cecc-4ce6-ae1e-3c611949e7e4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/tasks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/Country.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/Country.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/Country.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/Country.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/CountryObserver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/CountryObserver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/CountryObserver.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/CountryObserver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/IndividualCountry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/IndividualCountry.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/IndividualCountry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/IndividualCountry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/Medics.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/Medics.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/Medics.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/Medics.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/ObservingAllies.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/ObservingAllies.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/ObservingAllies.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/ObservingAllies.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer+Composite/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer+Composite/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirCraft.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/AirCraft.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirCraft.h" beforeDir="false" afterPath="$PROJECT_DIR$/AirCraft.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirSpace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/AirSpace.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirSpace.h" beforeDir="false" afterPath="$PROJECT_DIR$/AirSpace.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alliance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Alliance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alliance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Alliance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Attack.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attack.h" beforeDir="false" afterPath="$PROJECT_DIR$/Attack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AttackStrategy.h" beforeDir="false" afterPath="$PROJECT_DIR$/AttackStrategy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BattleState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleState.h" beforeDir="false" afterPath="$PROJECT_DIR$/BattleState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bomb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Bomb.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bomb.h" beforeDir="false" afterPath="$PROJECT_DIR$/Bomb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Context.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Context.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Context.h" beforeDir="false" afterPath="$PROJECT_DIR$/Context.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Country.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Country.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Country.h" beforeDir="false" afterPath="$PROJECT_DIR$/Country.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryBackup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CountryBackup.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryBackup.h" beforeDir="false" afterPath="$PROJECT_DIR$/CountryBackup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryMemory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CountryMemory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryMemory.h" beforeDir="false" afterPath="$PROJECT_DIR$/CountryMemory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryObserver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CountryObserver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryObserver.h" beforeDir="false" afterPath="$PROJECT_DIR$/CountryObserver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryObserverIterator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CountryObserverIterator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CountryObserverIterator.h" beforeDir="false" afterPath="$PROJECT_DIR$/CountryObserverIterator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Defend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Defend.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Defend.h" beforeDir="false" afterPath="$PROJECT_DIR$/Defend.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DetonateExplosives.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DetonateExplosives.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DetonateExplosives.h" beforeDir="false" afterPath="$PROJECT_DIR$/DetonateExplosives.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExplosiveFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ExplosiveFactory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExplosiveFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/ExplosiveFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireArmFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FireArmFactory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireArmFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/FireArmFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireMissile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FireMissile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireMissile.h" beforeDir="false" afterPath="$PROJECT_DIR$/FireMissile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IndividualCountry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/IndividualCountry.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IndividualCountry.h" beforeDir="false" afterPath="$PROJECT_DIR$/IndividualCountry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IteratorTool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/IteratorTool.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IteratorTool.h" beforeDir="false" afterPath="$PROJECT_DIR$/IteratorTool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Land.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Land.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Land.h" beforeDir="false" afterPath="$PROJECT_DIR$/Land.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineGunner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MachineGunner.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MachineGunner.h" beforeDir="false" afterPath="$PROJECT_DIR$/MachineGunner.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Medic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedicFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MedicFactory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedicFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/MedicFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medics.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Medics.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medics.h" beforeDir="false" afterPath="$PROJECT_DIR$/Medics.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Missile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Missile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Missile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Missile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ObservingAllies.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ObservingAllies.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ObservingAllies.h" beforeDir="false" afterPath="$PROJECT_DIR$/ObservingAllies.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RequestAlliance.h" beforeDir="false" afterPath="$PROJECT_DIR$/RequestAlliance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rifleman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Rifleman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rifleman.h" beforeDir="false" afterPath="$PROJECT_DIR$/Rifleman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sea.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sea.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sea.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shoot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shoot.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shoot.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shoot.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/State.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/State.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/State.h" beforeDir="false" afterPath="$PROJECT_DIR$/State.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surrender.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Surrender.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Surrender.h" beforeDir="false" afterPath="$PROJECT_DIR$/Surrender.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarParticipant.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WarParticipant.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarParticipant.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarParticipant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarParticipantFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WarParticipantFactory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarParticipantFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarParticipantFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarParticipantIterator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WarParticipantIterator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarParticipantIterator.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarParticipantIterator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarShip.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WarShip.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarShip.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarShip.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarTheatre.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WarTheatre.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarTheatre.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarTheatre.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarTransportFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/WarTransportFactory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarTransportFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/WarTransportFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="System" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="System" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2H7y3YZAn6bN35Knffnup9AHOIg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a328205-cecc-4ce6-ae1e-3c611949e7e4" name="Changes" comment="" />
+      <created>1667566457786</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667566457786</updated>
+      <workItem from="1667566459143" duration="2900000" />
+      <workItem from="1667571442591" duration="3271000" />
+      <workItem from="1667633243386" duration="3598000" />
+      <workItem from="1667650225502" duration="2994000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

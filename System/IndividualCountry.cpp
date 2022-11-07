@@ -352,5 +352,15 @@ void IndividualCountry::addAlliance(Country *C) {
     alliance.push_back(C);
 }
 
+void IndividualCountry::removeWarParticipant(WarParticipant *temp) {
+    vector<WarParticipant*>::iterator it=wP.begin();
+    for(it=wP.begin(); it!=wP.end(); it++){
+        if((*it)==temp){
+            hp=hp-(*it)->getHP();
+            wP.erase(it);
+        }
+    }
+}
+
 
 

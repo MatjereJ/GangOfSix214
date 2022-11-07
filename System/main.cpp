@@ -80,14 +80,14 @@ void initializeCountries()
 
     country[0] = new IndividualCountry("Brazil", 2, false);
     country[1] = new IndividualCountry("Russia", 1, false);
-    country[2] = new IndividualCountry("India", 2, false);
+    country[2] = new IndividualCountry("India", 2, true);
     country[3] = new IndividualCountry("China", 1, false);
-    country[4] = new IndividualCountry("South Africa", 3, false);
-    country[5] = new IndividualCountry("Canada", 2, false);
+    country[4] = new IndividualCountry("South Africa", 3, true);
+    country[5] = new IndividualCountry("Canada", 2, true);
     country[6] = new IndividualCountry("Germany", 1, false);
     country[7] = new IndividualCountry("France", 2, false);
-    country[8] = new IndividualCountry("United States", 1, false);
-    country[9] = new IndividualCountry("Australia", 3, false);
+    country[8] = new IndividualCountry("United States", 1, true);
+    country[9] = new IndividualCountry("Australia", 3, true);
     alliances[0] = new Alliance();
     alliances[0]->addAlly(country[0]);
     alliances[0]->addAlly(country[1]);
@@ -166,13 +166,11 @@ void fight()
 
     if(Opps->getHp() < 0)
     {
-        cout<<"==============================================="<<endl;
         cout<<Opps->getName()<< " has decided to surrender as it has no more health"<<endl;
     }
 
     if(myCountry->getHp() < 0)
     {
-        cout<<"==============================================="<<endl;
         cout<<myCountry->getName()<< " has decided to surrender as it has no more health"<<endl;
     }
 
@@ -313,9 +311,6 @@ void selectOpposingCountry()
     myOpposingCountry->setOpposingC(myCountry);
 
     cout<<"You have selected "<<myOpposingCountry->getName()<<" as your enemy! Get ready to rumble!"<<endl;
-    for(int i=0; i<10; i++){
-        getCountryStats(i);
-    }
 
     if(alliances[0]->contains(myOpposingCountry) == true)
     {

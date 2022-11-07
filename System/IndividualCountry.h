@@ -95,6 +95,7 @@ class  IndividualCountry: public Country{
     void initializeHp();
     int getInitialHP();
     void addAlliance(Country *C);
+    void removeWarParticipant(WarParticipant* temp);
     /**
     *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
     *@author Areyeng Mphahlele

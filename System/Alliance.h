@@ -24,14 +24,14 @@ public:
     *@date  29/10/2022
 
     */
-    vector<WarParticipant*> getWarParticipants();
+   // vector<WarParticipant*> getWarParticipants();
      /**
     *@brief returns name of current country
     *@author Areyeng Mphahlele 
     *@return name of current country
     *@date  27/10/2022 
     */
-        string getName();
+      //  string getName();
 
 private:
     int allianceHp;

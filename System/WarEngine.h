@@ -1,0 +1,14 @@
+//
+// Created by JOHANES MATSEBA on 2022/11/01.
+//
+
+#ifndef PROJECTASSIGNMENT_WARENGINE_H
+#define PROJECTASSIGNMENT_WARENGINE_H
+
+
+class WarEngine {
+
+};
+
+
+#endif //PROJECTASSIGNMENT_WARENGINE_H

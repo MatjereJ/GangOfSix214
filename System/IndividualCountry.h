@@ -90,7 +90,7 @@ class  IndividualCountry: public Country{
     void setHp(int HP);
     vector<WarParticipant *>  getArtillery();
     State* getState();
-
+    void setWarParticipants(vector<WarParticipant*>);
     /**
     *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
     *@author Areyeng Mphahlele

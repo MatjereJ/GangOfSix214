@@ -43,7 +43,7 @@ void ObservingAllies::update(){
                     }
                     if(maxAssist<=0)
                     {
-                         this->currentCountry->wP=warParticipants;
+                         this->currentCountry->setWarParticipants(warParticipants);
                          break;  
                     }
                         
@@ -72,7 +72,7 @@ void ObservingAllies::update(){
                     }
                     if(maxAssist<=0)
                     {
-                         this->currentCountry->wP=warParticipants;
+                         this->currentCountry->setWarParticipants(warParticipants);
                          break;  
                     }
                         
@@ -101,7 +101,7 @@ void ObservingAllies::update(){
                     }
                     if(maxAssist<=0)
                     {
-                         this->currentCountry->wP=warParticipants;
+                         this->currentCountry->setWarParticipants(warParticipants);
                          break;  
                     }  
                         

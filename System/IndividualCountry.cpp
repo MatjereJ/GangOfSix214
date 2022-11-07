@@ -310,19 +310,14 @@ int IndividualCountry::getTransport(){
      return numTransport;
 }
 
-vector<IndividualCountry*> IndividualCountry::getAlliance(){
+vector<Country*> IndividualCountry::getAlliance(){
     return this->alliance;
 }
 
-void IndividualCountry::setAlliance(vector<IndividualCountry*> alliance){
+void IndividualCountry::setAlliance(vector<Country*> alliance){
   this->alliance= alliance;
 
 }
-
-void IndividualCountry::observeHp(){
-    notify();
-}
-
 int IndividualCountry::getHp(){
     int totalHp=0;
      vector<WarParticipant*> warP= this->getWarParticipants();

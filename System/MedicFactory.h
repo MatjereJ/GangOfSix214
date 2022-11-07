@@ -1,4 +1,4 @@
-#ifndef PRACTICAL_ASSIGNMENT_3_MEDICFACTORY_H
+/*#ifndef PRACTICAL_ASSIGNMENT_3_MEDICFACTORY_H
 #define PRACTICAL_ASSIGNMENT_3_MEDICFACTORY_H
 #include "WarParticipantFactory.h"
 #include "Medic.h"
@@ -8,4 +8,4 @@ public:
     Medic* createMedic(int HP);
 };
 
-#endif //PRACTICAL_ASSIGNMENT_3_MEDICFACTORY_H
+#endif //PRACTICAL_ASSIGNMENT_3_MEDICFACTORY_H*/

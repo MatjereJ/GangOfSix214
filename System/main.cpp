@@ -43,25 +43,26 @@ int main()
     warringCountries[0] = country[0];
     warringCountries[1] = country[5];
     int i = 0;
-    while (true)
-    {
-        if (warringCountries[i % 2]->getHp() > 0)
-        {
+//    while (true)
+//    {
+//        if (warringCountries[i % 2]->getHp() > 0)
+//        {
+//
+//            cout << warringCountries[i % 2]->getHp() << endl;
+//            warringCountries[i % 2]->attackOpposingCountry(warringCountries[i % 2 + 1]);
+//            i++;
+//        }
+//        else
+//        {
+//            warringCountries[i % 2]->setLose();
+//            cout << warringCountries[i % 2]->getName() << " has lost the War with all of it's soldiers Dead" << endl;
+//            break;
+//        }
+//    }
 
-            cout << warringCountries[i % 2]->getHp() << endl;
-            warringCountries[i % 2]->attackOpposingCountry(warringCountries[i % 2 + 1]);
-            i++;
-        }
-        else
-        {
-            warringCountries[i % 2]->setLose();
-            cout << warringCountries[i % 2]->getName() << " has lost the War with all of it's soldiers Dead" << endl;
-            break;
-        }
-    }
-
-    // pickCountry();
-    // fight();
+     pickCountry();
+     selectOpposingCountry();
+     fight();
     // endGame();
     delete alliances[0];
     delete alliances[1];
@@ -115,17 +116,18 @@ void fight()
     States->Add(att);
     States->Add(def);
     States->Add(surr);
-
+    cout<<"Its coming"<<endl;
     IndividualCountry *Opps = myCountry->getOpposingC();
     while (Opps->getHp() > 0 && myCountry->getHp() > 0)
     {
+        cout<<"Inside"<<endl;
         States->handleChange(myCountry);
-        if (Opps->getHp() < 500)
-            Opps->notify();
+//        if (Opps->getHp() < 500)
+//            Opps->notify();
 
         States->handleChange(Opps);
-        if (myCountry->getHp() < 500)
-            myCountry->notify();
+//        if (myCountry->getHp() < 500)
+//            myCountry->notify();
     }
 
     /*
@@ -166,16 +168,17 @@ void selectOpposingCountry()
     cout << "Select the opposing country from the list below by entering its number." << endl;
     if (alliances[0]->contains(myCountry))
     {
-        for (int i = 5; i < countrySize; i++)
+        for (int i = 5; i < 10; i++)
         {
             cout << (i - 5) << ": " << country[i]->getName() << endl;
         }
         cin >> opposingNum;
         myOpposingCountry = country[opposingNum + 5];
+        myCountry->attackOpposingCountry(myOpposingCountry);
     }
     else if (alliances[1]->contains(myCountry))
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             cout << (i) << ": " << country[i]->getName() << endl;
         }

@@ -1,5 +1,7 @@
 #include "FireMissile.h"
 
+FireMissile::FireMissile() {}
+
 void FireMissile::LaunchAttack(IndividualCountry *C)
 {
     int totalD = 0;

@@ -3,6 +3,8 @@
 
 using namespace std;
 
+Surrender::Surrender() {}
+
 void Surrender::handleChange(IndividualCountry *C)
 {
     IndividualCountry *temp = C->getOpposingC();

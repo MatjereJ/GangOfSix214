@@ -2,6 +2,8 @@
 
 using namespace std;
 
+Attack::Attack() {}
+
 void Attack::handleChange(IndividualCountry *C)
 {
     cout << "Attack" << endl;

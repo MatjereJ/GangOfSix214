@@ -1,5 +1,7 @@
 #include "DetonateExplosives.h"
 
+DetonateExplosives::DetonateExplosives() {}
+
 void DetonateExplosives::LaunchAttack(IndividualCountry *C)
 {
     int totalD = 0;

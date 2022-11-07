@@ -1,5 +1,7 @@
 #include "Shoot.h"
 
+Shoot::Shoot() {}
+
 void Shoot::LaunchAttack(IndividualCountry *C)
 {
     int totalD = 0;

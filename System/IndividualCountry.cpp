@@ -248,6 +248,9 @@ IndividualCountry::~IndividualCountry()
     std::cout<<"Parent of "<<cName <<" deleted.\n";
 }
 
+void IndividualCountry::setWarParticipants(vector<WarParticipant *> participants) {
+    warParticipants=participants;
+}
 
 void IndividualCountry::InflictDamage(int dmg)
 {

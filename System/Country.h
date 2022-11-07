@@ -40,14 +40,18 @@ public:
     *@date  29/10/2022
 
     */
-    virtual vector<WarParticipant*> getWarParticipants();
+    virtual vector<WarParticipant*> getWarParticipants(){
+
+    vector< WarParticipant*> warP;
+        return warP;
+    }
      /**
     *@brief returns name of current country
     *@author Areyeng Mphahlele 
     *@return name of current country
     *@date  27/10/2022 
      */
-    virtual string getName();
+     virtual string getName(){return "";};
 
 private:
     

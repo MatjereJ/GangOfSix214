@@ -13,11 +13,11 @@ void DetonateExplosives::LaunchAttack(IndividualCountry *C)
     for (it = temp.begin(); it != temp.end(); it++)
     {
         WarParticipant *curr = *it;
-        if (curr->getDamage() == 12)
+        if (curr->getType() == "Bomb")
         {
             totalD = totalD + curr->getDamage();
         }
     }
-    cout << "Country is going to detonate its bombs to damage the opposing country" << endl;
+    cout << "Country is going to detonate its bombs to damage the "<< Opps->getName() << endl;
     Opps->InflictDamage(totalD);
 }

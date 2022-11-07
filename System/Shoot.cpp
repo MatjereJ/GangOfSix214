@@ -10,11 +10,11 @@ void Shoot::LaunchAttack(IndividualCountry *C)
     for (it = temp.begin(); it != temp.end(); it++)
     {
         WarParticipant *curr = *it;
-        if (curr->getDamage() == 6 || curr->getDamage() == 5)
+        if (curr->getType() == "Rifleman" || curr->getType() == "MachineGunner")
         {
             totalD = totalD + curr->getDamage();
         }
     }
-    cout << "Country is going to shoot at opposing country with its rifles and machine guns" << endl;
+    cout << "Country is going to shoot at "<< C->getOpposingC()->getName() << " with its rifles and machine guns" << endl;
     C->getOpposingC()->InflictDamage(totalD);
 }

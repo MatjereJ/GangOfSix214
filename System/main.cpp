@@ -119,14 +119,17 @@ void fight()
     States->Add(surr);
     cout<<"Its coming"<<endl;
     IndividualCountry *Opps = myCountry->getOpposingC();
+    cout<<Opps->getHp()<<endl;
     while (Opps->getHp() > 0 && myCountry->getHp() > 0)
     {
         cout<<"Inside"<<endl;
         States->handleChange(myCountry);
+        cout<<Opps->getHp()<<endl;
 //        if (Opps->getHp() < 500)
 //            Opps->notify();
 
         States->handleChange(Opps);
+        cout<<myCountry->getHp()<<endl;
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
     }
@@ -263,6 +266,9 @@ void selectOpposingCountry()
         cin >> opposingNum;
         myOpposingCountry = country[opposingNum];
     }
+
+    myCountry->setOpposingC(myOpposingCountry);
+    myOpposingCountry->setOpposingC(myCountry);
 
     cout<<"You have selected "<<myOpposingCountry->getName()<<" as your enemy! Get ready to rumble!"<<endl;
 }

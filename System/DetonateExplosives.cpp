@@ -18,6 +18,6 @@ void DetonateExplosives::LaunchAttack(IndividualCountry *C)
             totalD = totalD + curr->getDamage();
         }
     }
-    cout << "Country is going to detonate its bombs to damage the "<< Opps->getName() << endl;
+    cout << C->getName() <<" is going to detonate its bombs to damage the "<< Opps->getName() << endl;
     Opps->InflictDamage(totalD);
 }

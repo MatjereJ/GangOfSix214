@@ -39,7 +39,7 @@ private:
     * @brief The current country's name.
     * 
     */
-    string name;
+     string name;
     vector<Country*> alliance;
     vector<WarParticipant *> warParticipants;
 };

@@ -12,6 +12,7 @@ using namespace std;
 
 class Medics : public CountryObserver {//Concrete Observer
     public:
+        string getName();
         /**
         *@brief Current Country variable is initialized and Medics registers as an observer to it
         *@author Areyeng Mphahlele
@@ -46,6 +47,8 @@ class Medics : public CountryObserver {//Concrete Observer
          * 
          */
         IndividualCountry* currentCountry;
+
+        string name;
         /**
          * @brief The current country resources 
          * 

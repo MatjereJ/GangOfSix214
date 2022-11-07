@@ -9,6 +9,11 @@ using namespace std;
 ObservingAllies::ObservingAllies(IndividualCountry* currentCountry){
      this->currentCountry=currentCountry;
     this->currentCountry->add(this);
+    name = "Ally Observer";
+}
+
+string ObservingAllies::getName() {
+    return name;
 }
 void ObservingAllies::update(){
   int weaponAssist=0,soldierAssist=0,transAssist=0,numWeapons=0,numSoldiers=0,numTransport=0,maxAssist=0;
@@ -93,7 +98,7 @@ void ObservingAllies::update(){
                maxAssist=(int)((*it2)->getHp()*0.5)*0.5;
                for (it = wP2.begin(); it != wP2.end(); ++it){
                    if((*it)->getType()=="MachineGunner" || (*it)->getType()=="Rifleman"){//only assist with a limited amount
-                         warParticipants.push_back(*it); 
+                         warParticipants.push_back(*it);
                          maxAssist--;
                          cout<<(*it2)->getName()<<" shared "<<maxAssist<<" with"<<this->currentCountry->getName()<<endl;
                          cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;

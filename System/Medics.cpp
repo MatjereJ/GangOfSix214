@@ -8,14 +8,22 @@
 using namespace std;
 
 Medics::Medics(IndividualCountry* currentCountry){
+    this->maxHeal = 0;
+    this->healingHp = 20;
     this->currentCountry=currentCountry;
     this->currentCountry->add(this);
+    name = "Medic";
+}
+
+string Medics::getName() {
+    return name;
 }
 
 void Medics::update(){
     
-  vector<WarParticipant*> wP= this->currentCountry->getWarParticipants();
+  vector<WarParticipant*> wP= this->currentCountry->getArtillery();
   vector<WarParticipant*>::iterator it = wP.begin();
+  cout<<"Medics" <<endl;
   for (it = wP.begin(); it != wP.end(); ++it){
     if((*it)->getType()=="MachineGunner" || ((*it)->getType()=="RifleMan"))
     {

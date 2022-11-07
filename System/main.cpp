@@ -134,7 +134,6 @@ void pickCountry()
         }
     }
     ObsmyC = new ObservingAllies(myCountry);
-    myCountry->add(ObsmyC);
     cout<<"You have selected "<<myCountry->getName()<<" as your Fighter!"<<endl;
 }
 
@@ -335,7 +334,6 @@ void selectOpposingCountry()
     }
 
     ObsOppC = new ObservingAllies(myOpposingCountry);
-    myOpposingCountry->add(ObsOppC);
 }
 /*
  void selectOpposingCountry(){

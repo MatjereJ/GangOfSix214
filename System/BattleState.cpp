@@ -21,7 +21,7 @@ void BattleState::Add(BattleState *succ)
         successor = succ;
     else
     {
-        cout << "Element added to chain" << endl;
+
         BattleState *curr = this;
         while (curr->successor != nullptr)
         {

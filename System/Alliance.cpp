@@ -80,3 +80,6 @@ CountryIterator* Alliance::createCountryIterator()
 {
     return new CountryIterator(this->getAlliance());
 }
+vector<WarParticipant*> IndividualCountry::getWarParticipants(){
+    return this->wP;
+}

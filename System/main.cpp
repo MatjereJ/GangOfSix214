@@ -271,6 +271,9 @@ void selectOpposingCountry()
     myOpposingCountry->setOpposingC(myCountry);
 
     cout<<"You have selected "<<myOpposingCountry->getName()<<" as your enemy! Get ready to rumble!"<<endl;
+    for(int i=0; i<10; i++){
+        getCountryStats(i);
+    }
 }
 /*
  void selectOpposingCountry(){

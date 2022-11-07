@@ -30,7 +30,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
     SoldierFactory* soldierFactory=new SoldierFactory();
     ExplosiveFactory* explosiveFactory=new ExplosiveFactory();
     WarTransportFactory* warTransportFactory=new WarTransportFactory();
-    if(level==1){
+    if(level==3){
         for(int i=0; i<rand()%100+51; i++){
             wP.push_back(soldierFactory->createMachineGunner(50,25));
         }
@@ -72,7 +72,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
                 wP.push_back(warTransportFactory->createWarShip(250));
             }
         }
-    }else if(level==3){
+    }else if(level==1){
         for(int i=0; i<rand()%200+51; i++){ 
             wP.push_back(soldierFactory->createMachineGunner(50,15));
         }

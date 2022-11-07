@@ -12,11 +12,11 @@ void FireMissile::LaunchAttack(IndividualCountry *C)
     for (it = temp.begin(); it != temp.end(); it++)
     {
         WarParticipant *curr = *it;
-        if (curr->getDamage() == 20 || curr->getDamage() == 25 || curr->getDamage() == 30)
+        if (curr->getType() == "Missile" || curr->getType() == "Warship" || curr->getType() == "AirCraft")
         {
             totalD = totalD + curr->getDamage();
         }
     }
-    cout << "Country is going to fire msisile at opposing country with its Missiles,Airships and and Warcrafts" << endl;
+    cout << "Country is going to fire missile at " <<  C->getOpposingC()->getName() << " with its Missiles,Airships and and Warcrafts" << endl;
     C->getOpposingC()->InflictDamage(totalD);
 }

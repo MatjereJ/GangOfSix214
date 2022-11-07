@@ -24,7 +24,7 @@ void Attack::handleChange(IndividualCountry *C)
         vector<WarParticipant*>::iterator it = temp.begin();
 
         WarParticipant *curr = *it;
-        while (curr->getDamage() != 12 && it != temp.end()) ////////This os fpr Detonate
+        while (curr->getType() == "Bomb" && it != temp.end()) ////////This os fpr Detonate
         {
             cout << "COme on now " << curr->getDamage() << endl;
             it++;
@@ -41,7 +41,7 @@ void Attack::handleChange(IndividualCountry *C)
             it = temp.begin();
 
         cout << "Next one" << endl;
-        while ((curr->getDamage() != 6 && curr->getDamage() != 5) && it != temp.end())
+        while ((curr->getType() != "Rifleman" && curr->getType() != "MachineGunner") && it != temp.end())
         {
             cout << "Yeah " << curr->getDamage() << endl;
             it++;
@@ -57,7 +57,7 @@ void Attack::handleChange(IndividualCountry *C)
         else
             it = temp.begin();
 
-        while ((curr->getDamage() != 20 && curr->getDamage() != 25 && curr->getDamage() != 30) && it != temp.end())
+        while ((curr->getType() != "Missile" && curr->getType() == "AirCraft" && curr->getType() != "Warship") && it != temp.end())
         {
             it++;
             curr = *it;

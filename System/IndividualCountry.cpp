@@ -30,15 +30,15 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
     SoldierFactory* soldierFactory=new SoldierFactory();
     ExplosiveFactory* explosiveFactory=new ExplosiveFactory();
     WarTransportFactory* warTransportFactory=new WarTransportFactory();
-    if(level==1){
+    if(level==3){
         for(int i=0; i<rand()%100+51; i++){
-            wP.push_back(soldierFactory->createMachineGunner(50,25));
+            wP.push_back(soldierFactory->createMachineGunner(25,50));
         }
         for(int i=0; i<rand()%100+51; i++){
-            wP.push_back(soldierFactory->createRifleman(60,35));
+            wP.push_back(soldierFactory->createRifleman(30, 60));
         }
         for(int i=0; i<rand()%40+21; i++){
-            wP.push_back(explosiveFactory->createBomb(100));
+            wP.push_back(explosiveFactory->createBomb(50));
         }
         for(int i=0; i<rand()%40+21; i++){
             wP.push_back(explosiveFactory->createMissile(70));
@@ -48,7 +48,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
         }
         if(sea==true) {
             for (int i = 0; i < rand()%10+11; i++) {
-                wP.push_back(warTransportFactory->createWarShip(250));
+                wP.push_back(warTransportFactory->createWarShip(90));
             }
         }
     }else if(level==2){
@@ -72,7 +72,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
                 wP.push_back(warTransportFactory->createWarShip(250));
             }
         }
-    }else if(level==3){
+    }else if(level==1){
         for(int i=0; i<rand()%200+51; i++){ 
             wP.push_back(soldierFactory->createMachineGunner(50,15));
         }
@@ -94,7 +94,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
             }
         }
     }
-
+    initializeHp();
 }
 
 bool IndividualCountry::add(CountryObserver* assistance){
@@ -115,7 +115,14 @@ State* IndividualCountry:: getState(){
     return state;
 }
 
-
+void IndividualCountry::initializeHp() {
+    vector<WarParticipant*>::iterator it = wP.begin();
+    int total=0;
+    for(it=wP.begin(); it!=wP.end(); it++){
+        total+=(*it)->getHP();
+    }
+    this->hp=total;
+}
 
 bool IndividualCountry::remove(CountryObserver* assistance){
   bool found = false;
@@ -146,7 +153,7 @@ string IndividualCountry::getName(){
 
 void IndividualCountry::addWarParticipant(WarParticipant* warPtc)
 {
-    warParticipants.push_back(warPtc);
+    wP.push_back(warPtc);
 }
 
 
@@ -176,7 +183,7 @@ WarParticipantIterator* IndividualCountry::createWarParticipantIterator()
 
 
 vector<WarParticipant*> IndividualCountry::getArtillery() {
-    return warParticipants;
+    return wP;
 }
 
 void IndividualCountry::selectWarTheatre() {
@@ -227,7 +234,7 @@ void IndividualCountry::attackOpposingCountry(IndividualCountry *opp) {
 
 
 CountryBackup* IndividualCountry::createBackup() {
-    return new CountryBackup(hp,warTheatre,warParticipants,countryObservers,OpposingCountry,lose);
+    return new CountryBackup(hp,warTheatre,wP,countryObservers,OpposingCountry,lose);
 }
 
 
@@ -236,7 +243,7 @@ void IndividualCountry::reinstateCountry(CountryBackup *backup) {
     State* s=backup->getState();
     hp=s->getHP();
     warTheatre=s->getWarTheatre();
-    warParticipants=s->getWarParticipants();
+    wP=s->getWarParticipants();
     countryObservers=s->getCountryObservers();
     OpposingCountry=s->getOppCountry();
     lose=s->getW();
@@ -244,20 +251,20 @@ void IndividualCountry::reinstateCountry(CountryBackup *backup) {
 
 IndividualCountry::~IndividualCountry()
 {
-    warParticipants.clear();
+    wP.clear();
     std::cout<<"Parent of "<<cName <<" deleted.\n";
 }
 
 void IndividualCountry::setWarParticipants(vector<WarParticipant *> participants) {
-    warParticipants=participants;
+    wP=participants;
 }
 
 void IndividualCountry::InflictDamage(int dmg)
 {
     this->hp = hp - dmg;
-    vector<WarParticipant *>::iterator it = warParticipants.begin();
+    vector<WarParticipant *>::iterator it = wP.begin();
     int totalSoldiers = 0;
-    for (it = warParticipants.begin(); it != warParticipants.end(); it++)
+    for (it = wP.begin(); it != wP.end(); it++)
     {
         if ((*it)->getType() == "Rifleman" || (*it)->getType() == "MachineGunner")
         {
@@ -265,7 +272,7 @@ void IndividualCountry::InflictDamage(int dmg)
         }
     }
     int SoldierD = dmg / totalSoldiers;
-    for (it = warParticipants.begin(); it != warParticipants.end(); it++)
+    for (it = wP.begin(); it != wP.end(); it++)
     {
         if ((*it)->getType() == "Rifleman" || (*it)->getType() == "MachineGunner")
         {
@@ -322,18 +329,15 @@ void IndividualCountry::setAlliance(vector<Country*> alliance){
 
 }
 int IndividualCountry::getHp(){
-    int totalHp=0;
-     vector<WarParticipant*> warP= this->getWarParticipants();
-     vector<WarParticipant*>::iterator it2 = warP.begin();
-     for(it2 = warP.begin(); it2 != warP.end(); ++it2){
-        totalHp+=(*it2)->getHP();
-     }
-     return totalHp;
+
+     return hp;
 }
 
-vector<WarParticipant*> IndividualCountry::getWarParticipants(){
-    return this->wP;
+void IndividualCountry::setOpposingC(IndividualCountry *C) {
+    OpposingCountry = C;
 }
+
+
 
 void IndividualCountry::setLose() {
     lose=true;

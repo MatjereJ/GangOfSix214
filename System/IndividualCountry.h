@@ -75,6 +75,7 @@ class  IndividualCountry: public Country{
         void setWeaponHP(int);
         void setSoldierHP(int);
     IndividualCountry* pickOpposingCountry(vector<IndividualCountry*>);
+    void setOpposingC(IndividualCountry *C);
     virtual void withdraw(){};
     void selectWarTheatre();
     void createWarParticipants();
@@ -91,6 +92,7 @@ class  IndividualCountry: public Country{
     vector<WarParticipant *>  getArtillery();
     State* getState();
     void setWarParticipants(vector<WarParticipant*>);
+    void initializeHp();
     /**
     *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
     *@author Areyeng Mphahlele
@@ -131,7 +133,6 @@ class  IndividualCountry: public Country{
     *@date  29/10/2022
 
     */
-    vector<WarParticipant*> getWarParticipants();
     void setLose();
     virtual ~IndividualCountry();
 
@@ -141,7 +142,6 @@ class  IndividualCountry: public Country{
     int size;
     State* state;
     WarTheatre* warTheatre;
-    vector<WarParticipant *> warParticipants;
     std::string cName;
     IndividualCountry* OpposingCountry;
     bool lose=false;

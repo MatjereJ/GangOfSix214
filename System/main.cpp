@@ -14,9 +14,11 @@
 #include "CountryObserver.h"
 #include "CountryObserverIterator.h"
 #include "Defend.h"
+#include "ObservingAllies.h"
 #include "DetonateExplosives.h"
 #include "ExplosiveFactory.h"
 #include "Surrender.h"
+#include <vector>
 
 #include <iostream>
 using namespace std;
@@ -27,10 +29,14 @@ void fight();
 void selectOpposingCountry();
 void getCountryStats(int cNum);
 void endGame();
+void displayStats();
 
 IndividualCountry *country[10];
 Alliance *alliances[2];
+
 IndividualCountry *myCountry;
+ObservingAllies * ObsmyC;
+ObservingAllies * ObsOppC;
 IndividualCountry *myOpposingCountry;
 int countryNum, countrySize = 10;
 
@@ -93,6 +99,8 @@ void initializeCountries()
     alliances[1]->addAlly(country[6]);
     alliances[1]->addAlly(country[7]);
     alliances[1]->addAlly(country[8]);
+
+
 }
 
 void pickCountry()
@@ -104,6 +112,29 @@ void pickCountry()
     }
     cin >> countryNum;
     myCountry = country[countryNum];
+    if(alliances[0]->contains(myCountry) == true)
+    {
+        vector<Country *> temp = alliances[0]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myCountry)
+                myCountry->addAlliance(*it);
+        }
+    }
+
+    if(alliances[1]->contains(myCountry) == true)
+    {
+        vector<Country *> temp = alliances[1]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myCountry)
+                myCountry->addAlliance(*it);
+        }
+    }
+    ObsmyC = new ObservingAllies(myCountry);
+    myCountry->add(ObsmyC);
     cout<<"You have selected "<<myCountry->getName()<<" as your Fighter!"<<endl;
 }
 
@@ -123,12 +154,12 @@ void fight()
     while (Opps->getHp() > 0 && myCountry->getHp() > 0)
     {
         States->handleChange(myCountry);
-        cout<<Opps->getHp()<<endl;
-//        if (Opps->getHp() < 500)
-//            Opps->notify();
+        displayStats();
+      if (Opps->getHp() < 10000)
+            Opps->notify();
 
         States->handleChange(Opps);
-        cout<<myCountry->getHp()<<endl;
+        displayStats();
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
     }
@@ -137,6 +168,12 @@ void fight()
     {
         cout<<"==============================================="<<endl;
         cout<<Opps->getName()<< " has decided to surrender as it has no more health"<<endl;
+    }
+
+    if(myCountry->getHp() < 0)
+    {
+        cout<<"==============================================="<<endl;
+        cout<<myCountry->getName()<< " has decided to surrender as it has no more health"<<endl;
     }
 
     /*
@@ -279,6 +316,31 @@ void selectOpposingCountry()
     for(int i=0; i<10; i++){
         getCountryStats(i);
     }
+
+    if(alliances[0]->contains(myOpposingCountry) == true)
+    {
+        vector<Country *> temp = alliances[0]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myOpposingCountry)
+                myOpposingCountry->addAlliance(*it);
+        }
+    }
+
+    if(alliances[1]->contains(myOpposingCountry) == true)
+    {
+        vector<Country *> temp = alliances[1]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myOpposingCountry)
+                myOpposingCountry->addAlliance(*it);
+        }
+    }
+
+    ObsOppC = new ObservingAllies(myOpposingCountry);
+    myOpposingCountry->add(ObsOppC);
 }
 /*
  void selectOpposingCountry(){

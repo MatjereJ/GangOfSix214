@@ -348,6 +348,9 @@ void IndividualCountry::setLose() {
     lose=true;
 }
 
+void IndividualCountry::addAlliance(Country *C) {
+    alliance.push_back(C);
+}
 
 
 

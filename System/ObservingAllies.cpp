@@ -12,7 +12,7 @@ ObservingAllies::ObservingAllies(IndividualCountry* currentCountry){
 }
 void ObservingAllies::update(){
   int weaponAssist=0,soldierAssist=0,transAssist=0,numWeapons=0,numSoldiers=0,numTransport=0,maxAssist=0;
-  vector<WarParticipant*> warParticipants= this->currentCountry->getWarParticipants();
+  vector<WarParticipant*> warParticipants= this->currentCountry->getArtillery();
   vector<WarParticipant*>::iterator it = warParticipants.begin();
   //checking sum of each resource in order to assist if necessary
      for (it = warParticipants.begin(); it != warParticipants.end(); ++it){
@@ -28,7 +28,7 @@ void ObservingAllies::update(){
                vector<Country*> alliance= this->currentCountry->getAlliance();
                vector<Country*>::iterator it2 = alliance.begin();
                for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
-               cout<<this->currentCountry->getName()<<" is running low on weapon power and is currently being assisted by its alliance..."<<endl;
+               cout<<this->currentCountry->getName()<<" is running low on weapon power and is currently being assisted by"<< (*it2)->getName()<<endl;
                vector<WarParticipant*> wP= (*it2)->getWarParticipants();//getting allies iterating and moving each resource to country in need.
                vector<WarParticipant*>::iterator it = wP.begin();
                //each country contributing 50% of their weapons

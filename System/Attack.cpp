@@ -37,7 +37,6 @@ void Attack::handleChange(IndividualCountry *C)
         else
             it = temp.begin();
 
-        cout << "Next one" << endl;
         while ((curr->getType() != "Rifleman" && curr->getType() != "MachineGunner") && it != temp.end())
         {
             it++;

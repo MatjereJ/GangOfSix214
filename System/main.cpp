@@ -165,8 +165,62 @@ void fight()
 
 void selectOpposingCountry()
 {
-    int opposingNum;
+    bool stats=false;
     int displacement = 0;
+    int opposingNum=0;
+    string countryStat;
+
+    while(stats==false) {
+        cout << "Would you like to see a Country's stats (Yes/No)" << endl;
+        cin>>countryStat;
+        if(countryStat=="Yes"){
+            cout<<"Select a Country Number"<<endl;
+            if (alliances[0]->contains(myCountry))
+            {
+                for (int i = 0; i < countrySize; i++)
+                {
+                    if ( alliances[0]->contains(country[i]) ){
+                        displacement++;
+                    }
+                    else{
+                        cout << (i) << ": " << country[i]->getName() << endl;
+                    }
+
+                }
+                cin >> opposingNum;
+                getCountryStats(opposingNum);
+            }
+            else if (alliances[1]->contains(myCountry))
+            {
+                for (int i = 0; i < countrySize; i++)
+                {
+                    if ( alliances[1]->contains(country[i]) ){
+                        displacement++;
+                    }
+                    else{
+                        cout << (i) << ": " << country[i]->getName() << endl;
+                    }
+
+                }
+                cin >> opposingNum;
+                getCountryStats(opposingNum);
+            }else{
+                for ( int i=0; i< countrySize; i++ ){
+                    if ( myCountry == country[i]){
+                        displacement++;
+                    }else{
+                        cout << (i) << ": " << country[i]->getName() << endl;
+                    }
+                }
+                cin >> opposingNum;
+                getCountryStats(opposingNum);
+            }
+        }else if(countryStat=="No"){
+            stats=true;
+        }
+    }
+    opposingNum=0;
+    displacement = 0;
     cout << "Select the opposing country from the list below by entering its number." << endl;
     if (alliances[0]->contains(myCountry))
     {
@@ -176,13 +230,13 @@ void selectOpposingCountry()
                 displacement++;
             }
             else{
-                cout << (i - displacement) << ": " << country[i]->getName() << endl;
+                cout << (i) << ": " << country[i]->getName() << endl;
             }
 
         }
         cin >> opposingNum;
-        myOpposingCountry = country[opposingNum + displacement];
-        //myCountry->attackOpposingCountry(myOpposingCountry);
+        myOpposingCountry = country[opposingNum];
+
     }
     else if (alliances[1]->contains(myCountry))
     {
@@ -192,22 +246,22 @@ void selectOpposingCountry()
                 displacement++;
             }
             else{
-            cout << (i-displacement) << ": " << country[i]->getName() << endl;
+            cout << (i) << ": " << country[i]->getName() << endl;
             }
 
         }
         cin >> opposingNum;
-        myOpposingCountry = country[opposingNum+displacement];
+        myOpposingCountry = country[opposingNum];
     }else{
         for ( int i=0; i< countrySize; i++ ){
             if ( myCountry == country[i]){
                 displacement++;
             }else{
-                cout << (i - displacement) << ": " << country[i]->getName() << endl;
+                cout << (i) << ": " << country[i]->getName() << endl;
             }
         }
         cin >> opposingNum;
-        myOpposingCountry = country[opposingNum + displacement];
+        myOpposingCountry = country[opposingNum];
     }
 
     cout<<"You have selected "<<myOpposingCountry->getName()<<" as your enemy! Get ready to rumble!"<<endl;
@@ -236,6 +290,10 @@ void selectOpposingCountry()
 
 void getCountryStats(int cNum)
 {
+    cout<<"---------------------------------------"<<endl;
+    cout<<country[cNum]->getName()<<endl;
+    cout<<country[cNum]->getHp()<<endl;
+    cout<<"---------------------------------------"<<endl;
 }
 
 void endGame()

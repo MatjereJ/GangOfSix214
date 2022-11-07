@@ -94,7 +94,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
             }
         }
     }
-
+    initializeHp();
 }
 
 bool IndividualCountry::add(CountryObserver* assistance){
@@ -115,7 +115,14 @@ State* IndividualCountry:: getState(){
     return state;
 }
 
-
+void IndividualCountry::initializeHp() {
+    vector<WarParticipant*>::iterator it = wP.begin();
+    int total=0;
+    for(it=wP.begin(); it!=wP.end(); it++){
+        total+=(*it)->getHP();
+    }
+    this->hp=total;
+}
 
 bool IndividualCountry::remove(CountryObserver* assistance){
   bool found = false;

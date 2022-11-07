@@ -40,7 +40,7 @@ class Medics : public CountryObserver {//Concrete Observer
          * @brief The amount of HP which the Medics can heal an injured soldier with. 
          * 
          */
-        int healingHp=12;
+        int healingHp=250;
         /**
          * @brief The current country to update when soldiers is injured/is running low on resources
          * 

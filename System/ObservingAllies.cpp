@@ -65,7 +65,8 @@ void ObservingAllies::update(){
                maxAssist=(int)((*it2)->getHp()*0.5)*0.5;
                for (it = wPs.begin(); it != wPs.end(); ++it){
                     if((*it)->getType()=="WarShip" || (*it)->getType()=="AirCraft"){//only assist with a limited amount
-                         warParticipants.push_back(*it); 
+                         warParticipants.push_back(*it);
+                        (*it2)->removeWarParticipant(*it);
                          maxAssist--;
                          cout<<(*it2)->getName()<<"gave "<<maxAssist<<" war transports to"<<this->currentCountry->getName()<<endl;
                          cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;

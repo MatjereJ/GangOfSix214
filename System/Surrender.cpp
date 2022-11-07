@@ -8,9 +8,9 @@ Surrender::Surrender() {}
 void Surrender::handleChange(IndividualCountry *C)
 {
     IndividualCountry *temp = C->getOpposingC();
-    if (C->getHp() < temp->getHp() && C->getHp() <= 300)
+    if (C->getHp() < temp->getHp() && C->getHp() <= 3000)
     {
-        cout << temp->getName() <<" has decided to surrender, Its a Long Day" << endl;
+        cout << C->getName() <<" has decided to surrender, Its a Long Day" << endl;
     }
     else
     {

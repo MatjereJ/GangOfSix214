@@ -7,7 +7,7 @@ Defend::Defend() {}
 void Defend::handleChange(IndividualCountry *C)
 {
     IndividualCountry *temp = C->getOpposingC();
-    if (C->getHp() < temp->getHp() && C->getHp() > 300)
+    if (C->getHp() < temp->getHp() && C->getHp() > 4000)
     {
         cout << " Country is going to defend its troops and will not attack" << endl;
     }

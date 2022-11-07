@@ -93,6 +93,7 @@ class  IndividualCountry: public Country{
     State* getState();
     void setWarParticipants(vector<WarParticipant*>);
     void initializeHp();
+    int getInitialHP();
     /**
     *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
     *@author Areyeng Mphahlele
@@ -140,6 +141,7 @@ class  IndividualCountry: public Country{
     int weaponHP;
     int soldierHP;
     int size;
+    int initialHP;
     State* state;
     WarTheatre* warTheatre;
     std::string cName;

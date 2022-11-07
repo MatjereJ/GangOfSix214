@@ -117,7 +117,7 @@ void fight()
     States->Add(att);
     States->Add(def);
     States->Add(surr);
-    
+
     IndividualCountry *Opps = myCountry->getOpposingC();
     cout<<Opps->getHp()<<endl;
     while (Opps->getHp() > 0 && myCountry->getHp() > 0)
@@ -131,6 +131,12 @@ void fight()
         cout<<myCountry->getHp()<<endl;
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
+    }
+
+    if(Opps->getHp() < 0)
+    {
+        cout<<"==============================================="<<endl;
+        cout<<Opps->getName()<< " has decided to surrender as it has no more health"<<endl;
     }
 
     /*

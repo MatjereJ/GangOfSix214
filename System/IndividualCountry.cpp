@@ -122,6 +122,11 @@ void IndividualCountry::initializeHp() {
         total+=(*it)->getHP();
     }
     this->hp=total;
+    initialHP = total;
+}
+
+int IndividualCountry::getInitialHP() {
+    return initialHP;
 }
 
 bool IndividualCountry::remove(CountryObserver* assistance){

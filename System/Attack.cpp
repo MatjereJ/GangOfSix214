@@ -6,12 +6,10 @@ Attack::Attack() {}
 
 void Attack::handleChange(IndividualCountry *C)
 {
-    cout << "Attack" << endl;
 
     IndividualCountry *temp = C->getOpposingC();
     if (C->getHp() >= temp->getHp() || C->getHp() >= 800)
     {
-        cout << "Its inside" << endl;
 
         vector<WarParticipant*> temp = C->getArtillery();
 
@@ -26,7 +24,6 @@ void Attack::handleChange(IndividualCountry *C)
         WarParticipant *curr = *it;
         while (curr->getType() == "Bomb" && it != temp.end()) ////////This os fpr Detonate
         {
-            cout << "COme on now " << curr->getDamage() << endl;
             it++;
             curr = *it;
         }
@@ -43,7 +40,6 @@ void Attack::handleChange(IndividualCountry *C)
         cout << "Next one" << endl;
         while ((curr->getType() != "Rifleman" && curr->getType() != "MachineGunner") && it != temp.end())
         {
-            cout << "Yeah " << curr->getDamage() << endl;
             it++;
             curr = *it;
         }
@@ -74,7 +70,6 @@ void Attack::handleChange(IndividualCountry *C)
     }
     else
     {
-        cout << "No attack" << endl;
         if (successor != nullptr)
             successor->handleChange(C);
         else

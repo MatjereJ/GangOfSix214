@@ -117,12 +117,11 @@ void fight()
     States->Add(att);
     States->Add(def);
     States->Add(surr);
-    cout<<"Its coming"<<endl;
+    
     IndividualCountry *Opps = myCountry->getOpposingC();
     cout<<Opps->getHp()<<endl;
     while (Opps->getHp() > 0 && myCountry->getHp() > 0)
     {
-        cout<<"Inside"<<endl;
         States->handleChange(myCountry);
         cout<<Opps->getHp()<<endl;
 //        if (Opps->getHp() < 500)

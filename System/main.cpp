@@ -305,6 +305,14 @@ void getCountryStats(int cNum)
     cout<<"---------------------------------------"<<endl;
 }
 
+void displayStats(){
+    cout<<"======================================"<<endl;
+    cout<<myCountry->getName()<<"'s HP: "<<myCountry->getHp()<<endl;
+    cout<<"--------------------------------------"<<endl;
+    cout<<myOpposingCountry->getName()<<"'s HP: "<<myOpposingCountry->getHp()<<endl;
+    cout<<"======================================"<<endl;
+}
+
 void endGame()
 {
 }

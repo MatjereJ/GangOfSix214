@@ -33,9 +33,28 @@ public:
     virtual void notify(){};
     virtual int getHp()=0;
     virtual ~Country(){};
+    /**
+    *@brief Returns the combined resources the current country has at its disposal.
+    *@author Areyeng Mphahlele
+    *@return void
+    *@date  29/10/2022
+
+    */
+    virtual vector<WarParticipant*> getWarParticipants(){
+
+    vector< WarParticipant*> warP;
+        return warP;
+    }
+     /**
+    *@brief returns name of current country
+    *@author Areyeng Mphahlele 
+    *@return name of current country
+    *@date  27/10/2022 
+     */
+     virtual string getName(){return "";};
 
 private:
-
+    
     vector<CountryObserver*> countryObservers;
     string name;
 

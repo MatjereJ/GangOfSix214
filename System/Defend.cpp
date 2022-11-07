@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+Defend::Defend() {}
 
 void Defend::handleChange(IndividualCountry *C)
 {

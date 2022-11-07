@@ -90,13 +90,8 @@ class  IndividualCountry: public Country{
     void setHp(int HP);
     vector<WarParticipant *>  getArtillery();
     State* getState();
-    /**
-*@brief Add the amount of transport inside current's country's war participant vector and returns it as a integer value.
-*@author Areyeng Mphahlele
-*@return amount of transport available
-*@date  27/10/2022
-
-*/
+    void setWarParticipants(vector<WarParticipant*>);
+    void initializeHp();
     /**
     *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
     *@author Areyeng Mphahlele
@@ -105,14 +100,6 @@ class  IndividualCountry: public Country{
 
     */
     int getTransport();
-    /**
-   *@brief Calls current's country notify function which updates all observers of the war.
-   *@author Areyeng Mphahlele
-   *@return void
-   *@date  27/10/2022
-
-   */
-    void observeHp();
     /**
     *@brief Gets total of all HP each resource has and returns it as an integer value.
     *@author Areyeng Mphahlele
@@ -129,7 +116,7 @@ class  IndividualCountry: public Country{
     *@date  29/10/2022
 
     */
-    void setAlliance(vector<IndividualCountry*> alliance);
+    void setAlliance(vector<Country*> alliance);
     /**
     *@brief Returns the current country's alliance.
     *@author Areyeng Mphahlele
@@ -137,7 +124,7 @@ class  IndividualCountry: public Country{
     *@date  29/10/2022
 
     */
-    vector<IndividualCountry*> getAlliance();
+    vector<Country*> getAlliance();
     /**
     *@brief Returns the combined resources the current country has at its disposal.
     *@author Areyeng Mphahlele
@@ -170,7 +157,7 @@ class  IndividualCountry: public Country{
          * @brief The current country's alliance.
          * 
          */
-        vector<IndividualCountry*> alliance;
+        vector<Country*> alliance;
          /**
          * @brief The current country's combined war participants.
          * 

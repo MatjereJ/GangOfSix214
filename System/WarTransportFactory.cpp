@@ -5,7 +5,7 @@ WarTransportFactory::WarTransportFactory() {
 }
 
 AirCraft* WarTransportFactory::createAirCraft(int hp) {
-    AirCraft* temp=new AirCraft(70, hp);
+    AirCraft* temp=new AirCraft(100, hp);
     return temp;
 }
 

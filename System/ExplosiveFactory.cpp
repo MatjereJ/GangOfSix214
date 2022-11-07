@@ -7,12 +7,12 @@ ExplosiveFactory::ExplosiveFactory() {
 }
 
 WarParticipant* ExplosiveFactory::createBomb(int damage) {
-    Bomb* temp=new Bomb(damage, 30);
+    Bomb* temp=new Bomb(damage, 100);
     return temp;
 }
 
 WarParticipant* ExplosiveFactory::createMissile(int damage){
-    Missile* temp=new Missile(damage, 30);
+    Missile* temp=new Missile(damage, 140);
     return temp;
 }
 

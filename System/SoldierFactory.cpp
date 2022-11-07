@@ -9,12 +9,12 @@ SoldierFactory::SoldierFactory() {
 
 }
 
-Rifleman* SoldierFactory::createRifleman(int HP,int damage){
-    Rifleman* temp=new Rifleman(HP,damage);
+Rifleman* SoldierFactory::createRifleman(int damage,int HP){
+    Rifleman* temp=new Rifleman(damage,HP);
     return temp;
 }
 
-MachineGunner* SoldierFactory::createMachineGunner(int HP,int damage) {
-    MachineGunner* temp=new MachineGunner(HP,damage);
+MachineGunner* SoldierFactory::createMachineGunner(int damage,int HP) {
+    MachineGunner* temp=new MachineGunner(damage,HP);
     return temp;
 }

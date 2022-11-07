@@ -8,8 +8,8 @@
 class WarTransportFactory: public WarParticipantFactory{
 public:
     WarTransportFactory();
-    AirCraft* createAirCraft(int HP);
-    WarShip* createWarShip(int HP);
+    AirCraft* createAirCraft(int hp);
+    WarShip* createWarShip(int damage);
 };
 
 

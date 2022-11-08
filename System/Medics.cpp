@@ -55,16 +55,12 @@ void Medics::update(){
         for (it = wP.begin(); it != wP.end(); ++it){
             if((*it)->getType()=="MachineGunner" || ((*it)->getType()=="RifleMan"))
             {
-                if(this->maxHeal<2){
+
                     if((*it)->getHP()<80  && (*it)->getHP()!=0)//help if injured not dead
                     {
                         (*it)->updateHP(Healing);
                     }
-                }
-                else
-                {
 
-                }
 
             }
         }

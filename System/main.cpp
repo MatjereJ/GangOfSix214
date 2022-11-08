@@ -49,7 +49,6 @@ int main()
     initializeCountries();
     pickCountry();
     selectOpposingCountry();
-    backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
     //fight();
     // endGame();
     delete alliances[0];
@@ -147,12 +146,14 @@ void fight()
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
         string tempFight;
-        cout<<"Would you like to carry on fighting? (Yes/No)"<<endl;
-        cin>>tempFight;
-        if(tempFight=="No")
-            fight=true;
-        else
-            fight=false;
+        if(Opps->getHp() > 0 && myCountry->getHp() > 0) {
+            cout << "Would you like to carry on fighting? (Yes/No)" << endl;
+            cin >> tempFight;
+            if (tempFight == "No")
+                fight = true;
+            else
+                fight = false;
+        }
     }
 
     if(Opps->getHp() < 0)
@@ -171,6 +172,17 @@ void fight()
 */
     if(fight==true){
         selectOpposingCountry();
+        fight=false;
+    }else if(myCountry->getHp()>0) {
+        cout << "Well done for Winning the Battle" << endl;
+        selectOpposingCountry();
+    }else{
+        string temp;
+        cout<<"Would you Like to restart the game and give it another try? (Yes/No)"<<endl;
+        if(temp=="Yes") {
+            myCountry->reinstateCountry(backup);
+            selectOpposingCountry(); 
+        }
     }
 }
 /*
@@ -329,6 +341,7 @@ void selectOpposingCountry()
 
     ObsOppC = new ObservingAllies(myOpposingCountry);
 <<<<<<< Updated upstream
+    backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
     fight();
     //myOpposingCountry->add(ObsOppC);
 =======

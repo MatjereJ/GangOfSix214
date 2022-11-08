@@ -17,6 +17,6 @@ void FireMissile::LaunchAttack(IndividualCountry *C)
             totalD = totalD + curr->getDamage();
         }
     }
-    cout << "Country is going to fire missile at " <<  C->getOpposingC()->getName() << " with its Missiles,Airships and and Warcrafts" << endl;
+    cout << C->getName() <<" is going to fire missile at " <<  C->getOpposingC()->getName() << " with its Missiles,Airships and and Warcrafts" << endl;
     C->getOpposingC()->InflictDamage(totalD);
 }

@@ -15,6 +15,6 @@ void Shoot::LaunchAttack(IndividualCountry *C)
             totalD = totalD + curr->getDamage();
         }
     }
-    cout << "Country is going to shoot at "<< C->getOpposingC()->getName() << " with its rifles and machine guns" << endl;
+    cout << C->getName() <<" is going to shoot at "<< C->getOpposingC()->getName() << " with its rifles and machine guns" << endl;
     C->getOpposingC()->InflictDamage(totalD);
 }

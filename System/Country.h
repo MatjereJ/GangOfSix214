@@ -32,6 +32,7 @@ public:
     virtual bool remove(CountryObserver* c){return false;};
     virtual void notify(){};
     virtual int getHp()=0;
+    virtual void removeWarParticipant(WarParticipant* temp);
     virtual ~Country(){};
     /**
     *@brief Returns the combined resources the current country has at its disposal.

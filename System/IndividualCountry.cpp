@@ -98,8 +98,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
 }
 
 bool IndividualCountry::add(CountryObserver* assistance){
-    countryObservers.push_back(assistance); 
-    cout<<"Added Country Observer"<<endl;
+    countryObservers.push_back(assistance);
     return true;
 }
 
@@ -115,6 +114,10 @@ State* IndividualCountry:: getState(){
     return state;
 }
 
+void IndividualCountry::UpdateHP(int upd) {
+    hp = hp + upd;
+}
+
 void IndividualCountry::initializeHp() {
     vector<WarParticipant*>::iterator it = wP.begin();
     int total=0;
@@ -122,6 +125,11 @@ void IndividualCountry::initializeHp() {
         total+=(*it)->getHP();
     }
     this->hp=total;
+    initialHP = total;
+}
+
+int IndividualCountry::getInitialHP() {
+    return initialHP;
 }
 
 bool IndividualCountry::remove(CountryObserver* assistance){
@@ -343,6 +351,19 @@ void IndividualCountry::setLose() {
     lose=true;
 }
 
+void IndividualCountry::addAlliance(Country *C) {
+    alliance.push_back(C);
+}
+
+void IndividualCountry::removeWarParticipant(WarParticipant *temp) {
+    vector<WarParticipant*>::iterator it=wP.begin();
+    for(it=wP.begin(); it!=wP.end(); it++){
+        if((*it)==temp){
+            hp=hp-(*it)->getHP();
+            wP.erase(it);
+        }
+    }
+}
 
 
 

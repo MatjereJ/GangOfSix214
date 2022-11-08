@@ -12,3 +12,17 @@ CountryBackup::~CountryBackup() {
     delete state;
     state=0;
 }
+
+WarTheatre* CountryBackup::getWarTheatre(){
+    return warTheatre;
+}
+vector<WarParticipant*> CountryBackup::getWarParticipants(){
+    return warParticipants;
+}
+vector<CountryObserver*> CountryBackup::getCountryObservers(){
+    return countryObservers;
+}
+
+State* CountryBackup::getState() {
+    return state;
+}

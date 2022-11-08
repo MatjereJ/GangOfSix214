@@ -29,7 +29,7 @@ void Alliance::addAlly(Country* ally){
     }
     else {
         this->alliance.push_back(ally);                 // country not in the list. Add it to the list
-        cout << "This country was successfully added to the alliance.\n";           // inform user that is has been added to the list
+        //cout << "This country was successfully added to the alliance.\n";           // inform user that is has been added to the list
     }
 }
 

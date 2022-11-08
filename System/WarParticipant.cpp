@@ -34,6 +34,6 @@ int WarParticipant::getDamage(){
     return damage;
 }
 void WarParticipant::updateHP(int h){
-    this->hp=h;
+    this->hp=hp +h;
 }
     

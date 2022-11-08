@@ -19,6 +19,8 @@ Country::Country(string name, bool sea){
 
 Country::Country() {}
 
+void Country::removeWarParticipant(WarParticipant *temp) {}
+
 
 
 //Mokoena

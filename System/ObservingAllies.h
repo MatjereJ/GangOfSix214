@@ -11,6 +11,7 @@ using namespace std;
 
 class ObservingAllies : public CountryObserver{//Concrete Observers
     public:
+        string getName();
        /**
         *@brief Current Country variable is initialized and ObservingAllies register as observers to it.
         *@author Areyeng Mphahlele
@@ -40,5 +41,7 @@ class ObservingAllies : public CountryObserver{//Concrete Observers
          * 
          */
         vector<WarParticipant*> warParticipants;
+
+        string name;
 };
 #endif

@@ -26,18 +26,16 @@ private:
     State* state;
     IndividualCountry* opposingCountry;
     WarTheatre* warTheatre;
-    std::vector<WarParticipant*> warParticipants;
-    std::vector<CountryObserver*> countryObservers;
+    vector<WarParticipant*> warParticipants;
+    vector<CountryObserver*> countryObservers;
     bool win;
 
 public:
     CountryBackup(int, WarTheatre*,vector<WarParticipant*>,vector<CountryObserver*>,IndividualCountry*,bool);
     WarTheatre* getWarTheatre();
-    WarParticipant* getWarParticipants();
-    CountryObserver* getCountryObservers();
-    State* getState() {
-        return state;
-    }
+    vector<WarParticipant*> getWarParticipants();
+    vector<CountryObserver*> getCountryObservers();
+    State* getState();
     IndividualCountry* getOppCountry() {
         return opposingCountry;
     }

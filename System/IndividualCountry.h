@@ -14,7 +14,7 @@ using namespace std;
 
 
 
-class CountryObservers;
+class CountryObserver;
 class  IndividualCountry: public Country{
      public:
        
@@ -29,7 +29,7 @@ class  IndividualCountry: public Country{
         *@date  27/10/2022 
      
         */
-        bool add(CountryObserver* c)override;
+        bool add(CountryObserver* c);
         /**
         *@brief Deregisters received obsever to current country.
         *@author Areyeng Mphahlele
@@ -38,7 +38,7 @@ class  IndividualCountry: public Country{
         *@date  27/10/2022 
      
         */
-        bool remove(CountryObserver* c)override;
+        bool remove(CountryObserver* c);
         /**
         *@brief Notifies the Medics and ObservingAllies during war about any changes in resource availability and soldier health.
         *@author Areyeng Mphahlele
@@ -93,6 +93,10 @@ class  IndividualCountry: public Country{
     State* getState();
     void setWarParticipants(vector<WarParticipant*>);
     void initializeHp();
+    int getInitialHP();
+    void addAlliance(Country *C);
+    virtual void removeWarParticipant(WarParticipant* temp);
+    void UpdateHP(int upd);
     /**
     *@brief Add the amount of transport inside current's country's  war participant vector and returns it as a integer value.
     *@author Areyeng Mphahlele
@@ -140,6 +144,7 @@ class  IndividualCountry: public Country{
     int weaponHP;
     int soldierHP;
     int size;
+    int initialHP;
     State* state;
     WarTheatre* warTheatre;
     std::string cName;

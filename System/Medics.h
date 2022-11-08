@@ -12,6 +12,7 @@ using namespace std;
 
 class Medics : public CountryObserver {//Concrete Observer
     public:
+        string getName();
         /**
         *@brief Current Country variable is initialized and Medics registers as an observer to it
         *@author Areyeng Mphahlele
@@ -40,12 +41,14 @@ class Medics : public CountryObserver {//Concrete Observer
          * @brief The amount of HP which the Medics can heal an injured soldier with. 
          * 
          */
-        int healingHp=12;
+        int healingHp=250;
         /**
          * @brief The current country to update when soldiers is injured/is running low on resources
          * 
          */
         IndividualCountry* currentCountry;
+
+        string name;
         /**
          * @brief The current country resources 
          * 

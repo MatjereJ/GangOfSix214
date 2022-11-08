@@ -20,7 +20,6 @@
 #include "Surrender.h"
 #include "Medics.h"
 #include <vector>
-#include "time.h"
 
 #include <iostream>
 using namespace std;
@@ -29,12 +28,12 @@ void initializeCountries();
 void pickCountry();
 void fight();
 void selectOpposingCountry();
-void AutoSelectCountry();
-void AutoOppCountry();
-void Autofight();
 void getCountryStats(int cNum);
 void endGame();
 void displayStats();
+void AutoSelectCountry();
+void AutoOppCountry();
+void Autofight();
 
 IndividualCountry *country[10];
 Alliance *alliances[2];
@@ -56,10 +55,7 @@ int main()
     cout<<"enter 2 for program with user input"<<endl;
     cin>>input;
     initializeCountries();
-<<<<<<< Updated upstream
-    pickCountry();
-    selectOpposingCountry();
-=======
+
     if(input == 1)
     {
         cout<<"===================================================="<<endl;
@@ -73,10 +69,7 @@ int main()
     {
         pickCountry();
         selectOpposingCountry();
-        backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
     }
-
->>>>>>> Stashed changes
     //fight();
     // endGame();
     delete alliances[0];
@@ -176,8 +169,6 @@ void AutoSelectCountry()
     }
 }
 
-
-
 void fight()
 {
     BattleState *States = new BattleState();
@@ -195,19 +186,18 @@ void fight()
     {
         States->handleChange(myCountry);
         displayStats();
-      if (Opps->getHp() < 10000 && Opps->getHp() > 0)
+        if (Opps->getHp() < 10000 && Opps->getHp() > 0)
             Opps->notify();
 
-      if(myCountry->getHp() > 2000)
-      {
-          States->handleChange(Opps);
-          if (myCountry->getHp() < 8000 && Opps->getHp() > 0)
-              myCountry->notify();
-          displayStats();
-      }
+        if(myCountry->getHp() > 2000)
+        {
+            States->handleChange(Opps);
+            if (myCountry->getHp() < 8000 && Opps->getHp() > 0)
+                myCountry->notify();
+            displayStats();
+        }
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
-<<<<<<< Updated upstream
         string tempFight;
         if(Opps->getHp() > 0 && myCountry->getHp() > 0) {
             cout << "Would you like to carry on fighting? (Yes/No)" << endl;
@@ -216,17 +206,6 @@ void fight()
                 fight = true;
             else
                 fight = false;
-=======
-        if(Opps->getHp()> 0 && myCountry->getHp() > 0)
-        {
-            string tempFight;
-            cout<<"Would you like to carry on fighting? (Yes/No)"<<endl;
-            cin>>tempFight;
-            if(tempFight=="No" || tempFight == "no" || tempFight == "N")
-                fight=true;
-            else
-                fight=false;
->>>>>>> Stashed changes
         }
     }
 
@@ -253,9 +232,10 @@ void fight()
     }else{
         string temp;
         cout<<"Would you Like to restart the game and give it another try? (Yes/No)"<<endl;
+        cin>>temp;
         if(temp=="Yes") {
             myCountry->reinstateCountry(backup);
-            selectOpposingCountry(); 
+            selectOpposingCountry();
         }
     }
 }
@@ -278,7 +258,7 @@ void Autofight()
         if (Opps->getHp() < 10000 && Opps->getHp() > 0)
             Opps->notify();
 
-        if(myCountry->getHp() > 2000)
+        if (myCountry->getHp() > 2000)
         {
             States->handleChange(Opps);
             if (myCountry->getHp() < 8000 && Opps->getHp() > 0)
@@ -286,19 +266,15 @@ void Autofight()
             displayStats();
         }
 
-        if(Opps->getHp() < 0)
-        {
-            cout<<Opps->getName()<< " has decided to surrender as it has no more health"<<endl;
+        if (Opps->getHp() < 0) {
+            cout << Opps->getName() << " has decided to surrender as it has no more health" << endl;
         }
 
-        if(myCountry->getHp() < 0)
-        {
-            cout<<myCountry->getName()<< " has decided to surrender as it has no more health"<<endl;
+        if (myCountry->getHp() < 0) {
+            cout << myCountry->getName() << " has decided to surrender as it has no more health" << endl;
         }
     }
 }
-
-
 
 void selectOpposingCountry()
 {
@@ -373,7 +349,6 @@ void selectOpposingCountry()
         }
         cin >> opposingNum;
         myOpposingCountry = country[opposingNum];
-
     }
     else if (alliances[1]->contains(myCountry))
     {
@@ -429,17 +404,10 @@ void selectOpposingCountry()
     }
 
     ObsOppC = new ObservingAllies(myOpposingCountry);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
     fight();
-=======
->>>>>>> Stashed changes
     //myOpposingCountry->add(ObsOppC);
-
     MOppCountry = new Medics(myOpposingCountry);
-    fight();
-
 }
 
 void AutoOppCountry()

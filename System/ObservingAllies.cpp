@@ -105,8 +105,6 @@ void ObservingAllies::update(){
                for (it = wP2.begin(); it != wP2.end(); ++it){
                    if((*it)->getType()=="MachineGunner" || (*it)->getType()=="Rifleman"){//only assist with a limited amount
                          warParticipants.push_back(*it);
-
-
                        (*it2)->removeWarParticipant(*it);
                          maxAssist--;
                          //cout<<(*it2)->getName()<<" shared "<<maxAssist<<" with"<<this->currentCountry->getName()<<endl;

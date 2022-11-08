@@ -16,5 +16,10 @@ Prerequisite- Clion
 4.Copy the Cmakelist add_executable() files,replacing with the name of your executable directory
 5.Run the code
 
+How to check Google test
+1.Install Visual Studio and install Desktop Development with C++ workload.
+2.Open Sample_Test1.
+3.Press the rightmost play button at the top navigation bar.
+
 Code-https://drive.google.com/file/d/1tMQMKqg-3-135rZnabeX8yDAG-WF_tK2/view?usp=sharing
 

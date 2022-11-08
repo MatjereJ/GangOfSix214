@@ -1,8 +1,11 @@
 # GangOfSix214
 
 Introduction video-https://drive.google.com/drive/folders/1eldHeMGq3nHp5EZXmRB9-paRZyU1GF7I
+Report-https://docs.google.com/document/d/1_Kw42FirQPlzo8-P-ZrIo9bXcKWI_Z8WRyki5un75Jk/edit
 Documentatation-https://docs.google.com/document/d/1rj0F9KrJ0f5Cd3Tb5mmNBayNKR7pC_0xqqxxtmhKFOA/edit
 Final class diagram-https://docs.google.com/document/d/1rnyK7qR0Al2yG93L7dcqTJFVtLvoaEGNIHEAhnGQLwg/edit?usp=sharing
+Diagrams+rquirements-https://docs.google.com/document/d/1w3JtpvsOK807AwztJ8Y8GdU3dwqzqhghn0wLZAbL-7w/edit
+
 
 How to run code:
 Prerequisite- Clion

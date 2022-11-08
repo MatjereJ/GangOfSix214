@@ -179,6 +179,7 @@ void fight()
     }else{
         string temp;
         cout<<"Would you Like to restart the game and give it another try? (Yes/No)"<<endl;
+        cin>>temp;
         if(temp=="Yes") {
             myCountry->reinstateCountry(backup);
             selectOpposingCountry(); 
@@ -340,13 +341,10 @@ void selectOpposingCountry()
     }
 
     ObsOppC = new ObservingAllies(myOpposingCountry);
-<<<<<<< Updated upstream
     backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
     fight();
     //myOpposingCountry->add(ObsOppC);
-=======
     MOppCountry = new Medics(myOpposingCountry);
->>>>>>> Stashed changes
 }
 /*
  void selectOpposingCountry(){

@@ -18,6 +18,7 @@
 #include "DetonateExplosives.h"
 #include "ExplosiveFactory.h"
 #include "Surrender.h"
+#include "Medics.h"
 #include <vector>
 
 #include <iostream>
@@ -33,7 +34,8 @@ void displayStats();
 
 IndividualCountry *country[10];
 Alliance *alliances[2];
-
+Medics *MmyCountry;
+Medics *MOppCountry;
 IndividualCountry *myCountry;
 ObservingAllies * ObsmyC;
 ObservingAllies * ObsOppC;
@@ -111,6 +113,7 @@ void pickCountry()
         }
     }
     ObsmyC = new ObservingAllies(myCountry);
+    MmyCountry = new Medics(myCountry);
     cout<<"You have selected "<<myCountry->getName()<<" as your Fighter!"<<endl;
 }
 
@@ -131,11 +134,16 @@ void fight()
     {
         States->handleChange(myCountry);
         displayStats();
-      if (Opps->getHp() < 10000)
+      if (Opps->getHp() < 10000 && Opps->getHp() > 0)
             Opps->notify();
 
-        States->handleChange(Opps);
-        displayStats();
+      if(myCountry->getHp() > 2000)
+      {
+          States->handleChange(Opps);
+          if (myCountry->getHp() < 8000 && Opps->getHp() > 0)
+              myCountry->notify();
+          displayStats();
+      }
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
         string tempFight;
@@ -320,8 +328,12 @@ void selectOpposingCountry()
     }
 
     ObsOppC = new ObservingAllies(myOpposingCountry);
+<<<<<<< Updated upstream
     fight();
     //myOpposingCountry->add(ObsOppC);
+=======
+    MOppCountry = new Medics(myOpposingCountry);
+>>>>>>> Stashed changes
 }
 /*
  void selectOpposingCountry(){

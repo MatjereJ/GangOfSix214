@@ -5,6 +5,7 @@ Report-https://docs.google.com/document/d/1_Kw42FirQPlzo8-P-ZrIo9bXcKWI_Z8WRyki5
 Documentatation-https://docs.google.com/document/d/1rj0F9KrJ0f5Cd3Tb5mmNBayNKR7pC_0xqqxxtmhKFOA/edit
 Final class diagram-https://docs.google.com/document/d/1rnyK7qR0Al2yG93L7dcqTJFVtLvoaEGNIHEAhnGQLwg/edit?usp=sharing
 Diagrams+rquirements-https://docs.google.com/document/d/1w3JtpvsOK807AwztJ8Y8GdU3dwqzqhghn0wLZAbL-7w/edit
+Pattern explanation-https://docs.google.com/document/d/1A-ifOJtyk9DZROd0QnBB84ikMFs0lxowLMMq749r1DE/edit
 
 
 How to run code:

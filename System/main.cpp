@@ -34,6 +34,14 @@ void displayStats();
 void AutoSelectCountry();
 void AutoOppCountry();
 void Autofight();
+template<typename T>
+void testExpect(T expected,T received,string testName);
+template<typename T>
+void testLessThan0(T received,string testName);
+template<typename T>
+void testLessThan(T received1,T received2,string testName);
+//tests on lines 105,281,387.
+
 
 IndividualCountry *country[10];
 Alliance *alliances[2];
@@ -72,6 +80,10 @@ int main()
     }
     //fight();
     // endGame();
+    for(int i=0;i<countrySize;i++){
+        delete country[i];
+    }
+
     delete alliances[0];
     delete alliances[1];
     return 0;
@@ -89,6 +101,20 @@ void initializeCountries()
     country[7] = new IndividualCountry("France", 2, false);
     country[8] = new IndividualCountry("United States", 1, true);
     country[9] = new IndividualCountry("Australia", 3, true);
+/*
+    testLessThan(country[0]->getHp(),country[1]->getHp(),"rankingCountriesTest");
+    testLessThan(country[2]->getHp(),country[3]->getHp(),"rankingCountriesTest");
+    testLessThan(country[4]->getHp(),country[3]->getHp(),"rankingCountriesTest");
+    testLessThan(country[4]->getHp(),country[2]->getHp(),"rankingCountriesTest");
+    testLessThan(country[5]->getHp(),country[6]->getHp(),"rankingCountriesTest");
+    testLessThan(country[5]->getHp(),country[6]->getHp(),"rankingCountriesTest");
+    testLessThan(country[7]->getHp(),country[8]->getHp(),"rankingCountriesTest");
+    testLessThan(country[4]->getHp(),country[5]->getHp(),"rankingCountriesTest");
+    testLessThan(country[2]->getHp(),country[3]->getHp(),"rankingCountriesTest");
+    testLessThan(country[9]->getHp(),country[8]->getHp(),"rankingCountriesTest");
+    testLessThan(country[8]->getHp(),country[7]->getHp(),"rankingCountriesTest");
+    testLessThan(country[2]->getHp(),country[1]->getHp(),"rankingCountriesTest");
+*/
     alliances[0] = new Alliance();
     alliances[0]->addAlly(country[0]);
     alliances[0]->addAlly(country[1]);
@@ -199,10 +225,10 @@ void fight()
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
         string tempFight;
-        if(Opps->getHp() > 0 && myCountry->getHp() > 0) {
+        if(Opps->getHp() > 0 && myCountry->getHp() > 0 && !myCountry->getLose() || !Opps->getLose())  {
             cout << "Would you like to carry on fighting? (Yes/No)" << endl;
             cin >> tempFight;
-            if (tempFight == "No")
+            if (tempFight == "No" || tempFight=="no"|| tempFight=="n")
                 fight = true;
             else
                 fight = false;
@@ -212,28 +238,35 @@ void fight()
     if(Opps->getHp() < 0)
     {
         cout<<Opps->getName()<< " has decided to surrender as it has no more health"<<endl;
+        Opps->setLose();
     }
 
     if(myCountry->getHp() < 0)
     {
         cout<<myCountry->getName()<< " has decided to surrender as it has no more health"<<endl;
+        myCountry->setLose();
     }
     /*
     while(!country->surrender()){
         selectOpposingCountry();
     }
 */
-    if(fight==true){
+    if(fight==false){
         selectOpposingCountry();
         fight=false;
     }else if(myCountry->getHp()>0) {
-        cout << "Well done for Winning the Battle" << endl;
-        selectOpposingCountry();
-    }else{
+        cout << myCountry->getName()<<" welldone for Winning the Battle" << endl;
+       // selectOpposingCountry();
+    }
+    else if(myCountry->getOpposingC()->getHp()>0) {
+        cout << myCountry->getOpposingC()->getName()<<" welldone for Winning the Battle" << endl;
+        // selectOpposingCountry();
+    }
+    else{
         string temp;
         cout<<"Would you Like to restart the game and give it another try? (Yes/No)"<<endl;
         cin>>temp;
-        if(temp=="Yes") {
+        if(temp=="Yes" ||temp=="yes"||temp=="y" ) {
             myCountry->reinstateCountry(backup);
             selectOpposingCountry();
         }
@@ -253,6 +286,12 @@ void Autofight()
     IndividualCountry *Opps = myCountry->getOpposingC();
     while (Opps->getHp() > 0 && myCountry->getHp() > 0)
     {
+
+/*
+        testLessThan0(Opps->getHp(),"stillAliveTest1");
+        testLessThan0(myCountry->getHp(),"stillAliveTest2");
+*/
+
         States->handleChange(myCountry);
         displayStats();
         if (Opps->getHp() < 10000 && Opps->getHp() > 0)
@@ -286,7 +325,7 @@ void selectOpposingCountry()
     while(stats==false) {
         cout << "Would you like to see a Country's stats (Yes/No)" << endl;
         cin>>countryStat;
-        if(countryStat=="Yes"){
+        if(countryStat=="Yes" || countryStat=="yes" ||countryStat=="y"){
             cout<<"Select a Country Number"<<endl;
             if (alliances[0]->contains(myCountry))
             {
@@ -327,8 +366,9 @@ void selectOpposingCountry()
                 }
                 cin >> opposingNum;
                 getCountryStats(opposingNum);
+               // stats= true;
             }
-        }else if(countryStat=="No"){
+        }else if(countryStat=="No" || countryStat=="no"|| countryStat=="n"){
             stats=true;
         }
     }
@@ -349,6 +389,12 @@ void selectOpposingCountry()
         }
         cin >> opposingNum;
         myOpposingCountry = country[opposingNum];
+
+
+/*
+        testExpect(country[opposingNum]->getName(),myOpposingCountry->getName(),"pickOppCountryTest");
+*/
+
     }
     else if (alliances[1]->contains(myCountry))
     {
@@ -493,3 +539,27 @@ void displayStats(){
 void endGame()
 {
 }
+
+template<typename T>
+void testExpect(T expected,T received,string testName){
+    if(expected==received)
+        cout<<testName<<" passed"<<endl;
+    else
+        cout<<testName<<" failed"<<endl;
+}
+
+template<typename T>
+void testLessThan0(T received,string testName){
+    if(received>0)
+        cout<<testName<<" passed"<<endl;
+    else
+        cout<<testName<<" failed"<<endl;
+}
+template<typename T>
+void testLessThan(T received1,T received2,string testName){
+    if(received1<received2)
+        cout<<testName<<" passed"<<endl;
+    else
+        cout<<testName<<" failed"<<endl;
+}
+

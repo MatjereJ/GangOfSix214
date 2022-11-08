@@ -260,11 +260,15 @@ void IndividualCountry::reinstateCountry(CountryBackup *backup) {
 IndividualCountry::~IndividualCountry()
 {
     wP.clear();
-    std::cout<<"Parent of "<<cName <<" deleted.\n";
+
 }
 
 void IndividualCountry::setWarParticipants(vector<WarParticipant *> participants) {
     wP=participants;
+}
+
+bool IndividualCountry::getLose() {
+    return  lose;
 }
 
 void IndividualCountry::InflictDamage(int dmg)

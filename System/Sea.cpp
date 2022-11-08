@@ -3,3 +3,14 @@
 //
 
 #include "Sea.h"
+#include <iostream>
+
+using namespace std;
+
+void Sea::Theatre(){
+    this->print();
+}
+
+void Sea::print(){
+    cout << "Submarines and battleships are soaring through the sea." << endl;
+}

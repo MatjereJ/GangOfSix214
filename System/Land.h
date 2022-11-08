@@ -7,7 +7,9 @@
 #include "WarTheatre.h"
 
 class Land: public WarTheatre {
-
+public: 
+    virtual void Theatre();
+    virtual void print();
 };
 
 

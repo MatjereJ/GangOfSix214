@@ -7,7 +7,9 @@
 
 
 class WarTheatre {
-
+public:
+virtual void Theatre() = 0;
+virtual void print() = 0;
 };
 
 

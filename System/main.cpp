@@ -207,15 +207,7 @@ void fight() {
                 fight = true;
             else
                 fight = false;
-            if (Opps->getHp() > 0 && myCountry->getHp() > 0) {
-                string tempFight;
-                cout << "Would you like to carry on fighting? (Yes/No)" << endl;
-                cin >> tempFight;
-                if (tempFight == "No" || tempFight == "no" || tempFight == "N")
-                    fight = true;
-                else
-                    fight = false;
-            }
+
         }
 
         if (Opps->getHp() < 0) {
@@ -233,15 +225,20 @@ void fight() {
         if (fight == true) {
             selectOpposingCountry();
             fight = false;
-        } else if (myCountry->getHp() > 0) {
+        } else if (Opps->getHp() < 0) {
             cout << "Well done for Winning the Battle" << endl;
             selectOpposingCountry();
-        } else {
+        } else if(myCountry->getHp() < 0) {
             string temp;
             cout << "Would you Like to restart the game and give it another try? (Yes/No)" << endl;
-            if (temp == "Yes") {
+            cin>>temp;
+            if (temp == "Yes" || temp =="Y" || temp=="yes") {
                 myCountry->reinstateCountry(backup);
                 selectOpposingCountry();
+            }
+            else{
+                cout<<"Simulation over. Thanks for participating"<<endl;
+                cout<<"====================================="<<endl;
             }
         }
     }
@@ -401,6 +398,7 @@ void selectOpposingCountry() {
 
     backup = new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(),
                                myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
+
     fight();
 
     //myOpposingCountry->add(ObsOppC);

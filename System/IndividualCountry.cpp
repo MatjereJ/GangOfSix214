@@ -98,8 +98,7 @@ IndividualCountry::IndividualCountry(std::string name, int level, bool sea){
 }
 
 bool IndividualCountry::add(CountryObserver* assistance){
-    countryObservers.push_back(assistance); 
-    cout<<"Added Country Observer"<<endl;
+    countryObservers.push_back(assistance);
     return true;
 }
 

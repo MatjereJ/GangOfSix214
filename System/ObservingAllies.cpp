@@ -28,12 +28,17 @@ void ObservingAllies::update(){
           if((*it)->getType()=="MachineGunner" || (*it)->getType()=="Rifleman")
                numSoldiers++;
      }
+    vector<Country*> all= this->currentCountry->getAlliance();
+    vector<Country*>::iterator it2 = all.begin();
+    for(it2 = all.begin(); it2 != all.end(); ++it2) {
+        cout<<this->currentCountry->getName()<<" is running low on supplies and is currently being assisted by "<<(*it2)->getName() << endl;
+    }
      if(numWeapons<100)
      {
                vector<Country*> alliance= this->currentCountry->getAlliance();
                vector<Country*>::iterator it2 = alliance.begin();
                for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
-               cout<<this->currentCountry->getName()<<" is running low on weapon power and is currently being assisted by"<< (*it2)->getName()<<endl;
+               //cout<<this->currentCountry->getName()<<" is running low on weapon power and is currently being assisted by"<< (*it2)->getName()<<endl;
                vector<WarParticipant*> wP= (*it2)->getWarParticipants();//getting allies iterating and moving each resource to country in need.
                vector<WarParticipant*>::iterator it = wP.begin();
                //each country contributing 50% of their weapons
@@ -41,10 +46,11 @@ void ObservingAllies::update(){
                for (it = wP.begin(); it != wP.end(); ++it){
                     if((*it)->getType()=="Missile" || (*it)->getType()=="Bomb" && maxAssist>0){//only assist with a limited amount
                          warParticipants.push_back(*it); //sharing resources
+                        (*it2)->removeWarParticipant(*it);
                          maxAssist--;
                          numWeapons++;
-                         cout<<(*it2)->getName()<<" gave "<<maxAssist<<" weapons to "<<this->currentCountry->getName()<<endl;
-                         cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+                         //cout<<(*it2)->getName()<<" gave "<<maxAssist<<" weapons to "<<this->currentCountry->getName()<<endl;
+                         //cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
                     }
                     if(maxAssist<=0)
                     {
@@ -63,7 +69,7 @@ void ObservingAllies::update(){
                vector<Country*> alliance= this->currentCountry->getAlliance();
                vector<Country*>::iterator it2 = alliance.begin();
                for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
-               cout<<this->currentCountry->getName()<<" is running low on transport and is currently being assisted by its alliance..."<<endl;
+               //cout<<this->currentCountry->getName()<<" is running low on transport and is currently being assisted by its alliance..."<<endl;
                vector<WarParticipant*> wPs= (*it2)->getWarParticipants();//getting allies iterating and moving each resource to ICountry's WarParticipants.
                vector<WarParticipant*>::iterator it = wPs.begin();
                //each country contributing 50% of their weapons
@@ -73,8 +79,8 @@ void ObservingAllies::update(){
                          warParticipants.push_back(*it);
                         (*it2)->removeWarParticipant(*it);
                          maxAssist--;
-                         cout<<(*it2)->getName()<<"gave "<<maxAssist<<" war transports to"<<this->currentCountry->getName()<<endl;
-                         cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+                         //cout<<(*it2)->getName()<<"gave "<<maxAssist<<" war transports to"<<this->currentCountry->getName()<<endl;
+                         //cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
                     }
                     if(maxAssist<=0)
                     {
@@ -91,7 +97,7 @@ void ObservingAllies::update(){
                vector<Country*> alliance= this->currentCountry->getAlliance();
                vector<Country*>::iterator it2 = alliance.begin();
                for(it2 = alliance.begin(); it2 != alliance.end(); ++it2){
-               cout<<this->currentCountry->getName()<<" is running low on soldiers and is currently being assisted by its alliance..."<<endl;
+               //cout<<this->currentCountry->getName()<<" is running low on soldiers and is currently being assisted by its alliance..."<<endl;
                vector<WarParticipant*> wP2= (*it2)->getWarParticipants();//getting allies iterating and moving each resource to country in need.
                vector<WarParticipant*>::iterator it = wP2.begin();
                //each country contributing 50% of their weapons
@@ -99,9 +105,13 @@ void ObservingAllies::update(){
                for (it = wP2.begin(); it != wP2.end(); ++it){
                    if((*it)->getType()=="MachineGunner" || (*it)->getType()=="Rifleman"){//only assist with a limited amount
                          warParticipants.push_back(*it);
+<<<<<<< Updated upstream
+=======
+                       (*it2)->removeWarParticipant(*it);
+>>>>>>> Stashed changes
                          maxAssist--;
-                         cout<<(*it2)->getName()<<" shared "<<maxAssist<<" with"<<this->currentCountry->getName()<<endl;
-                         cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+                         //cout<<(*it2)->getName()<<" shared "<<maxAssist<<" with"<<this->currentCountry->getName()<<endl;
+                         //cout<<"-------------------------------------------------------------------------------------------------------------------------------------"<<endl;
                     }
                         
                     }

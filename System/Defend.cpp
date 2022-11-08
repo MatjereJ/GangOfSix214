@@ -13,10 +13,10 @@ void Defend::handleChange(IndividualCountry *C)
     }
     else
     {
-        cout << "Moves on" << endl;
+        //cout << "Moves on" << endl;
         if (successor != nullptr)
         {
-            cout << "Sent out" << endl;
+            //cout << "Sent out" << endl;
             successor->handleChange(C);
         }
         else

@@ -39,36 +39,16 @@ ObservingAllies * ObsmyC;
 ObservingAllies * ObsOppC;
 IndividualCountry *myOpposingCountry;
 int countryNum, countrySize = 10;
+CountryBackup* backup;
 
 int main()
 {
     cout << "*************    Game Simulation    ***************\n";
     initializeCountries();
-
-    IndividualCountry *warringCountries[2];
-    warringCountries[0] = country[0];
-    warringCountries[1] = country[5];
-    int i = 0;
-//    while (true)
-//    {
-//        if (warringCountries[i % 2]->getHp() > 0)
-//        {
-//
-//            cout << warringCountries[i % 2]->getHp() << endl;
-//            warringCountries[i % 2]->attackOpposingCountry(warringCountries[i % 2 + 1]);
-//            i++;
-//        }
-//        else
-//        {
-//            warringCountries[i % 2]->setLose();
-//            cout << warringCountries[i % 2]->getName() << " has lost the War with all of it's soldiers Dead" << endl;
-//            break;
-//        }
-//    }
-
     pickCountry();
     selectOpposingCountry();
-    fight();
+    backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
+    //fight();
     // endGame();
     delete alliances[0];
     delete alliances[1];
@@ -77,7 +57,6 @@ int main()
 
 void initializeCountries()
 {
-
     country[0] = new IndividualCountry("Brazil", 2, false);
     country[1] = new IndividualCountry("Russia", 1, false);
     country[2] = new IndividualCountry("India", 2, true);
@@ -99,8 +78,6 @@ void initializeCountries()
     alliances[1]->addAlly(country[6]);
     alliances[1]->addAlly(country[7]);
     alliances[1]->addAlly(country[8]);
-
-
 }
 
 void pickCountry()
@@ -143,14 +120,14 @@ void fight()
     Attack *att = new Attack();
     Defend *def = new Defend();
     Surrender *surr = new Surrender();
+    bool fight=false;
 
     States->Add(att);
     States->Add(def);
     States->Add(surr);
 
     IndividualCountry *Opps = myCountry->getOpposingC();
-    cout<<Opps->getHp()<<endl;
-    while (Opps->getHp() > 0 && myCountry->getHp() > 0)
+    while (Opps->getHp() > 0 && myCountry->getHp() > 0 && fight==false)
     {
         States->handleChange(myCountry);
         displayStats();
@@ -161,6 +138,13 @@ void fight()
         displayStats();
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
+        string tempFight;
+        cout<<"Would you like to carry on fighting? (Yes/No)"<<endl;
+        cin>>tempFight;
+        if(tempFight=="No")
+            fight=true;
+        else
+            fight=false;
     }
 
     if(Opps->getHp() < 0)
@@ -172,12 +156,14 @@ void fight()
     {
         cout<<myCountry->getName()<< " has decided to surrender as it has no more health"<<endl;
     }
-
     /*
     while(!country->surrender()){
         selectOpposingCountry();
     }
 */
+    if(fight==true){
+        selectOpposingCountry();
+    }
 }
 /*
  void selectOpposingCountry(){
@@ -334,6 +320,8 @@ void selectOpposingCountry()
     }
 
     ObsOppC = new ObservingAllies(myOpposingCountry);
+    fight();
+    //myOpposingCountry->add(ObsOppC);
 }
 /*
  void selectOpposingCountry(){
@@ -366,11 +354,13 @@ void getCountryStats(int cNum)
 }
 
 void displayStats(){
+    //system("Color 02");
     cout<<"======================================"<<endl;
     cout<<myCountry->getName()<<"'s HP: "<<myCountry->getHp()<<endl;
     cout<<"--------------------------------------"<<endl;
     cout<<myOpposingCountry->getName()<<"'s HP: "<<myOpposingCountry->getHp()<<endl;
     cout<<"======================================"<<endl;
+    //system("Color 07");
 }
 
 void endGame()

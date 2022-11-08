@@ -46,22 +46,30 @@ void Medics::update(){
 
     }
 
-  for (it = wP.begin(); it != wP.end(); ++it){
-    if((*it)->getType()=="MachineGunner" || ((*it)->getType()=="RifleMan"))
+    if(this->maxHeal >= 2)
     {
-        if(this->maxHeal<3){
-            if((*it)->getHP()<80  && (*it)->getHP()!=0)//help if injured not dead
+        cout<<"Medic notified but unable to assist more than 2 times"<<endl;
+    }
+    else
+    {
+        for (it = wP.begin(); it != wP.end(); ++it){
+            if((*it)->getType()=="MachineGunner" || ((*it)->getType()=="RifleMan"))
             {
-                (*it)->updateHP(Healing);
+                if(this->maxHeal<2){
+                    if((*it)->getHP()<80  && (*it)->getHP()!=0)//help if injured not dead
+                    {
+                        (*it)->updateHP(Healing);
+                    }
+                }
+                else
+                {
+
+                }
+
             }
         }
-         else
-        {
-                cout<<"Medic notified but unable to assist more than 3 times"<<endl;
-        }
-       
     }
-  }
+
   this->maxHeal++;
     
    

@@ -8,11 +8,10 @@ State::State(int HP, WarTheatre *wT, vector<WarParticipant *> participants, vect
     hp=HP;
     warTheatre=wT;
     warParticipants=participants;
-    cout<<"After war"<<endl;
     countryObservers=observers;
     opposingCountry=opp;
     this->win=win;
-    cout<<"got this far"<<endl;
+
 }
 
 

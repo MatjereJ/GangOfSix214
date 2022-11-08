@@ -138,6 +138,7 @@ class  IndividualCountry: public Country{
 
     */
     void setLose();
+    bool getLose();
     virtual ~IndividualCountry();
 
     private:

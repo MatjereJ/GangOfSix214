@@ -114,6 +114,10 @@ State* IndividualCountry:: getState(){
     return state;
 }
 
+void IndividualCountry::UpdateHP(int upd) {
+    hp = hp + upd;
+}
+
 void IndividualCountry::initializeHp() {
     vector<WarParticipant*>::iterator it = wP.begin();
     int total=0;

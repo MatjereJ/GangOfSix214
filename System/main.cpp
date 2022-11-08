@@ -20,6 +20,7 @@
 #include "Surrender.h"
 #include "Medics.h"
 #include <vector>
+#include "time.h"
 
 #include <iostream>
 using namespace std;
@@ -28,6 +29,9 @@ void initializeCountries();
 void pickCountry();
 void fight();
 void selectOpposingCountry();
+void AutoSelectCountry();
+void AutoOppCountry();
+void Autofight();
 void getCountryStats(int cNum);
 void endGame();
 void displayStats();
@@ -45,10 +49,34 @@ CountryBackup* backup;
 
 int main()
 {
+    int input=2;
     cout << "*************    Game Simulation    ***************\n";
+    cout<<" There two options, automatic simulation with no user input or with user input"<<endl;
+    cout<<"enter 1 for program without user input"<<endl;
+    cout<<"enter 2 for program with user input"<<endl;
+    cin>>input;
     initializeCountries();
+<<<<<<< Updated upstream
     pickCountry();
     selectOpposingCountry();
+=======
+    if(input == 1)
+    {
+        cout<<"===================================================="<<endl;
+        cout<<"See you chose No user input, sit back and enjoy"<<endl;
+        cout<< " "<<endl;
+        AutoSelectCountry();
+        AutoOppCountry();
+        Autofight();
+    }
+    else
+    {
+        pickCountry();
+        selectOpposingCountry();
+        backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
+    }
+
+>>>>>>> Stashed changes
     //fight();
     // endGame();
     delete alliances[0];
@@ -116,6 +144,40 @@ void pickCountry()
     cout<<"You have selected "<<myCountry->getName()<<" as your Fighter!"<<endl;
 }
 
+void AutoSelectCountry()
+{
+    srand(time(0));
+    myCountry = country[rand()%10];
+    ObsmyC = new ObservingAllies(myCountry);
+    MmyCountry = new Medics(myCountry);
+
+    cout<<"Country that is selected : "<<myCountry->getName()<<endl;
+
+    if(alliances[0]->contains(myCountry) == true)
+    {
+        vector<Country *> temp = alliances[0]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myCountry)
+                myCountry->addAlliance(*it);
+        }
+    }
+
+    if(alliances[1]->contains(myCountry) == true)
+    {
+        vector<Country *> temp = alliances[1]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myCountry)
+                myCountry->addAlliance(*it);
+        }
+    }
+}
+
+
+
 void fight()
 {
     BattleState *States = new BattleState();
@@ -145,6 +207,7 @@ void fight()
       }
 //        if (myCountry->getHp() < 500)
 //            myCountry->notify();
+<<<<<<< Updated upstream
         string tempFight;
         if(Opps->getHp() > 0 && myCountry->getHp() > 0) {
             cout << "Would you like to carry on fighting? (Yes/No)" << endl;
@@ -153,6 +216,17 @@ void fight()
                 fight = true;
             else
                 fight = false;
+=======
+        if(Opps->getHp()> 0 && myCountry->getHp() > 0)
+        {
+            string tempFight;
+            cout<<"Would you like to carry on fighting? (Yes/No)"<<endl;
+            cin>>tempFight;
+            if(tempFight=="No" || tempFight == "no" || tempFight == "N")
+                fight=true;
+            else
+                fight=false;
+>>>>>>> Stashed changes
         }
     }
 
@@ -185,31 +259,46 @@ void fight()
         }
     }
 }
-/*
- void selectOpposingCountry(){
-    bool stats=false;
-    while(stats=false) {
-        cout << "Would you like to see a Country's stats (Yes/No)" << endl;
-        cin>>countryStat;
-        if(countryStat=="Yes"){
-            cout<<"Select a Country Number"<<endl;
-            for(int i=0; i<countrySize; i++) {
-                cout<<i<<": "<<country[i]<<endl;
-            }
-        }else if(countryStat=="No"){
-            stats=true;
+
+void Autofight()
+{
+    BattleState *States = new BattleState();
+    Attack *att = new Attack();
+    Defend *def = new Defend();
+    Surrender *surr = new Surrender();
+    States->Add(att);
+    States->Add(def);
+    States->Add(surr);
+
+    IndividualCountry *Opps = myCountry->getOpposingC();
+    while (Opps->getHp() > 0 && myCountry->getHp() > 0)
+    {
+        States->handleChange(myCountry);
+        displayStats();
+        if (Opps->getHp() < 10000 && Opps->getHp() > 0)
+            Opps->notify();
+
+        if(myCountry->getHp() > 2000)
+        {
+            States->handleChange(Opps);
+            if (myCountry->getHp() < 8000 && Opps->getHp() > 0)
+                myCountry->notify();
+            displayStats();
+        }
+
+        if(Opps->getHp() < 0)
+        {
+            cout<<Opps->getName()<< " has decided to surrender as it has no more health"<<endl;
+        }
+
+        if(myCountry->getHp() < 0)
+        {
+            cout<<myCountry->getName()<< " has decided to surrender as it has no more health"<<endl;
         }
     }
-    cout<<"Now you've had a chance to look at the countries, Choose a Country to fight"<<endl;
-    for(int i=0; i<countrySize; i++) {
-        if(i!=countryNum)
-            cout<<i<<": "<<country[i]<<endl;
-    }
-}*/
+}
 
-//     }
-// */
-// }
+
 
 void selectOpposingCountry()
 {
@@ -341,12 +430,57 @@ void selectOpposingCountry()
 
     ObsOppC = new ObservingAllies(myOpposingCountry);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     backup=new CountryBackup(myCountry->getHp(), myCountry->getWarTheatre(), myCountry->getArtillery(), myCountry->getCountryObservers(), myCountry->getOpposingC(), false);
     fight();
-    //myOpposingCountry->add(ObsOppC);
 =======
-    MOppCountry = new Medics(myOpposingCountry);
 >>>>>>> Stashed changes
+    //myOpposingCountry->add(ObsOppC);
+
+    MOppCountry = new Medics(myOpposingCountry);
+    fight();
+
+}
+
+void AutoOppCountry()
+{
+    srand(time(0));
+    if(alliances[0]->contains(myCountry) == false)
+    {
+        myOpposingCountry = country[rand()%5];
+    }
+    else myOpposingCountry = country[rand()%5 + 5];
+
+    cout<<" The opposing Country chosen : "<< myOpposingCountry->getName()<<endl;
+
+    myCountry->setOpposingC(myOpposingCountry);
+    myOpposingCountry->setOpposingC(myCountry);
+
+    if(alliances[0]->contains(myOpposingCountry) == true)
+    {
+        vector<Country *> temp = alliances[0]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myOpposingCountry)
+                myOpposingCountry->addAlliance(*it);
+        }
+    }
+
+    if(alliances[1]->contains(myOpposingCountry) == true)
+    {
+        vector<Country *> temp = alliances[1]->getAlliance();
+        vector<Country *>::iterator it = temp.begin();
+        for(it = temp.begin(); it != temp.end(); it++)
+        {
+            if(*it != myOpposingCountry)
+                myOpposingCountry->addAlliance(*it);
+        }
+    }
+
+    ObsOppC = new ObservingAllies(myOpposingCountry);
+    MOppCountry = new Medics(myOpposingCountry);
+
 }
 /*
  void selectOpposingCountry(){

@@ -9,7 +9,9 @@
 #include "WarTheatre.h"
 
 class Sea: public WarTheatre {
-
+    public: 
+    virtual void Theatre();
+    virtual void print();
 };
 
 

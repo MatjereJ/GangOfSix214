@@ -34,6 +34,9 @@ void displayStats();
 void AutoSelectCountry();
 void AutoOppCountry();
 void Autofight();
+void tester();                                      //unit testing
+template<typename T>
+void test(T expected, T actual, string TestName);  //line 570
 template<typename T>
 void testExpect(T expected,T received,string testName);
 template<typename T>
@@ -115,6 +118,10 @@ void initializeCountries()
     testLessThan(country[8]->getHp(),country[7]->getHp(),"rankingCountriesTest");
     testLessThan(country[2]->getHp(),country[1]->getHp(),"rankingCountriesTest");
 */
+
+//tester();
+
+
     alliances[0] = new Alliance();
     alliances[0]->addAlly(country[0]);
     alliances[0]->addAlly(country[1]);
@@ -563,3 +570,58 @@ void testLessThan(T received1,T received2,string testName){
         cout<<testName<<" failed"<<endl;
 }
 
+
+template < typename T>
+void test(T expected , T realistic, string TestName){
+    if (expected == realistic){
+        cout << TestName << " : Test Passed!!" << endl;
+    }else{
+        cout << TestName << " : Test Failed!!" << endl;
+    }
+}
+void tester(){
+    IndividualCountry* countries[4];
+    Alliance* allies[2];
+    countries[0] = new IndividualCountry("Brazil", 2, false);
+    countries[1] = new IndividualCountry("Russia", 1, false);
+    countries[2] = new IndividualCountry("India", 2, true);
+    countries[3] = new IndividualCountry("South Africa", 1, false);
+    allies[0] = new Alliance();
+    allies[1] = new Alliance();
+
+    countries[0]->initializeHp();
+    test((string)"Brazil", countries[0]->getName(), "NameTest");
+    test(countries[0]->getInitialHP(), countries[0]->getHp() , "GetHP-Test");
+
+    allies[0]->addAlly(countries[0]);
+    allies[1]->addAlly(countries[2]);
+
+    test(allies[0]->getHp() , countries[0]->getHp(), "AllianceHP-Test");
+    test( (bool)false , allies[0]->contains(countries[2]) , "Contains-Test");
+
+
+    countries[0]->setOpposingC( countries[1]);
+    countries[1]->setOpposingC(countries[0]);
+    allies[1]->addAlly(countries[1]);
+    allies[0]->addAlly(countries[3]);
+    countries[1]->setAlliance( allies[1]->getAlliance());
+    countries[3]->setAlliance( allies[0]->getAlliance());
+    countries[0]->setAlliance(allies[0]->getAlliance());
+    countries[2]->setAlliance(allies[1]->getAlliance());
+    test( countries[1] , countries[0]->getOpposingC() , "OpposingCountry-Test");
+    test( allies[1]->getAlliance() , countries[2]->getAlliance() , "GetAlliance-Test(Alliance side)");
+    test( countries[2]->getAlliance() , allies[1]->getAlliance(), "GetAlliance-Test(Country side)");
+    test( countries[2]->getAlliance() , allies[0]->getAlliance(), "GetAlliance-Test ( False-Info)");
+
+    CountryObserver* cObs = new ObservingAllies(countries[0]);
+    CountryObserver* cOBS1 = new ObservingAllies( countries[1]);
+
+    test( true , countries[0]->add(cObs) , "Add Observer-Test");
+    test( false, countries[0]->remove(cOBS1), "Failed-Remove Test");
+    test ( true , countries[0]->remove(cObs), "Passed-Remove Test");
+
+
+    test ( countries[1]->getCountryObservers() , countries[0]->getCountryObservers(), "Check observers-Test(Fail)");
+
+
+}
